@@ -4,28 +4,29 @@ import Image from "next/image"
 
 const CallToAction = () => {
   return (
-    <div className="py-12 md:py-24 bg-grey-90 text-white">
+    <div className="py-16 bg-orange-500">
       <div className="content-container">
-        <div className="flex flex-col md:flex-row items-center justify-between gap-8 md:gap-12">
-          <div className="flex-1 text-center md:text-left">
-            <Heading level="h2" className="text-4xl md:text-5xl font-bold mb-6 md:mb-8 text-white">
-              Need a Dumpster Fast? Call Now!
+        <div className="flex flex-col md:flex-row items-center justify-between px-4 sm:px-0">
+          <div className="flex-1 mb-8 md:mb-0 text-center md:text-left">
+            <Heading level="h2" className="text-3xl sm:text-4xl font-bold mb-4 sm:mb-6 text-white">
+              Ready to Rent a Dumpster?
             </Heading>
-            <Text className="text-grey-10 mb-8 md:mb-10 max-w-xl text-lg md:text-xl leading-relaxed">
-              Looking for a reliable and affordable dumpster rental in NYC? At JBS Builder Lic, we make dumpster rental simple and convenient. Same-day delivery available in Queens, Manhattan, Brooklyn, and Bronx! Prices starting at $299.
+            <Text className="text-white/90 mb-6 sm:mb-8 text-base sm:text-lg max-w-xl">
+              Contact us today for fast, reliable dumpster rental services in NYC. We'll help you choose the right size for your project.
             </Text>
-            <Button variant="secondary" className="bg-white text-grey-90 hover:bg-grey-10 px-6 sm:px-8 md:px-16 py-4 md:py-6 text-xl md:text-3xl font-bold shadow-xl hover:shadow-2xl transition-all transform hover:scale-105 rounded-xl w-full md:w-auto" asChild>
-              <a href="tel:5165151951">CALL NOW (516) 515-1951</a>
+            <Button variant="secondary" size="large" className="bg-white text-orange-500 hover:bg-grey-5 transition-colors py-3 px-8 text-base sm:text-lg font-medium" asChild>
+              <a href="tel:5165151951">CALL NOW: (516) 515-1951</a>
             </Button>
           </div>
           <div className="flex-1 flex justify-center mt-8 md:mt-0">
-            <div className="w-48 h-48 sm:w-64 sm:h-64 md:w-96 md:h-96 bg-grey-80 rounded-full flex items-center justify-center shadow-2xl transform hover:scale-105 transition-transform border-4 sm:border-8 md:border-12 border-grey-70 relative overflow-hidden">
+            <div className="w-48 h-48 sm:w-64 sm:h-64 md:w-80 md:h-80 bg-white rounded-full flex items-center justify-center shadow-2xl transform hover:scale-105 transition-transform border-4 sm:border-8 border-white relative overflow-hidden">
               <Image 
                 src="/images/dumpster.jpg" 
                 alt="Dumpster" 
                 fill 
                 className="object-cover"
               />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent"></div>
             </div>
           </div>
         </div>
