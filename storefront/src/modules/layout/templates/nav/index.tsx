@@ -21,7 +21,7 @@ export default async function Nav() {
             </LocalizedClientLink>
           </div>
           <div className="hidden small:flex items-center ml-6">
-            <a href="tel:5165151951" className="flex items-center gap-4 text-grey-90 hover:text-orange-500 transition-all bg-gradient-to-r from-orange-500 to-orange-600 hover:from-orange-600 hover:to-orange-700 px-8 py-4 rounded-full shadow-xl hover:shadow-2xl transform hover:scale-105">
+            <a href="tel:5165151951" className="hidden small:flex items-center gap-4 text-grey-90 hover:text-orange-500 transition-all bg-gradient-to-r from-orange-500 to-orange-600 hover:from-orange-600 hover:to-orange-700 px-8 py-4 rounded-full shadow-xl hover:shadow-2xl transform hover:scale-105">
               <div className="bg-white rounded-full p-2.5">
                 <Phone className="w-6 h-6 text-orange-500" />
               </div>
@@ -29,6 +29,10 @@ export default async function Nav() {
                 <span className="text-sm uppercase tracking-wider text-white font-medium">Call Us Now</span>
                 <span className="text-lg font-bold text-white">(516) 515-1951</span>
               </div>
+            </a>
+            <a href="tel:5165151951" className="small:hidden flex items-center text-grey-90 hover:text-orange-500 transition-all">
+              <Phone className="w-6 h-6 text-orange-500 mr-2" />
+              <span className="font-medium">(516) 515-1951</span>
             </a>
           </div>
 
