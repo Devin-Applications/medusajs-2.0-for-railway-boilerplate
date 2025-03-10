@@ -16,7 +16,7 @@ export const createOrganizationSchema = () => {
     "logo": `${process.env.NEXT_PUBLIC_BASE_URL || "https://jbsdumpster.com"}/images/logo.png`,
     "contactPoint": {
       "@type": "ContactPoint",
-      "telephone": "+1-800-123-4567", // TODO: Replace with actual phone number once provided
+      "telephone": "(516) 515-1951",
       "contactType": "customer service",
       "areaServed": ["Queens", "Manhattan", "Brooklyn", "Bronx"],
       "availableLanguage": "English"
@@ -84,7 +84,7 @@ export const createLocalBusinessSchema = () => {
     "name": STORE_NAME,
     "image": `${process.env.NEXT_PUBLIC_BASE_URL || "https://jbsdumpster.com"}/images/logo.png`,
     "priceRange": "$$$",
-    "telephone": "+1-800-123-4567", // TODO: Replace with actual phone number once provided
+    "telephone": "(516) 515-1951",
     "address": {
       "@type": "PostalAddress",
       "streetAddress": "123 Main St", // Replace with actual address
