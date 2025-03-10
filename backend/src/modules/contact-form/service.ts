@@ -1,5 +1,5 @@
 import { EntityManager } from "@mikro-orm/core"
-import { Logger } from "@medusajs/framework/types"
+import { Logger, NotificationTypes } from "@medusajs/framework/types"
 import { MedusaError } from "@medusajs/framework/utils"
 import { AbstractNotificationProviderService } from "@medusajs/framework/utils"
 import { ContactFormSubmission } from "./entity"
