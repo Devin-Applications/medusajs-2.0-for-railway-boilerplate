@@ -39,7 +39,7 @@ class ContactFormService extends AbstractNotificationProviderService {
       )
     }
 
-    const data = notification.data as ContactFormSubmissionDTO
+    const data = notification.data as Record<string, unknown> as ContactFormSubmissionDTO
     const submission = this.manager_.create(ContactFormSubmission, {
       name: data.name,
       email: data.email,
