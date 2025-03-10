@@ -28,7 +28,7 @@ const AreaSelector = () => {
   }
 
   return (
-    <div className="flex items-center gap-2">
+    <div className="flex flex-col md:flex-row items-center gap-2 p-2 md:p-0">
       <NativeSelect
         value={inputMethod}
         onChange={(e) => {
@@ -37,7 +37,7 @@ const AreaSelector = () => {
           setSelectedArea("")
           setPhoneNumber(AREA_PHONE_NUMBERS[""])
         }}
-        className="w-24 bg-white text-grey-90 text-sm"
+        className="w-full md:w-24 bg-white text-grey-90 text-sm mb-2 md:mb-0"
       >
         <option value="area">By Area</option>
         <option value="pincode">By Pincode</option>
@@ -48,7 +48,7 @@ const AreaSelector = () => {
           placeholder="Select Your Area"
           onChange={handleAreaChange}
           value={selectedArea}
-          className="w-32 bg-white text-grey-90 text-sm"
+          className="w-full md:w-32 bg-white text-grey-90 text-sm mb-2 md:mb-0"
         >
           <option value="">Select Area</option>
           <option value="Queens">Queens</option>
@@ -65,11 +65,11 @@ const AreaSelector = () => {
           maxLength={5}
           value={pincode}
           onChange={handlePincodeChange}
-          className="w-32 bg-white text-grey-90 text-sm"
+          className="w-full md:w-32 bg-white text-grey-90 text-sm mb-2 md:mb-0"
         />
       )}
 
-      <Button variant="secondary" size="small" className="bg-white text-grey-90 hover:bg-grey-10 text-sm" asChild>
+      <Button variant="secondary" size="small" className="w-full md:w-auto bg-white text-grey-90 hover:bg-grey-10 text-sm" asChild>
         <a href={`tel:${phoneNumber.replace(/\D/g, '')}`}>📞 {phoneNumber}</a>
       </Button>
     </div>
