@@ -1,6 +1,7 @@
 export default function medusaError(error: any): never {
-  // For publishable key errors in development, return a special error
+  // For publishable key errors in development, just log and throw a special error
   if (error.message?.includes('publishable key')) {
+    console.warn("[DEV] Medusa publishable key error - this is expected")
     throw new Error("[DEV] Medusa publishable key error - this is expected")
   }
 
