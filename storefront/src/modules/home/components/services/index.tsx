@@ -59,36 +59,36 @@ const Services = () => {
           </Text>
         </div>
         
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-6 sm:gap-8 px-4 sm:px-0">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-6 sm:gap-8 xl:gap-10 px-4 sm:px-0">
           {services.map((service) => (
-            <div key={service.id} className="flex flex-col bg-white rounded-xl overflow-hidden shadow-md hover:shadow-xl transition-all transform hover:scale-[1.02] border border-grey-10">
-              <div className="h-40 sm:h-48 bg-grey-5 flex items-center justify-center relative overflow-hidden">
-                <div className="absolute top-2 right-2 z-10 bg-orange-500 text-white px-3 py-1 rounded-full text-sm font-medium">
+            <div key={service.id} className="flex flex-col bg-white rounded-xl overflow-hidden shadow-md hover:shadow-2xl transition-all duration-300 transform hover:scale-[1.02] border border-grey-10 hover:border-orange-500/20">
+              <div className="h-48 sm:h-56 bg-grey-5 flex items-center justify-center relative overflow-hidden">
+                <div className="absolute top-3 right-3 z-10 bg-orange-500 text-white px-4 py-1.5 rounded-full text-sm font-semibold shadow-md">
                   {service.id.split('-')[0]} YD
                 </div>
                 <Image 
                   src={service.image} 
                   alt={service.title} 
                   fill 
-                  className="object-cover hover:scale-110 transition-transform duration-500"
+                  className="object-cover hover:scale-110 transition-transform duration-700"
                 />
               </div>
-              <div className="p-5 sm:p-6 flex-grow flex flex-col">
-                <Heading level="h3" className="text-xl sm:text-2xl font-semibold mb-3 sm:mb-4 text-grey-90">
+              <div className="p-6 sm:p-7 flex-grow flex flex-col">
+                <Heading level="h3" className="text-xl sm:text-2xl font-bold mb-3 sm:mb-4 text-grey-90">
                   {service.title}
                 </Heading>
                 <Text className="text-grey-60 mb-4 sm:mb-5 text-base">
                   {service.description}
                 </Text>
-                <ul className="mb-5 sm:mb-6 space-y-2 flex-grow">
+                <ul className="mb-6 sm:mb-7 space-y-3 flex-grow">
                   {service.details.map((detail, index) => (
                     <li key={index} className="flex items-start text-grey-70 text-base">
-                      <span className="mr-2 text-orange-500 text-lg">✓</span>
+                      <span className="mr-2.5 text-orange-500 text-lg font-bold">✓</span>
                       {detail}
                     </li>
                   ))}
                 </ul>
-                <Button variant="secondary" className="w-full bg-orange-500 text-white hover:bg-orange-600 transition-colors py-3 text-base font-medium rounded-lg" asChild>
+                <Button variant="secondary" className="w-full bg-orange-500 text-white hover:bg-orange-600 transition-all py-3.5 text-base font-semibold rounded-lg shadow-md hover:shadow-xl hover:scale-[1.02]" asChild>
                   <LocalizedClientLink href={service.link}>
                     Book Now
                   </LocalizedClientLink>
