@@ -1,9 +1,17 @@
 "use client"
 
-import * as Dialog from "@radix-ui/react-dialog"
+import dynamic from "next/dynamic"
 import { clx } from "@medusajs/ui"
 import React from "react"
 import X from "@modules/common/icons/x"
+
+const DialogRoot = dynamic(() => import("@radix-ui/react-dialog").then(mod => mod.Root), { ssr: false })
+const DialogPortal = dynamic(() => import("@radix-ui/react-dialog").then(mod => mod.Portal), { ssr: false })
+const DialogOverlay = dynamic(() => import("@radix-ui/react-dialog").then(mod => mod.Overlay), { ssr: false })
+const DialogContent = dynamic(() => import("@radix-ui/react-dialog").then(mod => mod.Content), { ssr: false })
+const DialogTitle = dynamic(() => import("@radix-ui/react-dialog").then(mod => mod.Title), { ssr: false })
+const DialogDescription = dynamic(() => import("@radix-ui/react-dialog").then(mod => mod.Description), { ssr: false })
+const DialogClose = dynamic(() => import("@radix-ui/react-dialog").then(mod => mod.Close), { ssr: false })
 
 type ModalProps = {
   isOpen: boolean
@@ -23,10 +31,10 @@ const Modal = ({
   'data-testid': dataTestId
 }: ModalProps) => {
   return (
-    <Dialog.Root open={isOpen} onOpenChange={close}>
-      <Dialog.Portal>
-        <Dialog.Overlay className="fixed inset-0 bg-black/50 backdrop-blur-sm animate-enter z-50" />
-        <Dialog.Content
+    <DialogRoot open={isOpen} onOpenChange={close}>
+      <DialogPortal>
+        <DialogOverlay className="fixed inset-0 bg-black/50 backdrop-blur-sm animate-enter z-50" />
+        <DialogContent
           data-testid={dataTestId}
           className={clx(
             "fixed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2",
@@ -41,33 +49,33 @@ const Modal = ({
           )}
         >
           {children}
-        </Dialog.Content>
-      </Dialog.Portal>
-    </Dialog.Root>
+        </DialogContent>
+      </DialogPortal>
+    </DialogRoot>
   )
 }
 
 const Title: React.FC<{ children: React.ReactNode }> = ({ children }) => {
   return (
-    <Dialog.Title className="flex items-center justify-between mb-4">
+    <DialogTitle className="flex items-center justify-between mb-4">
       <div className="text-xl font-semibold">{children}</div>
-      <Dialog.Close asChild>
+      <DialogClose asChild>
         <button
           className="rounded-full p-1 hover:bg-gray-100 transition-colors"
           data-testid="close-modal-button"
         >
           <X size={20} />
         </button>
-      </Dialog.Close>
-    </Dialog.Title>
+      </DialogClose>
+    </DialogTitle>
   )
 }
 
 const Description: React.FC<{ children: React.ReactNode }> = ({ children }) => {
   return (
-    <Dialog.Description className="text-gray-600 mb-6">
+    <DialogDescription className="text-gray-600 mb-6">
       {children}
-    </Dialog.Description>
+    </DialogDescription>
   )
 }
 
