@@ -1,7 +1,7 @@
 "use client"
 
 import React from "react"
-import { useRegion } from "../../../../lib/context/region-context"
+import { useRegion } from "@lib/context/region-context"
 
 type PhoneNumberProps = {
   className?: string
