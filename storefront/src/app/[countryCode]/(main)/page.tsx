@@ -1,3 +1,5 @@
+"use client"
+
 import Hero from "@modules/home/components/hero"
 import Services from "@modules/home/components/services"
 import UseCases from "@modules/home/components/use-cases"
