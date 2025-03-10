@@ -1,3 +1,5 @@
+"use client"
+
 import React from "react"
 import Modal from "../../../../modules/common/components/modal"
 import { Button, Heading, Text } from "@medusajs/ui"
