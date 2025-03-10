@@ -30,7 +30,7 @@ const ServiceSelectExternalLabel: React.FC<NativeSelectProps> = ({
           name={name}
           id={name}
           required={required}
-          className={`${className} block w-full max-w-xs h-10 px-4 py-2 bg-white border-2 border-gray-500 rounded-lg appearance-none focus:outline-none focus:ring-2 focus:ring-orange-300 focus:border-orange-500 hover:border-orange-400 shadow-md shadow-gray-400/50 transition-all placeholder-gray-500`}
+          className={`${className} block w-full max-w-xs h-10 px-4 py-2 bg-gray-100 border-[3px] border-gray-400 rounded-lg appearance-none focus:outline-none focus:ring-2 focus:ring-orange-300 focus:border-orange-500 hover:border-orange-400 shadow-[0_4px_8px_rgba(0,0,0,0.2),inset_0_3px_6px_rgba(0,0,0,0.2)] transition-all placeholder-gray-900`}
           {...props}
         >
           <option value="" disabled selected>Select a Service</option>

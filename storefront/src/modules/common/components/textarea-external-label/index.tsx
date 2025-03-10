@@ -31,7 +31,8 @@ const TextAreaExternalLabel = React.forwardRef<HTMLTextAreaElement, TextAreaProp
             id={name}
             required={required}
             rows={rows}
-            className="block w-full px-4 py-2 bg-white border-2 border-gray-500 rounded-lg appearance-none focus:outline-none focus:ring-2 focus:ring-orange-300 focus:border-orange-500 hover:border-orange-400 shadow-md shadow-gray-400/50 transition-all placeholder-gray-500 resize-none"
+            placeholder="Enter your message here..."
+            className="block w-full px-4 py-2 bg-gray-100 border-[3px] border-gray-400 rounded-lg appearance-none focus:outline-none focus:ring-2 focus:ring-orange-300 focus:border-orange-500 hover:border-orange-400 shadow-[0_4px_8px_rgba(0,0,0,0.2),inset_0_3px_6px_rgba(0,0,0,0.2)] transition-all placeholder-gray-900 resize-none"
             maxLength={500}
             {...props}
             ref={textareaRef}

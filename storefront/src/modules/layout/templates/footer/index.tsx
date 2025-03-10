@@ -61,7 +61,7 @@ export default async function Footer() {
             </div>
           )}
           
-          <div className="bg-grey-5 p-4 md:p-8 lg:p-10 rounded-lg shadow-sm lg:col-span-8">
+          <div className="bg-white p-4 md:p-8 lg:p-10 rounded-lg shadow-lg border border-gray-300 lg:col-span-8">
             <ContactForm inFooter={true} />
           </div>
         </div>
