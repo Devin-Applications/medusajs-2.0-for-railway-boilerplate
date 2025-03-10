@@ -21,9 +21,14 @@ export default async function Nav() {
             </LocalizedClientLink>
           </div>
           <div className="hidden small:flex items-center ml-6">
-            <a href="tel:5165151951" className="flex items-center text-grey-60 hover:text-orange-500 transition-all bg-gray-50 hover:bg-gray-100 px-4 py-2 rounded-full shadow-sm hover:shadow-md">
-              <Phone className="w-5 h-5 mr-2 text-orange-500" />
-              <span className="font-semibold">Call Us: (516) 515-1951</span>
+            <a href="tel:5165151951" className="flex items-center gap-4 text-grey-90 hover:text-orange-500 transition-all bg-gradient-to-r from-orange-500 to-orange-600 hover:from-orange-600 hover:to-orange-700 px-8 py-4 rounded-full shadow-xl hover:shadow-2xl transform hover:scale-105">
+              <div className="bg-white rounded-full p-2.5">
+                <Phone className="w-6 h-6 text-orange-500" />
+              </div>
+              <div className="flex flex-col">
+                <span className="text-sm uppercase tracking-wider text-white font-medium">Call Us Now</span>
+                <span className="text-lg font-bold text-white">(516) 515-1951</span>
+              </div>
             </a>
           </div>
 
