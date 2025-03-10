@@ -1,7 +1,7 @@
 import { EntityManager } from "@mikro-orm/core"
-import { Logger, NotificationTypes } from "@medusajs/framework/types"
+import { Logger } from "@medusajs/framework/types"
 import { MedusaError } from "@medusajs/framework/utils"
-import { AbstractNotificationProviderService } from "@medusajs/framework/utils"
+import { TransactionBaseService } from "@medusajs/framework/utils"
 import { ContactFormSubmission } from "./entity"
 
 type InjectedDependencies = {
@@ -18,7 +18,7 @@ export interface ContactFormSubmissionDTO {
   message: string
 }
 
-class ContactFormService extends AbstractNotificationProviderService {
+class ContactFormService extends TransactionBaseService {
   static identifier = 'contact-form'
   protected readonly logger_: Logger
   protected readonly manager_: EntityManager
@@ -74,12 +74,7 @@ class ContactFormService extends AbstractNotificationProviderService {
     return submission
   }
 
-  async send(
-    notification: NotificationTypes.ProviderSendNotificationDTO
-  ): Promise<NotificationTypes.ProviderSendNotificationResultsDTO> {
-    // We don't actually send notifications, just store the form data
-    return {}
-  }
+  // No need for send() method since we're using TransactionBaseService
 }
 
 export default ContactFormService
