@@ -11,17 +11,16 @@ const Hero = () => {
             level="h1"
             className="text-4xl leading-10 text-grey-90 font-bold mb-4"
           >
-            Affordable Dumpster Rental Services
+            JBS Builder Lic Dumpster Rental Services
           </Heading>
           <Heading
             level="h2"
             className="text-2xl leading-8 text-grey-60 font-normal mb-6"
           >
-            Fast, Reliable, and Convenient Waste Management Solutions
+            Fast, Reliable, and Convenient Waste Management Solutions in NYC
           </Heading>
           <p className="text-lg text-grey-50 mb-8 max-w-2xl mx-auto">
-            {STORE_NAME} provides dumpster rentals for residential, commercial, and construction projects. 
-            We offer competitive pricing, flexible rental periods, and prompt delivery and pickup.
+            Get the dumpster you need fast and at an affordable price! Serving Queens, Manhattan, Brooklyn, and Bronx with same-day delivery available.
           </p>
         </span>
         <div className="flex flex-col sm:flex-row gap-4 justify-center">
@@ -29,7 +28,7 @@ const Hero = () => {
             <LocalizedClientLink href="/services">View Services</LocalizedClientLink>
           </Button>
           <Button variant="secondary" size="large" className="border-grey-50 text-grey-50 hover:bg-grey-10" asChild>
-            <a href="tel:5165151951">Call Now: (516) 515-1951</a>
+            <a href="tel:5165151951">CALL TODAY (516) 515-1951</a>
           </Button>
         </div>
       </div>

@@ -15,12 +15,11 @@ const ServiceSelect = forwardRef<HTMLSelectElement, NativeSelectProps>(
     )
 
     const serviceOptions = [
-      { value: "10_yard", label: "10' Dumpster Rental" },
-      { value: "15_yard", label: "15' Dumpster Rental" },
-      { value: "20_yard", label: "20' Dumpster Rental" },
-      { value: "30_yard", label: "30' Dumpster Rental" },
-      { value: "40_yard", label: "40' Dumpster Rental" },
-      { value: "other", label: "Other Services" },
+      { value: "", label: "Select a Service" },
+      { value: "15_yard", label: "15 Yard Dumpster" },
+      { value: "20_yard", label: "20 Yard Dumpster" },
+      { value: "30_yard", label: "30 Yard Dumpster" },
+      { value: "40_yard", label: "40 Yard Dumpster" }
     ]
 
     return (
