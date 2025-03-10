@@ -21,12 +21,12 @@ const nextConfig = {
         
       },
       { // Note: needed to serve images from /public folder
-        protocol: process.env.NEXT_PUBLIC_BASE_URL?.startsWith('https') ? 'https' : 'http',
-        hostname: process.env.NEXT_PUBLIC_BASE_URL?.replace(/^https?:\/\//, ''),
+        protocol: 'http',
+        hostname: 'localhost',
       },
       { // Note: only needed when using local-file for product media
-        protocol: "https",
-        hostname: process.env.NEXT_PUBLIC_MEDUSA_BACKEND_URL?.replace('https://', ''),
+        protocol: "http",
+        hostname: "localhost",
       },
       { // Note: can be removed after deleting demo products
         protocol: "https",
