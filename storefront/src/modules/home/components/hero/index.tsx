@@ -11,7 +11,7 @@ const Hero = () => {
           src="/images/dumpster.jpg" 
           alt="Dumpster rental service" 
           fill 
-          className="object-cover brightness-[0.4]"
+          className="object-cover brightness-[0.75]"
           priority
         />
       </div>
