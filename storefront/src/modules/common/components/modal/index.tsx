@@ -1,7 +1,6 @@
 import * as Dialog from "@radix-ui/react-dialog"
 import { clx } from "@medusajs/ui"
 import React from "react"
-import { ModalProvider, useModal } from "@lib/context/modal-context"
 import X from "@modules/common/icons/x"
 
 type ModalProps = {
@@ -39,7 +38,7 @@ const Modal = ({
             }
           )}
         >
-          <ModalProvider close={close}>{children}</ModalProvider>
+          {children}
         </Dialog.Content>
       </Dialog.Portal>
     </Dialog.Root>
@@ -47,15 +46,12 @@ const Modal = ({
 }
 
 const Title: React.FC<{ children: React.ReactNode }> = ({ children }) => {
-  const { close } = useModal()
-
   return (
     <Dialog.Title className="flex items-center justify-between mb-4">
       <div className="text-xl font-semibold">{children}</div>
       <Dialog.Close asChild>
         <button
           className="rounded-full p-1 hover:bg-gray-100 transition-colors"
-          onClick={close}
           data-testid="close-modal-button"
         >
           <X size={20} />

@@ -8,8 +8,13 @@ import Input from "../input"
 import Modal from "../modal"
 import Image from "next/image"
 
-const RegionModal = () => {
-  const { showRegionModal, setShowRegionModal, setRegionByName, setRegionByZipCode } = useRegion()
+interface RegionModalProps {
+  isOpen: boolean
+  onClose: () => void
+}
+
+const RegionModal = ({ isOpen, onClose }: RegionModalProps) => {
+  const { setRegionByName, setRegionByZipCode } = useRegion()
   const [zipCode, setZipCode] = useState("")
   const [errors, setErrors] = useState<Record<string, unknown>>({})
   const [touched, setTouched] = useState<Record<string, unknown>>({})
@@ -24,16 +29,16 @@ const RegionModal = () => {
     setErrors({})
     setTouched({})
     setRegionByZipCode(zipCode)
-    setShowRegionModal(false)
+    onClose()
   }
 
   const handleRegionSelect = (regionName: string) => {
     setRegionByName(regionName)
-    setShowRegionModal(false)
+    onClose()
   }
 
   return (
-    <Modal isOpen={showRegionModal} close={() => setShowRegionModal(false)}>
+    <Modal isOpen={isOpen} close={onClose}>
       <Modal.Title>
         <Heading className="mb-2">Select Your Service Area</Heading>
       </Modal.Title>

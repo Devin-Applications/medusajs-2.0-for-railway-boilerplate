@@ -7,17 +7,19 @@ interface RegionContextType {
   selectedRegion: RegionConfig
   setRegionByName: (name: string) => void
   setRegionByZipCode: (zipCode: string) => void
-  showRegionModal: boolean
-  setShowRegionModal: (show: boolean) => void
   phoneNumber: string
 }
 
 const RegionContext = createContext<RegionContextType | undefined>(undefined)
 
-export const RegionProvider = ({ children }: { children: ReactNode }) => {
+interface RegionProviderProps {
+  children: ReactNode
+  onOpenModal: () => void
+}
+
+export const RegionProvider = ({ children, onOpenModal }: RegionProviderProps) => {
   const [selectedRegion, setSelectedRegion] = useState<RegionConfig>(defaultRegion)
   const [hasVisited, setHasVisited] = useState(false)
-  const [showRegionModal, setShowRegionModal] = useState(true)
 
   useEffect(() => {
     // Initialize from localStorage if available
@@ -32,14 +34,13 @@ export const RegionProvider = ({ children }: { children: ReactNode }) => {
           setSelectedRegion(parsedRegion)
         }
       }
-      if (storedHasVisited) {
-        setHasVisited(true)
-        setShowRegionModal(false)
+      if (!storedHasVisited) {
+        onOpenModal() // Show modal for first-time visitors
       }
     } catch (error) {
       console.error("Error reading from localStorage:", error)
     }
-  }, [])
+  }, [onOpenModal])
 
   // Persist region selection
   useEffect(() => {
@@ -50,9 +51,10 @@ export const RegionProvider = ({ children }: { children: ReactNode }) => {
     }
   }, [selectedRegion])
 
-  // Mark as visited when modal is closed
-  useEffect(() => {
-    if (showRegionModal === false && !hasVisited) {
+  const setRegionByName = (name: string) => {
+    const region = regions.find((r) => r.name === name)
+    if (region) {
+      setSelectedRegion(region)
       setHasVisited(true)
       try {
         localStorage.setItem("has-visited", JSON.stringify(true))
@@ -60,21 +62,18 @@ export const RegionProvider = ({ children }: { children: ReactNode }) => {
         console.error("Error writing to localStorage:", error)
       }
     }
-  }, [showRegionModal, hasVisited])
-
-  const setRegionByName = (name: string) => {
-    const region = regions.find((r) => r.name === name)
-    if (region) {
-      setSelectedRegion(region)
-      setShowRegionModal(false)
-    }
   }
 
   const setRegionByZipCode = (zipCode: string) => {
     const region = regions.find((r) => r.zipCodes.includes(zipCode))
     if (region) {
       setSelectedRegion(region)
-      setShowRegionModal(false)
+      setHasVisited(true)
+      try {
+        localStorage.setItem("has-visited", JSON.stringify(true))
+      } catch (error) {
+        console.error("Error writing to localStorage:", error)
+      }
     }
   }
 
@@ -84,8 +83,6 @@ export const RegionProvider = ({ children }: { children: ReactNode }) => {
         selectedRegion,
         setRegionByName,
         setRegionByZipCode,
-        showRegionModal,
-        setShowRegionModal,
         phoneNumber: selectedRegion.phone
       }}
     >
