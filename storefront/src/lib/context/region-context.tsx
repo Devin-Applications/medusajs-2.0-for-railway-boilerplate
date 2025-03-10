@@ -1,7 +1,6 @@
 "use client"
 
 import React, { createContext, useContext, useState, useEffect, ReactNode } from "react"
-import { useLocalStorage } from "../hooks/use-local-storage"
 import { regions, defaultRegion, RegionConfig } from "../config/regions"
 
 interface RegionContextType {
@@ -21,15 +20,20 @@ export const RegionProvider = ({ children }: { children: ReactNode }) => {
   const [showRegionModal, setShowRegionModal] = useState(true)
 
   useEffect(() => {
+    // Initialize from localStorage if available
     try {
       const storedRegion = localStorage.getItem("selected-region")
       const storedHasVisited = localStorage.getItem("has-visited")
       
       if (storedRegion) {
-        setSelectedRegion(JSON.parse(storedRegion))
+        const parsedRegion = JSON.parse(storedRegion)
+        // Validate stored region against current config
+        if (regions.some(r => r.name === parsedRegion.name)) {
+          setSelectedRegion(parsedRegion)
+        }
       }
       if (storedHasVisited) {
-        setHasVisited(JSON.parse(storedHasVisited))
+        setHasVisited(true)
         setShowRegionModal(false)
       }
     } catch (error) {
@@ -37,6 +41,7 @@ export const RegionProvider = ({ children }: { children: ReactNode }) => {
     }
   }, [])
 
+  // Persist region selection
   useEffect(() => {
     try {
       localStorage.setItem("selected-region", JSON.stringify(selectedRegion))
@@ -45,6 +50,7 @@ export const RegionProvider = ({ children }: { children: ReactNode }) => {
     }
   }, [selectedRegion])
 
+  // Mark as visited when modal is closed
   useEffect(() => {
     if (showRegionModal === false && !hasVisited) {
       setHasVisited(true)
@@ -60,6 +66,7 @@ export const RegionProvider = ({ children }: { children: ReactNode }) => {
     const region = regions.find((r) => r.name === name)
     if (region) {
       setSelectedRegion(region)
+      setShowRegionModal(false)
     }
   }
 
@@ -67,6 +74,7 @@ export const RegionProvider = ({ children }: { children: ReactNode }) => {
     const region = regions.find((r) => r.zipCodes.includes(zipCode))
     if (region) {
       setSelectedRegion(region)
+      setShowRegionModal(false)
     }
   }
 
