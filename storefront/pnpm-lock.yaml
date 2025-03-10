@@ -22,13 +22,13 @@ importers:
         version: 2.1.4-preview-20241227180154(awilix@8.0.1)(ioredis@5.6.0)
       '@medusajs/medusa-js':
         specifier: ^6.1.10
-        version: 6.1.10(@medusajs/medusa@1.20.11(@mikro-orm/migrations@5.9.7(@mikro-orm/core@5.9.7)(@types/node@17.0.21)(pg@8.13.1))(@types/ioredis-mock@8.2.5)(@types/node@17.0.21)(medusa-interfaces@1.3.10)(typeorm@0.3.21(ioredis@5.6.0)(pg@8.13.1)(reflect-metadata@0.1.14)))
+        version: 6.1.10(@medusajs/medusa@1.20.11(@mikro-orm/migrations@5.9.7)(@types/ioredis-mock@8.2.5)(@types/node@17.0.21)(medusa-interfaces@1.3.10)(typeorm@0.3.21(ioredis@5.6.0)(pg@8.13.1)(reflect-metadata@0.1.14)))
       '@medusajs/types':
         specifier: preview
         version: 2.1.4-preview-20241227180154(awilix@8.0.1)(ioredis@5.6.0)
       '@medusajs/ui':
-        specifier: 4.0.7-preview-20250310120157
-        version: 4.0.7-preview-20250310120157(@types/react-dom@18.3.5(@types/react@18.3.18))(@types/react@18.3.18)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(typescript@5.3.2)
+        specifier: 4.0.7
+        version: 4.0.7(@types/react-dom@18.3.5(@types/react@18.3.18))(@types/react@18.3.18)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(typescript@5.3.2)
       '@meilisearch/instant-meilisearch':
         specifier: ^0.7.1
         version: 0.7.1
@@ -100,8 +100,8 @@ importers:
         specifier: preview
         version: 0.2.12-preview-20240505115807
       '@medusajs/ui-preset':
-        specifier: 2.6.1-preview-20250310120157
-        version: 2.6.1-preview-20250310120157(tailwindcss@3.4.17)
+        specifier: 2.6.1
+        version: 2.6.1(tailwindcss@3.4.17)
       '@playwright/test':
         specifier: ^1.41.1
         version: 1.49.1
@@ -425,8 +425,8 @@ packages:
     resolution: {integrity: sha512-ivnbgMDIpVsiqtfLqqYQEaeQA6Wc9cvUoQcIzFUUssmbP5dVzckoUIS3YThh2oguC1T4QrZvKvg8WBLvIxsM7g==}
     engines: {node: '>=16'}
 
-  '@medusajs/icons@2.6.1-preview-20250310120157':
-    resolution: {integrity: sha512-be6BPw803shYMkcG7ZsTuLoABRNRpoyti8PFHI/nqDCv35zGw9DYqWjBSNdi8L+FOIxacMmdLRNBc3ilMykK+Q==}
+  '@medusajs/icons@2.6.1':
+    resolution: {integrity: sha512-OH27novpZDQtJhgVIXmWe7ZwzuviKB+vY+R2WJ6WFE0mhSVKtepLq40wMNFdPFEoalc21vWnADAghMa0n1e17Q==}
     peerDependencies:
       react: ^16.8.0 || ^17.0.0 || ^18.0.0 || ^19.0.0 || ^19.0.0-rc
 
@@ -482,13 +482,13 @@ packages:
       vite:
         optional: true
 
-  '@medusajs/ui-preset@2.6.1-preview-20250310120157':
-    resolution: {integrity: sha512-O5fxtZbp42lkZhIbuA+YSrMVBXDG8HKs2HTX7cg4nAVBQDlECN/sz+H119nThZgot+XrbRs8VG06cX4mFJk3Qg==}
+  '@medusajs/ui-preset@2.6.1':
+    resolution: {integrity: sha512-xLCX8oTitFm47J+1MEUEwWMXY3tKZv5cTUBR4JCrjs9Zt5kdQ5b78pi5GM0re9bQrEVgeSqgyeLDyEghkR34Mg==}
     peerDependencies:
       tailwindcss: '>=3.0.0'
 
-  '@medusajs/ui@4.0.7-preview-20250310120157':
-    resolution: {integrity: sha512-BqDCF9nHZbRzb7xU2nvZTt49YQzRpSrZj3h3EHa/Wz1AlTiQNFYoOCnozZkKPHiGbCFZlbx5ptmjgwIWz0YMNw==}
+  '@medusajs/ui@4.0.7':
+    resolution: {integrity: sha512-Q/D/6gayf3+diBPbNELoIv5TZYlENFZUDaf9NN4XrbKMfCet9wmlQp4Uyq5nyMI+mKJtSQbNDEbLHHZgvM/4vg==}
     peerDependencies:
       react: ^18.0.0 || ^19.0.0 || ^19.0.0-rc
       react-dom: ^18.0.0 || ^19.0.0 || ^19.0.0-rc
@@ -6003,7 +6003,7 @@ snapshots:
       - supports-color
       - tedious
 
-  '@medusajs/icons@2.6.1-preview-20250310120157(react@18.3.1)':
+  '@medusajs/icons@2.6.1(react@18.3.1)':
     dependencies:
       react: 18.3.1
 
@@ -6017,7 +6017,7 @@ snapshots:
       - ioredis
       - vite
 
-  '@medusajs/link-modules@0.2.12(@mikro-orm/migrations@5.9.7(@mikro-orm/core@5.9.7)(@types/node@17.0.21)(pg@8.13.1))(@types/node@17.0.21)(pg@8.13.1)':
+  '@medusajs/link-modules@0.2.12(@mikro-orm/migrations@5.9.7)(@types/node@17.0.21)(pg@8.13.1)':
     dependencies:
       '@medusajs/modules-sdk': 1.12.12(@types/node@17.0.21)
       '@medusajs/types': 1.11.17
@@ -6096,9 +6096,9 @@ snapshots:
       - supports-color
       - tedious
 
-  '@medusajs/medusa-js@6.1.10(@medusajs/medusa@1.20.11(@mikro-orm/migrations@5.9.7(@mikro-orm/core@5.9.7)(@types/node@17.0.21)(pg@8.13.1))(@types/ioredis-mock@8.2.5)(@types/node@17.0.21)(medusa-interfaces@1.3.10)(typeorm@0.3.21(ioredis@5.6.0)(pg@8.13.1)(reflect-metadata@0.1.14)))':
+  '@medusajs/medusa-js@6.1.10(@medusajs/medusa@1.20.11(@mikro-orm/migrations@5.9.7)(@types/ioredis-mock@8.2.5)(@types/node@17.0.21)(medusa-interfaces@1.3.10)(typeorm@0.3.21(ioredis@5.6.0)(pg@8.13.1)(reflect-metadata@0.1.14)))':
     dependencies:
-      '@medusajs/medusa': 1.20.11(@mikro-orm/migrations@5.9.7(@mikro-orm/core@5.9.7)(@types/node@17.0.21)(pg@8.13.1))(@types/ioredis-mock@8.2.5)(@types/node@17.0.21)(medusa-interfaces@1.3.10)(typeorm@0.3.21(ioredis@5.6.0)(pg@8.13.1)(reflect-metadata@0.1.14))
+      '@medusajs/medusa': 1.20.11(@mikro-orm/migrations@5.9.7)(@types/ioredis-mock@8.2.5)(@types/node@17.0.21)(medusa-interfaces@1.3.10)(typeorm@0.3.21(ioredis@5.6.0)(pg@8.13.1)(reflect-metadata@0.1.14))
       axios: 0.24.0
       cross-env: 5.2.1
       qs: 6.13.1
@@ -6107,10 +6107,10 @@ snapshots:
     transitivePeerDependencies:
       - debug
 
-  '@medusajs/medusa@1.20.11(@mikro-orm/migrations@5.9.7(@mikro-orm/core@5.9.7)(@types/node@17.0.21)(pg@8.13.1))(@types/ioredis-mock@8.2.5)(@types/node@17.0.21)(medusa-interfaces@1.3.10)(typeorm@0.3.21(ioredis@5.6.0)(pg@8.13.1)(reflect-metadata@0.1.14))':
+  '@medusajs/medusa@1.20.11(@mikro-orm/migrations@5.9.7)(@types/ioredis-mock@8.2.5)(@types/node@17.0.21)(medusa-interfaces@1.3.10)(typeorm@0.3.21(ioredis@5.6.0)(pg@8.13.1)(reflect-metadata@0.1.14))':
     dependencies:
       '@medusajs/core-flows': 0.0.10(@types/node@17.0.21)(pg@8.13.1)
-      '@medusajs/link-modules': 0.2.12(@mikro-orm/migrations@5.9.7(@mikro-orm/core@5.9.7)(@types/node@17.0.21)(pg@8.13.1))(@types/node@17.0.21)(pg@8.13.1)
+      '@medusajs/link-modules': 0.2.12(@mikro-orm/migrations@5.9.7)(@types/node@17.0.21)(pg@8.13.1)
       '@medusajs/medusa-cli': 1.3.23(@types/node@17.0.21)
       '@medusajs/modules-sdk': 1.12.12(@types/node@17.0.21)
       '@medusajs/orchestration': 0.5.8(@types/node@17.0.21)(pg@8.13.1)
@@ -6250,15 +6250,15 @@ snapshots:
     optionalDependencies:
       ioredis: 5.6.0
 
-  '@medusajs/ui-preset@2.6.1-preview-20250310120157(tailwindcss@3.4.17)':
+  '@medusajs/ui-preset@2.6.1(tailwindcss@3.4.17)':
     dependencies:
       '@tailwindcss/forms': 0.5.10(tailwindcss@3.4.17)
       tailwindcss: 3.4.17
       tailwindcss-animate: 1.0.7(tailwindcss@3.4.17)
 
-  '@medusajs/ui@4.0.7-preview-20250310120157(@types/react-dom@18.3.5(@types/react@18.3.18))(@types/react@18.3.18)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(typescript@5.3.2)':
+  '@medusajs/ui@4.0.7(@types/react-dom@18.3.5(@types/react@18.3.18))(@types/react@18.3.18)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(typescript@5.3.2)':
     dependencies:
-      '@medusajs/icons': 2.6.1-preview-20250310120157(react@18.3.1)
+      '@medusajs/icons': 2.6.1(react@18.3.1)
       '@tanstack/react-table': 8.20.5(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       clsx: 1.2.1
       copy-to-clipboard: 3.3.3

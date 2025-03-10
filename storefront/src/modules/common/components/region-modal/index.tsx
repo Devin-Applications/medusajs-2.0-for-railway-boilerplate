@@ -1,7 +1,8 @@
 "use client"
 
 import React, { useState } from "react"
-import { Button, Text } from "@medusajs/ui"
+import { Text } from "@medusajs/ui"
+import ClientButton from "../client-button"
 import Modal from "../modal"
 import { useRegion } from "@lib/context/region-context"
 import { regions } from "@lib/config/regions"
@@ -81,13 +82,14 @@ const RegionModal = ({ isOpen, onClose }: RegionModalProps) => {
                 touched={touched}
               />
             </div>
-            <Button
-              className="mt-7"
-              onClick={handleZipCodeSubmit}
-              variant="primary"
-            >
-              Submit
-            </Button>
+            <div className="mt-7">
+              <ClientButton
+                onClick={handleZipCodeSubmit}
+                variant="primary"
+              >
+                Submit
+              </ClientButton>
+            </div>
           </div>
         </div>
       </Modal.Body>

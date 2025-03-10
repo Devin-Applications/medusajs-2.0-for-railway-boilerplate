@@ -27,7 +27,7 @@
     "@medusajs/js-sdk": "preview",
     "@medusajs/medusa-js": "^6.1.10",
     "@medusajs/types": "preview",
-    "@medusajs/ui": "4.0.7-preview-20250310120157",
+    "@medusajs/ui": "4.0.7",
     "@meilisearch/instant-meilisearch": "^0.7.1",
     "@paypal/paypal-js": "^5.0.6",
     "@paypal/react-paypal-js": "^7.8.1",
@@ -53,7 +53,7 @@
   "devDependencies": {
     "@babel/core": "^7.17.5",
     "@medusajs/client-types": "preview",
-    "@medusajs/ui-preset": "2.6.1-preview-20250310120157",
+    "@medusajs/ui-preset": "2.6.1",
     "@playwright/test": "^1.41.1",
     "@tailwindcss/forms": "^0.5.10",
     "@types/lodash": "^4.14.195",
