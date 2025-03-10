@@ -1,4 +1,5 @@
 import { Suspense } from "react"
+import { STORE_NAME } from "@lib/constants"
 
 import { listRegions } from "@lib/data/regions"
 import { StoreRegion } from "@medusajs/types"
@@ -25,8 +26,14 @@ export default async function Nav() {
               className="txt-compact-xlarge-plus hover:text-ui-fg-base uppercase"
               data-testid="nav-store-link"
             >
-              Medusa Store
+              {STORE_NAME}
             </LocalizedClientLink>
+          </div>
+          <div className="hidden small:flex items-center ml-6">
+            <a href="tel:+1234567890" className="flex items-center text-ui-fg-base">
+              <span className="mr-2">📞</span>
+              <span className="font-medium">Call Us: (123) 456-7890</span>
+            </a>
           </div>
 
           <div className="flex items-center gap-x-6 h-full flex-1 basis-0 justify-end">
