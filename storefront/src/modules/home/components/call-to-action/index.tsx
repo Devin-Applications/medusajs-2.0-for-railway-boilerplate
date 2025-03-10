@@ -1,3 +1,5 @@
+"use client"
+
 import { Heading, Text, Button } from "@medusajs/ui"
 import React, { useState } from "react"
 import { AREA_PHONE_NUMBERS, SERVICE_AREAS, ServiceArea, getAreaFromPincode } from "../../../../lib/area-constants"
