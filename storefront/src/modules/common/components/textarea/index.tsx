@@ -1,3 +1,5 @@
+"use client"
+
 import { Label } from "@medusajs/ui"
 import React, { useImperativeHandle } from "react"
 

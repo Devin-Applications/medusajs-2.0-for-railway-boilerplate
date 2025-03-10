@@ -1,3 +1,5 @@
+"use client"
+
 import { Button } from "@medusajs/ui"
 import React, { useState } from "react"
 import Input from "../input"
