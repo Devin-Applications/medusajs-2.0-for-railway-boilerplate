@@ -12,12 +12,14 @@ interface RegionContextType {
 
 const RegionContext = createContext<RegionContextType | undefined>(undefined)
 
+export { RegionProvider, useRegion }
+
 interface RegionProviderProps {
   children: ReactNode
   onOpenModal: () => void
 }
 
-export const RegionProvider = ({ children, onOpenModal }: RegionProviderProps) => {
+const RegionProvider: React.FC<RegionProviderProps> = ({ children, onOpenModal }) => {
   const [selectedRegion, setSelectedRegion] = useState<RegionConfig>(defaultRegion)
   const [hasVisited, setHasVisited] = useState(false)
 
@@ -94,7 +96,7 @@ export const RegionProvider = ({ children, onOpenModal }: RegionProviderProps) =
   )
 }
 
-export const useRegion = () => {
+const useRegion = () => {
   const context = useContext(RegionContext)
   if (context === undefined) {
     throw new Error("useRegion must be used within a RegionProvider")
