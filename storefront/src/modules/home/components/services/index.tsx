@@ -55,7 +55,7 @@ const Services = () => {
   ]
 
   return (
-    <div className="py-16 bg-white">
+    <div id="services" className="py-16 bg-white">
       <div className="content-container">
         <div className="flex flex-col items-center text-center mb-12 sm:mb-16 px-4">
           <Heading level="h2" className="text-3xl sm:text-4xl font-bold mb-4 sm:mb-5 text-grey-90">
