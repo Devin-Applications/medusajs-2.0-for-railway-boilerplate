@@ -18,6 +18,15 @@ const RegionModal = ({ isOpen, onClose }: RegionModalProps) => {
   const [zipCode, setZipCode] = useState("")
   const [errors, setErrors] = useState<Record<string, unknown>>({})
   const [touched, setTouched] = useState<Record<string, unknown>>({})
+  
+  // Reset state when modal opens/closes
+  React.useEffect(() => {
+    if (!isOpen) {
+      setZipCode("")
+      setErrors({})
+      setTouched({})
+    }
+  }, [isOpen])
 
   const handleZipCodeSubmit = () => {
     if (zipCode.length < 5) {
