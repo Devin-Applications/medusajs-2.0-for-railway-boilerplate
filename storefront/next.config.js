@@ -16,8 +16,8 @@ const nextConfig = {
   images: {
     remotePatterns: [
       {
-        protocol: "https",
-        hostname: process.env.NEXT_PUBLIC_MEDUSA_BACKEND_URL?.replace('https://', ''),
+        protocol: "http",
+        hostname: "localhost",
         
       },
       { // Note: needed to serve images from /public folder

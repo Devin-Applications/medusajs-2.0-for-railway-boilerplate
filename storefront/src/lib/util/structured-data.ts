@@ -12,8 +12,8 @@ export const createOrganizationSchema = () => {
     "@context": "https://schema.org",
     "@type": "Organization",
     "name": STORE_NAME,
-    "url": process.env.NEXT_PUBLIC_BASE_URL || "https://example.com",
-    "logo": `${process.env.NEXT_PUBLIC_BASE_URL || "https://example.com"}/images/logo.png`,
+    "url": process.env.NEXT_PUBLIC_BASE_URL || "https://jbsdumpster.com",
+    "logo": `${process.env.NEXT_PUBLIC_BASE_URL || "https://jbsdumpster.com"}/images/logo.png`,
     "contactPoint": {
       "@type": "ContactPoint",
       "telephone": "+1-800-123-4567", // Replace with actual phone number
@@ -82,7 +82,7 @@ export const createLocalBusinessSchema = () => {
     "@context": "https://schema.org",
     "@type": "LocalBusiness",
     "name": STORE_NAME,
-    "image": `${process.env.NEXT_PUBLIC_BASE_URL || "https://example.com"}/images/logo.png`,
+    "image": `${process.env.NEXT_PUBLIC_BASE_URL || "https://jbsdumpster.com"}/images/logo.png`,
     "priceRange": "$$$",
     "telephone": "+1-800-123-4567", // Replace with actual phone number
     "address": {
@@ -112,6 +112,6 @@ export const createLocalBusinessSchema = () => {
         "closes": "17:00"
       }
     ],
-    "url": process.env.NEXT_PUBLIC_BASE_URL || "https://example.com"
+    "url": process.env.NEXT_PUBLIC_BASE_URL || "https://jbsdumpster.com"
   }
 }

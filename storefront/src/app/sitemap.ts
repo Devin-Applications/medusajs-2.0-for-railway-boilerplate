@@ -5,7 +5,7 @@ import { getCategoriesList } from "@lib/data/categories"
 import { listRegions } from "@lib/data/regions"
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
-  const baseUrl = process.env.NEXT_PUBLIC_BASE_URL || 'https://example.com'
+  const baseUrl = process.env.NEXT_PUBLIC_BASE_URL || 'https://jbsdumpster.com'
   
   // Get all regions
   const regions = await listRegions()

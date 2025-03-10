@@ -11,4 +11,4 @@ Allow: /*/categories/
 Allow: /*/collections/
 
 # Sitemap location
-Sitemap: https://example.com/sitemap.xml
+Sitemap: https://jbsdumpster.com/sitemap.xml
