@@ -94,9 +94,11 @@ async function getCountryCode(
  * Middleware to handle region selection and onboarding status.
  */
 export async function middleware(request: NextRequest) {
-  // Skip middleware if flag is set
-  if (process.env.SKIP_MIDDLEWARE === 'true') {
-    return NextResponse.next()
+  // Skip middleware and auth checks in development
+  if (process.env.SKIP_MIDDLEWARE === 'true' || process.env.NODE_ENV === 'development') {
+    const response = NextResponse.next()
+    response.headers.set('x-publishable-api-key', 'test')
+    return response
   }
 
   const searchParams = request.nextUrl.searchParams
