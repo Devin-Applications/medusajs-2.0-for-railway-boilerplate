@@ -19,7 +19,7 @@ const ContactForm = () => {
     const formData = new FormData(e.currentTarget)
     
     try {
-      const response = await fetch(`/${window.location.pathname.split('/')[1]}/api/contact`, {
+      const response = await fetch("/dk/api/contact", {
         method: "POST",
         body: formData
       })
@@ -29,8 +29,7 @@ const ContactForm = () => {
       }
 
       setFormSuccess(true)
-      const form = e.target as HTMLFormElement
-      form.reset()
+      e.currentTarget.reset()
     } catch (error) {
       setFormError("An error occurred. Please try again.")
       console.error("Form submission error:", error)
