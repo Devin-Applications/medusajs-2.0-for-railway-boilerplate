@@ -1,0 +1,12 @@
+/* Basic syntax highlighting for code and pre tags */
+code, pre {
+  background-color: #f5f5f5;
+  padding: 0.2em 0.4em;
+  border-radius: 3px;
+  font-family: monospace;
+}
+
+pre {
+  padding: 1em;
+  overflow-x: auto;
+}

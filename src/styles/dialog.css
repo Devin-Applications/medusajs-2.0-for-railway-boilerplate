@@ -1,0 +1,21 @@
+/* Custom @reach/dialog styles */
+[data-reach-dialog-overlay] {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+[data-reach-dialog-content] {
+  background: white;
+  padding: 2rem;
+  border-radius: 4px;
+  width: 90%;
+  max-width: 500px;
+  position: relative;
+}
