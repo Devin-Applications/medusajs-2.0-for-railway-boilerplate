@@ -35,7 +35,7 @@ const Hero = () => {
         </span>
         <div className="flex flex-col sm:flex-row gap-4 justify-center px-4">
           <Button variant="primary" size="large" className="bg-orange-500 hover:bg-orange-600 px-8 py-4 text-white font-medium shadow-lg hover:shadow-xl transition-all transform hover:scale-105" asChild>
-            <LocalizedClientLink href="/services">View Services</LocalizedClientLink>
+            <a href="#services">View Services</a>
           </Button>
           <Button variant="primary" size="large" className="bg-orange-500 hover:bg-orange-600 px-8 py-4 text-white font-medium shadow-lg hover:shadow-xl transition-all transform hover:scale-105" asChild>
             <a href="tel:5165151951">CALL TODAY (516) 515-1951</a>
