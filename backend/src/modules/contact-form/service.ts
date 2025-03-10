@@ -1,7 +1,7 @@
 import { EntityManager } from "@mikro-orm/core"
 import { Logger } from "@medusajs/framework/types"
 import { MedusaError } from "@medusajs/framework/utils"
-import { TransactionBaseService } from "@medusajs/framework/utils"
+import { TransactionBaseService } from "@medusajs/medusa"
 import { ContactFormSubmission } from "./entity"
 
 type InjectedDependencies = {
