@@ -422,11 +422,11 @@ function Content({ isEdit, edits }: { isEdit: boolean; edits: FieldEdit[] }) {
           </Malleable>
 
           <Malleable id="need-dumpster-text" as="div" isActive={isEdit} edits={edits}>
-            Looking for a dumpster rental company that&apos;s reputable and affordable? At Prime Dumpster Rental, we make dumpster rental simple, cost-effective, and convenient. Prices starting as low as $299! We provide 16-yard dumpster trailers or 20-, 30-, &amp; 40-yard roll-off dumpsters.
+            Looking for a dumpster rental company that&apos;s reputable and affordable? At JBS Builder LIC Dumpster Rental, we make dumpster rental simple, cost-effective, and convenient. Prices starting as low as $299! We provide 10-, 15-, 20-, 30-, &amp; 40-yard roll-off dumpsters.
           </Malleable>
 
           <Malleable id="call-to-action-2" as="div" isActive={isEdit} edits={edits}>
-            <a href="tel:4702409411" className="call-to-action">CALL TODAY (470) 240-9411</a>
+            <a href="tel:5165151951" className="call-to-action">CALL TODAY (516) 515-1951</a>
           </Malleable>
         </section>
 
@@ -436,7 +436,7 @@ function Content({ isEdit, edits }: { isEdit: boolean; edits: FieldEdit[] }) {
           </Malleable>
           
           <Malleable id="contact-text" as="div" isActive={isEdit} edits={edits}>
-            Fill out this form or call us anytime at <a href="tel:4702409411">(470) 240-9411</a> and we will be in touch with you shortly!
+            Fill out this form or call us anytime at <a href="tel:5165151951">(516) 515-1951</a> and we will be in touch with you shortly!
           </Malleable>
         </section>
         </article>
@@ -444,7 +444,7 @@ function Content({ isEdit, edits }: { isEdit: boolean; edits: FieldEdit[] }) {
       
       <footer>
         <Malleable id="footer-text" as="div" isActive={isEdit} edits={edits}>
-          &copy; 2023 Prime Dumpster Rental Services, LLC
+          &copy; 2023 JBS Builder LIC Dumpster Rental Services, LLC
         </Malleable>
       </footer>
     </>
