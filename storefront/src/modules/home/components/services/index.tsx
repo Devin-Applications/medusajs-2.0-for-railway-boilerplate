@@ -59,9 +59,9 @@ const Services = () => {
           </Text>
         </div>
         
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-10 sm:gap-12 xl:gap-14 px-6 sm:px-8 lg:px-10">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-8 sm:gap-10 xl:gap-12 px-4 sm:px-6 lg:px-8">
           {services.map((service) => (
-            <div key={service.id} className="flex flex-col bg-white rounded-xl overflow-hidden shadow hover:shadow-xl transition-all duration-300 transform hover:scale-[1.02] border border-grey-5 hover:border-orange-500/10">
+            <div key={service.id} className="flex flex-col bg-white rounded-xl overflow-hidden shadow-md hover:shadow-xl transition-all duration-300 transform hover:scale-[1.02] border border-grey-10/50 hover:border-orange-500/20">
               <div className="h-52 sm:h-60 bg-grey-5 flex items-center justify-center relative overflow-hidden">
                 <div className="absolute top-4 right-4 z-10 bg-orange-500 text-white px-4 py-1.5 rounded-full text-sm font-semibold shadow">
                   {service.id.split('-')[0]} YD
