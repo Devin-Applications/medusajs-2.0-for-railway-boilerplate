@@ -132,8 +132,7 @@ const medusaConfig = {
     {
       key: 'contact-form',
       resolve: './src/modules/contact-form',
-      options: {},
-      moduleKey: 'contact-form'
+      options: {}
     }
   ],
   plugins: [

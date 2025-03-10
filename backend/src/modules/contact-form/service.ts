@@ -1,6 +1,6 @@
 import { EntityManager } from "@mikro-orm/core"
-import { Logger, NotificationTypes } from "@medusajs/framework/types"
-import { MedusaError, AbstractNotificationProviderService } from "@medusajs/framework/utils"
+import { Logger } from "@medusajs/framework/types"
+import { MedusaError, AbstractFileProviderService } from "@medusajs/framework/utils"
 import { ContactFormSubmission } from "./entity"
 
 type InjectedDependencies = {
@@ -17,7 +17,7 @@ export interface ContactFormSubmissionDTO {
   message: string
 }
 
-class ContactFormService extends AbstractNotificationProviderService {
+class ContactFormService extends AbstractFileProviderService {
   static identifier = 'contact-form'
   protected readonly logger_: Logger
   protected readonly manager_: EntityManager
@@ -73,11 +73,25 @@ class ContactFormService extends AbstractNotificationProviderService {
     return submission
   }
 
-  async send(
-    notification: NotificationTypes.ProviderSendNotificationDTO
-  ): Promise<NotificationTypes.ProviderSendNotificationResultsDTO> {
-    // We don't actually send notifications, just store them
-    return {}
+  async upload(): Promise<any> {
+    throw new MedusaError(
+      MedusaError.Types.NOT_ALLOWED,
+      "Method not implemented for contact form service"
+    )
+  }
+
+  async delete(): Promise<void> {
+    throw new MedusaError(
+      MedusaError.Types.NOT_ALLOWED,
+      "Method not implemented for contact form service"
+    )
+  }
+
+  async getPresignedDownloadUrl(): Promise<string> {
+    throw new MedusaError(
+      MedusaError.Types.NOT_ALLOWED,
+      "Method not implemented for contact form service"
+    )
   }
 }
 
