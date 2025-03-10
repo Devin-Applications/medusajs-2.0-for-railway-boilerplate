@@ -37,7 +37,7 @@ const Hero = () => {
           <Button variant="primary" size="large" className="bg-orange-500 hover:bg-orange-600 px-8 py-4 text-white font-medium shadow-lg hover:shadow-xl transition-all transform hover:scale-105" asChild>
             <LocalizedClientLink href="/services">View Services</LocalizedClientLink>
           </Button>
-          <Button variant="secondary" size="large" className="border-2 border-white text-white hover:bg-white hover:text-orange-500 font-medium shadow-lg hover:shadow-xl transition-all transform hover:scale-105" asChild>
+          <Button variant="primary" size="large" className="bg-orange-500 hover:bg-orange-600 px-8 py-4 text-white font-medium shadow-lg hover:shadow-xl transition-all transform hover:scale-105" asChild>
             <a href="tel:5165151951">CALL TODAY (516) 515-1951</a>
           </Button>
         </div>
