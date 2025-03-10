@@ -40,8 +40,8 @@ const ContactForm = () => {
   }
 
   return (
-    <div className="w-full max-w-4xl mx-auto bg-white p-4 md:p-8 rounded-lg shadow-sm">
-      <div className="w-full max-w-3xl mx-auto px-4 md:px-8">
+    <div className="w-full bg-white p-4 md:p-8 rounded-lg shadow-sm">
+      <div className="w-full px-4 md:px-8">
         <h3 className="text-2xl font-semibold text-grey-90 mb-6 text-center">Contact Us</h3>
         <p className="text-grey-60 mb-8 text-center">
           Fill out this form or call us anytime at <a href="tel:5165151951" className="text-grey-90 font-medium">(516) 515-1951</a> and we will be in touch with you shortly!
