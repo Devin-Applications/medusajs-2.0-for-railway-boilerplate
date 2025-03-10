@@ -1,9 +1,15 @@
 import React from 'react';
 
-export const ErrorDialog: React.FC<{ error: string }> = ({ error }) => {
+interface ErrorDialogProps {
+  children: React.ReactNode;
+  onExit: () => void;
+}
+
+export const ErrorDialog: React.FC<ErrorDialogProps> = ({ children, onExit }) => {
   return (
     <div className="error-dialog">
-      <p>Error: {error}</p>
+      {children}
+      <button onClick={onExit}>Close</button>
     </div>
   );
 };

@@ -1,13 +1,13 @@
 import React from 'react';
 
-const Edit: React.FC = () => {
+interface EditProps {
+  onClick: () => void;
+}
+
+const Edit: React.FC<EditProps> = ({ onClick }) => {
   return (
     <button
-      onClick={() => {
-        fetch('/api/preview')
-          .then(() => window.location.reload())
-          .catch(console.error);
-      }}
+      onClick={onClick}
       className="edit-button"
       style={{
         position: 'fixed',

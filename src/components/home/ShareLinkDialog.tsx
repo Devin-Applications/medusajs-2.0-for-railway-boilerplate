@@ -1,9 +1,15 @@
 import React from 'react';
 
-export const ShareLinkDialog: React.FC<{ url: string }> = ({ url }) => {
+interface ShareLinkDialogProps {
+  snapshotId: string;
+  onExit: () => void;
+}
+
+export const ShareLinkDialog: React.FC<ShareLinkDialogProps> = ({ snapshotId, onExit }) => {
   return (
     <div className="share-link-dialog">
-      <p>Share this link: {url}</p>
+      <p>Share this link: {window.location.origin}/api/share/{snapshotId}</p>
+      <button onClick={onExit}>Close</button>
     </div>
   );
 };
