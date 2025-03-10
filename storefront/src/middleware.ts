@@ -12,13 +12,20 @@ const regionMapCache = {
 }
 
 async function getRegionMap() {
+  // In development, always return a map with just 'us'
+  if (process.env.NODE_ENV === 'development') {
+    const map = new Map()
+    map.set('us', { id: 'us-east' })
+    return map
+  }
+
   const { regionMap, regionMapUpdated } = regionMapCache
 
   if (
     !regionMap.keys().next().value ||
     regionMapUpdated < Date.now() - 3600 * 1000
   ) {
-    // Fetch regions from Medusa. We can't use the JS client here because middleware is running on Edge and the client needs a Node environment.
+    // Fetch regions from Medusa
     const { regions } = await fetch(`${BACKEND_URL}/store/regions`, {
       headers: {
         "x-publishable-api-key": PUBLISHABLE_API_KEY!,
@@ -33,7 +40,6 @@ async function getRegionMap() {
       notFound()
     }
 
-    // Create a map of country codes to regions.
     regions.forEach((region: HttpTypes.StoreRegion) => {
       region.countries?.forEach((c) => {
         regionMapCache.regionMap.set(c.iso_2 ?? "", region)
@@ -88,6 +94,11 @@ async function getCountryCode(
  * Middleware to handle region selection and onboarding status.
  */
 export async function middleware(request: NextRequest) {
+  // Skip middleware if flag is set
+  if (process.env.SKIP_MIDDLEWARE === 'true') {
+    return NextResponse.next()
+  }
+
   const searchParams = request.nextUrl.searchParams
   const isOnboarding = searchParams.get("onboarding") === "true"
   const cartId = searchParams.get("cart_id")
@@ -142,5 +153,5 @@ export async function middleware(request: NextRequest) {
 }
 
 export const config = {
-  matcher: ["/((?!api|_next/static|favicon.ico|.*\\.png|.*\\.jpg|.*\\.gif|.*\\.svg).*)"], // prevents redirecting on static files
+  matcher: ["/((?!api|_next/static|favicon.ico|.*\\.png|.*\\.jpg|.*\\.gif|.*\\.svg).*)"]
 }

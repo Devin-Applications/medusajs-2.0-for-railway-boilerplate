@@ -2,8 +2,13 @@ import { Button, Heading } from "@medusajs/ui"
 import LocalizedClientLink from "@modules/common/components/localized-client-link"
 import { STORE_NAME } from "@lib/constants"
 import Image from "next/image"
+import PhoneNumber from "@modules/common/components/phone-number"
+import { useRegion } from "@lib/context/region-context"
 
 const Hero = () => {
+  const { phoneNumber } = useRegion()
+  const phoneNumberDigits = phoneNumber.replace(/\D/g, '')
+  
   return (
     <div className="h-[75vh] w-full border-b border-ui-border-base relative">
       <div className="absolute inset-0 z-0">
@@ -38,7 +43,7 @@ const Hero = () => {
             <LocalizedClientLink href="/services">View Services</LocalizedClientLink>
           </Button>
           <Button variant="secondary" size="large" className="border-2 border-white text-white hover:bg-white hover:text-orange-500 font-medium shadow-lg hover:shadow-xl transition-all transform hover:scale-105" asChild>
-            <a href="tel:5165151951">CALL TODAY (516) 515-1951</a>
+            <a href={`tel:${phoneNumberDigits}`}>CALL TODAY <PhoneNumber /></a>
           </Button>
         </div>
       </div>

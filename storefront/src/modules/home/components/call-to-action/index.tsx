@@ -1,8 +1,13 @@
 import { Heading, Text, Button } from "@medusajs/ui"
 import React from "react"
 import Image from "next/image"
+import PhoneNumber from "@modules/common/components/phone-number"
+import { useRegion } from "@lib/context/region-context"
 
 const CallToAction = () => {
+  const { phoneNumber } = useRegion()
+  const phoneNumberDigits = phoneNumber.replace(/\D/g, '')
+  
   return (
     <div className="py-16 bg-orange-500">
       <div className="content-container">
@@ -15,7 +20,7 @@ const CallToAction = () => {
               Contact us today for fast, reliable dumpster rental services in NYC. We'll help you choose the right size for your project.
             </Text>
             <Button variant="secondary" size="large" className="bg-white text-orange-500 hover:bg-grey-5 transition-colors py-3 px-8 text-base sm:text-lg font-medium" asChild>
-              <a href="tel:5165151951">CALL NOW: (516) 515-1951</a>
+              <a href={`tel:${phoneNumberDigits}`}>CALL NOW: <PhoneNumber /></a>
             </Button>
           </div>
           <div className="flex-1 flex justify-center mt-8 md:mt-0">
