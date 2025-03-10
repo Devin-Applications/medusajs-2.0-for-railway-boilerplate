@@ -40,79 +40,90 @@ const ContactForm = () => {
   }
 
   return (
-    <div className="w-full bg-white p-8 rounded-lg shadow-sm">
-      <h3 className="text-2xl font-semibold text-grey-90 mb-6 text-center">Contact Us</h3>
-      <p className="text-grey-60 mb-6 text-center">
-        Fill out this form or call us anytime at <a href="tel:5165151951" className="text-grey-90 font-medium">(516) 515-1951</a> and we will be in touch with you shortly!
-      </p>
-      
-      {formSuccess ? (
-        <div className="bg-green-50 p-4 rounded-md text-green-800 text-center mb-4">
-          Thank you for your message! We'll get back to you soon.
-        </div>
-      ) : (
-        <form onSubmit={handleSubmit} className="space-y-5">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-            <Input 
-              label="Name" 
-              name="name" 
-              required 
-              className="bg-white focus:border-grey-90"
-            />
-            <Input 
-              label="Email" 
-              name="email" 
-              type="email" 
-              required 
-              className="bg-white focus:border-grey-90"
-            />
+    <div className="w-full max-w-4xl mx-auto bg-white p-4 md:p-8 rounded-lg shadow-sm">
+      <div className="w-full max-w-3xl mx-auto px-4 md:px-8">
+        <h3 className="text-2xl font-semibold text-grey-90 mb-6 text-center">Contact Us</h3>
+        <p className="text-grey-60 mb-8 text-center">
+          Fill out this form or call us anytime at <a href="tel:5165151951" className="text-grey-90 font-medium">(516) 515-1951</a> and we will be in touch with you shortly!
+        </p>
+        {formSuccess ? (
+          <div className="bg-green-50 p-4 rounded-md text-green-800 text-center mb-4">
+            Thank you for your message! We'll get back to you soon.
           </div>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-            <Input 
-              label="Phone" 
-              name="phone" 
-              type="tel" 
-              required 
-              className="bg-white focus:border-grey-90"
-            />
-            <ServiceSelect 
-              name="service" 
-              required 
-              className="bg-white focus:border-grey-90"
-            />
-          </div>
-          <div className="grid grid-cols-1 gap-4">
-            <Input 
-              label="Address" 
-              name="address" 
-              className="bg-white focus:border-grey-90"
-            />
-          </div>
-          <TextArea 
-            label="Message" 
-            name="message" 
-            rows={4} 
-            required 
-            className="bg-white focus:border-grey-90"
-          />
-          
-          {formError && (
-            <div className="bg-red-50 p-4 rounded-md text-red-800 text-center mb-4">
-              {formError}
+        ) : (
+          <form onSubmit={handleSubmit} className="space-y-6">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-8 w-full">
+              <div className="w-full flex-1">
+                <Input 
+                  label="Name" 
+                  name="name" 
+                  required 
+                  className="bg-white focus:border-grey-90 w-full"
+                />
+              </div>
+              <div className="w-full flex-1">
+                <Input 
+                  label="Email" 
+                  name="email" 
+                  type="email" 
+                  required 
+                  className="bg-white focus:border-grey-90 w-full"
+                />
+              </div>
             </div>
-          )}
-          
-          <div className="flex justify-center">
-            <Button 
-              type="submit" 
-              isLoading={isSubmitting}
-              className="bg-grey-90 hover:bg-grey-80 text-white px-8 py-3 rounded-md"
-            >
-              Send Message
-            </Button>
-          </div>
-        </form>
-      )}
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-8 w-full">
+              <div className="w-full flex-1">
+                <Input 
+                  label="Phone" 
+                  name="phone" 
+                  type="tel" 
+                  required 
+                  className="bg-white focus:border-grey-90 w-full"
+                />
+              </div>
+              <div className="w-full flex-1">
+                <ServiceSelect 
+                  name="service" 
+                  required 
+                  className="bg-white focus:border-grey-90 w-full"
+                />
+              </div>
+            </div>
+            <div className="grid grid-cols-1 gap-8 w-full">
+              <div className="w-full flex-1">
+                <Input 
+                  label="Address" 
+                  name="address" 
+                  className="bg-white focus:border-grey-90 w-full"
+                />
+              </div>
+            </div>
+            <TextArea 
+              label="Message" 
+              name="message" 
+              rows={4} 
+              required 
+              className="bg-white focus:border-grey-90 w-full"
+            />
+            
+            {formError && (
+              <div className="bg-red-50 p-4 rounded-md text-red-800 text-center mb-4">
+                {formError}
+              </div>
+            )}
+            
+            <div className="flex justify-center">
+              <Button 
+                type="submit" 
+                isLoading={isSubmitting}
+                className="bg-grey-90 hover:bg-grey-80 text-white px-8 py-3 rounded-md"
+              >
+                Send Message
+              </Button>
+            </div>
+          </form>
+        )}
+      </div>
     </div>
   )
 }

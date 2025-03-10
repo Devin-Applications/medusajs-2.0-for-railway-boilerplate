@@ -20,6 +20,8 @@ const Input = React.forwardRef<HTMLInputElement, InputProps>(
     const inputRef = React.useRef<HTMLInputElement>(null)
     const [showPassword, setShowPassword] = useState(false)
     const [inputType, setInputType] = useState(type)
+    const [isFocused, setIsFocused] = useState(false)
+    const [hasValue, setHasValue] = useState(false)
 
     useEffect(() => {
       if (type === "password" && showPassword) {
@@ -32,6 +34,22 @@ const Input = React.forwardRef<HTMLInputElement, InputProps>(
     }, [type, showPassword])
 
     useImperativeHandle(ref, () => inputRef.current!)
+
+    const handleFocus = () => {
+      setIsFocused(true)
+    }
+
+    const handleBlur = (e: React.FocusEvent<HTMLInputElement>) => {
+      setIsFocused(false)
+      setHasValue(!!e.target.value)
+    }
+
+    const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+      setHasValue(!!e.target.value)
+      if (props.onChange) {
+        props.onChange(e)
+      }
+    }
 
     return (
       <div className="flex flex-col w-full">
@@ -47,11 +65,16 @@ const Input = React.forwardRef<HTMLInputElement, InputProps>(
             className="pt-4 pb-1 block w-full h-11 px-4 mt-0 bg-white border rounded-md appearance-none focus:outline-none focus:ring-0 focus:border-grey-90 border-grey-20 hover:border-grey-40 transition-colors"
             {...props}
             ref={inputRef}
+            onFocus={handleFocus}
+            onBlur={handleBlur}
+            onChange={handleChange}
           />
           <label
             htmlFor={name}
             onClick={() => inputRef.current?.focus()}
-            className="flex items-center justify-center mx-3 px-1 transition-all absolute duration-300 top-3 -z-1 origin-0 text-ui-fg-subtle"
+            className={`flex items-center justify-center mx-3 px-1 transition-all absolute duration-300 top-3 -z-1 origin-0 text-ui-fg-subtle ${
+              (isFocused || hasValue) ? "transform scale-75 -translate-y-3 text-xs" : ""
+            }`}
           >
             {label}
             {required && <span className="text-rose-500">*</span>}

@@ -36,13 +36,20 @@ const NativeSelect = forwardRef<HTMLSelectElement, NativeSelectProps>(
       }
     }, [innerRef.current?.value])
 
+    const handleChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
+      setIsPlaceholder(e.target.value === "")
+      if (props.onChange) {
+        props.onChange(e)
+      }
+    }
+
     return (
-      <div>
+      <div className="w-full">
         <div
           onFocus={() => innerRef.current?.focus()}
           onBlur={() => innerRef.current?.blur()}
           className={clx(
-            "relative flex items-center text-base-regular border border-ui-border-base bg-white rounded-md hover:bg-ui-bg-field-hover",
+            "relative flex items-center text-base-regular border border-ui-border-base bg-white rounded-md hover:bg-ui-bg-field-hover w-full",
             className,
             {
               "text-ui-fg-muted": isPlaceholder,
@@ -53,7 +60,8 @@ const NativeSelect = forwardRef<HTMLSelectElement, NativeSelectProps>(
             ref={innerRef}
             defaultValue={defaultValue}
             {...props}
-            className="appearance-none flex-1 bg-transparent border-none px-4 py-2.5 transition-colors duration-150 outline-none "
+            onChange={handleChange}
+            className="appearance-none flex-1 bg-transparent border-none px-4 py-2.5 transition-colors duration-150 outline-none"
           >
             <option disabled value="">
               {placeholder}
