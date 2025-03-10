@@ -18,17 +18,17 @@ const UseCases = () => {
   return (
     <div className="py-16 bg-grey-5">
       <div className="content-container">
-        <div className="flex flex-col items-center text-center mb-12">
-          <Heading level="h2" className="text-3xl font-bold mb-4 text-grey-90">
+        <div className="flex flex-col items-center text-center mb-8 sm:mb-12 px-4">
+          <Heading level="h2" className="text-2xl sm:text-3xl font-bold mb-3 sm:mb-4 text-grey-90">
             Our Dumpster Rental Services Are Great For...
           </Heading>
         </div>
         
-        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-6">
+        <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-3 sm:gap-6 px-4 sm:px-0">
           {cases.map((useCase) => (
-            <div key={useCase.id} className="flex flex-col items-center p-6 bg-white rounded-lg shadow-sm hover:shadow-lg transition-all transform hover:scale-[1.02]">
-              <span className="text-5xl mb-4">{useCase.icon}</span>
-              <Heading level="h3" className="text-center text-grey-90 text-lg font-medium">
+            <div key={useCase.id} className="flex flex-col items-center p-4 sm:p-6 bg-white rounded-lg shadow-sm hover:shadow-lg transition-all transform hover:scale-[1.02]">
+              <span className="text-4xl sm:text-5xl mb-3 sm:mb-4">{useCase.icon}</span>
+              <Heading level="h3" className="text-center text-grey-90 text-base sm:text-lg font-medium">
                 {useCase.title}
               </Heading>
             </div>
