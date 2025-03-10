@@ -1,19 +1,36 @@
+"use client"
+
+import { useEffect, useState } from "react"
+import { Text } from "@medusajs/ui"
+import { STORE_NAME } from "@lib/constants"
 import { getCategoriesList } from "@lib/data/categories"
 import { getCollectionsList } from "@lib/data/collections"
-import { Text, clx } from "@medusajs/ui"
-import { STORE_NAME } from "@lib/constants"
 
 import LocalizedClientLink from "@modules/common/components/localized-client-link"
 import ContactForm from "@modules/common/components/contact-form"
 import FooterContact from "../../components/footer-contact"
 
-export default async function Footer() {
-  const { collections } = await getCollectionsList()
-  const { product_categories } = await getCategoriesList()
+export default function Footer() {
+  const [collections, setCollections] = useState<any[]>([])
+  const [categories, setCategories] = useState<any[]>([])
 
-  // Slice to show only first 6 items
-  const displayCollections = collections?.slice(0, 6) || []
-  const displayCategories = product_categories?.slice(0, 6) || []
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const [collectionsData, categoriesData] = await Promise.all([
+          getCollectionsList(),
+          getCategoriesList()
+        ])
+        
+        setCollections(collectionsData.collections?.slice(0, 6) || [])
+        setCategories(categoriesData.product_categories?.slice(0, 6) || [])
+      } catch (error) {
+        console.error("Error fetching footer data:", error)
+      }
+    }
+    
+    fetchData()
+  }, [])
 
   return (
     <footer className="border-t border-ui-border-base">
@@ -39,11 +56,11 @@ export default async function Footer() {
             </div>
           </div>
           
-          {displayCollections.length > 0 && (
+          {collections.length > 0 && (
             <div className="flex flex-col">
               <h3 className="text-xl font-semibold text-grey-90 mb-6">Collections</h3>
               <ul className="grid grid-cols-1 gap-3">
-                {displayCollections.map((collection) => (
+                {collections.map((collection) => (
                   <li key={collection.id}>
                     <LocalizedClientLink
                       href={`/collections/${collection.handle}`}
