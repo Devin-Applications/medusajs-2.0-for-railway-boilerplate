@@ -32,14 +32,7 @@ const ServiceAreas = () => {
 
   return (
     <div className="py-16 bg-grey-5 relative overflow-hidden">
-      <div className="absolute inset-0 opacity-5 z-0">
-        <Image 
-          src="/images/nyc-map.jpg" 
-          alt="NYC Map" 
-          fill 
-          className="object-cover"
-        />
-      </div>
+      <div className="absolute inset-0 opacity-5 z-0 bg-gradient-to-br from-orange-50 to-orange-100"></div>
       <div className="content-container relative z-10">
         <div className="flex flex-col items-center text-center mb-12 sm:mb-16 px-4">
           <Heading level="h2" className="text-3xl sm:text-4xl font-bold mb-4 sm:mb-6 text-grey-90">
