@@ -55,10 +55,10 @@ const ContactForm = ({ inFooter = false }: ContactFormProps) => {
             Thank you for your message! We'll get back to you soon.
           </div>
         ) : (
-          <form onSubmit={handleSubmit} className={`space-y-${inFooter ? "4" : "6"} max-w-none`}>
-            <div className="grid grid-cols-1 gap-4 w-full">
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                <div className="w-full">
+          <form onSubmit={handleSubmit} className="space-y-4">
+            <div className="grid grid-cols-1 gap-6">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                <div>
                   <InputExternalLabel 
                     label="Name" 
                     name="name" 
@@ -66,7 +66,7 @@ const ContactForm = ({ inFooter = false }: ContactFormProps) => {
                     className="bg-white focus:border-grey-90 w-full text-base"
                   />
                 </div>
-                <div className="w-full">
+                <div>
                   <InputExternalLabel 
                     label="Email" 
                     name="email" 
@@ -76,8 +76,8 @@ const ContactForm = ({ inFooter = false }: ContactFormProps) => {
                   />
                 </div>
               </div>
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                <div className="w-full">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                <div>
                   <InputExternalLabel 
                     label="Phone" 
                     name="phone" 
@@ -86,7 +86,7 @@ const ContactForm = ({ inFooter = false }: ContactFormProps) => {
                     className="bg-white focus:border-grey-90 w-full text-base"
                   />
                 </div>
-                <div className="w-full">
+                <div>
                   <ServiceSelectExternalLabel 
                     label="Service"
                     name="service" 
@@ -95,14 +95,14 @@ const ContactForm = ({ inFooter = false }: ContactFormProps) => {
                   />
                 </div>
               </div>
-              <div className="w-full">
+              <div>
                 <InputExternalLabel 
                   label="Address" 
                   name="address" 
                   className="bg-white focus:border-grey-90 w-full text-base"
                 />
               </div>
-              <div className="w-full">
+              <div>
                 <TextAreaExternalLabel 
                   label="Message" 
                   name="message" 
