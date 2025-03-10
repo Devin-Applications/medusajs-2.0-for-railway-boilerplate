@@ -8,7 +8,7 @@ module.exports = {
     "./src/pages/**/*.{js,ts,jsx,tsx}",
     "./src/components/**/*.{js,ts,jsx,tsx}",
     "./src/modules/**/*.{js,ts,jsx,tsx}",
-    "./node_modules/@medusajs/ui/dist/**/*.{js,jsx,ts,tsx}",
+    "./node_modules/@medusajs/ui/dist/esm/**/*.{js,jsx,ts,tsx}",
   ],
   theme: {
     extend: {
@@ -182,5 +182,9 @@ module.exports = {
       },
     },
   },
-  plugins: [require("tailwindcss-radix")()],
+  plugins: [
+    require("tailwindcss-radix")(),
+    require("@tailwindcss/forms"),
+    require("tailwindcss-animate")
+  ],
 }
