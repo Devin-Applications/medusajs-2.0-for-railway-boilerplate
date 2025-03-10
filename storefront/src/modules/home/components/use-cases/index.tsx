@@ -24,11 +24,11 @@ const UseCases = () => {
           </Heading>
         </div>
         
-        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4 md:gap-6">
+        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-6">
           {cases.map((useCase) => (
-            <div key={useCase.id} className="flex flex-col items-center p-6 bg-white rounded-lg shadow-sm hover:shadow-md transition-shadow">
-              <span className="text-4xl mb-4">{useCase.icon}</span>
-              <Heading level="h3" className="text-center text-grey-90 text-lg">
+            <div key={useCase.id} className="flex flex-col items-center p-6 bg-white rounded-lg shadow-sm hover:shadow-lg transition-all transform hover:scale-[1.02]">
+              <span className="text-5xl mb-4">{useCase.icon}</span>
+              <Heading level="h3" className="text-center text-grey-90 text-lg font-medium">
                 {useCase.title}
               </Heading>
             </div>
