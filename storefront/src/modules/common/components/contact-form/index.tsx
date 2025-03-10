@@ -56,9 +56,9 @@ const ContactForm = ({ inFooter = false }: ContactFormProps) => {
           </div>
         ) : (
           <form onSubmit={handleSubmit} className="space-y-4">
-            <div className="grid grid-cols-1 gap-6">
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
-                <div>
+            <div className="grid grid-cols-1 gap-8">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-8">
+                <div className="w-full">
                   <InputExternalLabel 
                     label="Name" 
                     name="name" 
@@ -66,7 +66,7 @@ const ContactForm = ({ inFooter = false }: ContactFormProps) => {
                     className="bg-white focus:border-grey-90 w-full text-base"
                   />
                 </div>
-                <div>
+                <div className="w-full">
                   <InputExternalLabel 
                     label="Email" 
                     name="email" 
@@ -76,8 +76,8 @@ const ContactForm = ({ inFooter = false }: ContactFormProps) => {
                   />
                 </div>
               </div>
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
-                <div>
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-8">
+                <div className="w-full">
                   <InputExternalLabel 
                     label="Phone" 
                     name="phone" 
@@ -86,7 +86,7 @@ const ContactForm = ({ inFooter = false }: ContactFormProps) => {
                     className="bg-white focus:border-grey-90 w-full text-base"
                   />
                 </div>
-                <div>
+                <div className="w-full">
                   <ServiceSelectExternalLabel 
                     label="Service"
                     name="service" 
@@ -95,14 +95,14 @@ const ContactForm = ({ inFooter = false }: ContactFormProps) => {
                   />
                 </div>
               </div>
-              <div>
+              <div className="w-full">
                 <InputExternalLabel 
                   label="Address" 
                   name="address" 
                   className="bg-white focus:border-grey-90 w-full text-base"
                 />
               </div>
-              <div>
+              <div className="w-full">
                 <TextAreaExternalLabel 
                   label="Message" 
                   name="message" 
