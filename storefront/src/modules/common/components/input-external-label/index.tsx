@@ -47,7 +47,7 @@ const InputExternalLabel = React.forwardRef<HTMLInputElement, InputProps>(
             name={name}
             id={name}
             required={required}
-            className="block w-full h-10 px-4 py-2 bg-white border rounded-md appearance-none focus:outline-none focus:ring-0 focus:border-grey-90 border-grey-20 hover:border-grey-40 transition-colors"
+            className="block w-full h-10 px-4 py-2 bg-gray-50 border rounded-md appearance-none focus:outline-none focus:ring-0 focus:border-grey-90 border-grey-40 hover:border-grey-60 shadow-sm transition-colors"
             {...props}
             ref={inputRef}
           />

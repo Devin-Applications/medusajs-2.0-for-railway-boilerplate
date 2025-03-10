@@ -31,7 +31,7 @@ const TextAreaExternalLabel = React.forwardRef<HTMLTextAreaElement, TextAreaProp
             id={name}
             required={required}
             rows={rows}
-            className="block w-full px-4 py-2 bg-white border rounded-md appearance-none focus:outline-none focus:ring-0 focus:border-grey-90 border-grey-20 hover:border-grey-40 transition-colors resize-none"
+            className="block w-full px-4 py-2 bg-gray-50 border rounded-md appearance-none focus:outline-none focus:ring-0 focus:border-grey-90 border-grey-40 hover:border-grey-60 shadow-sm transition-colors resize-none"
             maxLength={500}
             {...props}
             ref={textareaRef}
