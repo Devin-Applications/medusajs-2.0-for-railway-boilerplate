@@ -41,7 +41,7 @@ const ContactForm = () => {
 
   return (
     <div className="w-full max-w-6xl mx-auto bg-white p-4 md:p-8 rounded-lg shadow-sm">
-      <div className="w-full max-w-4xl mx-auto px-4 md:px-8">
+      <div className="w-full max-w-5xl mx-auto px-4 md:px-8">
         <h3 className="text-2xl font-semibold text-grey-90 mb-6 text-center">Contact Us</h3>
         <p className="text-grey-60 mb-8 text-center">
           Fill out this form or call us anytime at <a href="tel:5165151951" className="text-grey-90 font-medium">(516) 515-1951</a> and we will be in touch with you shortly!
@@ -52,49 +52,49 @@ const ContactForm = () => {
           </div>
         ) : (
           <form onSubmit={handleSubmit} className="space-y-6 w-full">
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-              <div className="w-full">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-8 w-full">
+              <div className="w-full flex-1">
                 <Input 
                   label="Name" 
                   name="name" 
                   required 
-                  className="bg-white focus:border-grey-90 w-full min-w-[280px]"
+                  className="bg-white focus:border-grey-90 w-full"
                 />
               </div>
-              <div className="w-full">
+              <div className="w-full flex-1">
                 <Input 
                   label="Email" 
                   name="email" 
                   type="email" 
                   required 
-                  className="bg-white focus:border-grey-90 w-full min-w-[280px]"
+                  className="bg-white focus:border-grey-90 w-full"
                 />
               </div>
             </div>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-              <div className="w-full">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-8 w-full">
+              <div className="w-full flex-1">
                 <Input 
                   label="Phone" 
                   name="phone" 
                   type="tel" 
                   required 
-                  className="bg-white focus:border-grey-90 w-full min-w-[280px]"
+                  className="bg-white focus:border-grey-90 w-full"
                 />
               </div>
-              <div className="w-full">
+              <div className="w-full flex-1">
                 <ServiceSelect 
                   name="service" 
                   required 
-                  className="bg-white focus:border-grey-90 w-full min-w-[280px]"
+                  className="bg-white focus:border-grey-90 w-full"
                 />
               </div>
             </div>
-            <div className="grid grid-cols-1 gap-8">
-              <div className="w-full">
+            <div className="grid grid-cols-1 gap-8 w-full">
+              <div className="w-full flex-1">
                 <Input 
                   label="Address" 
                   name="address" 
-                  className="bg-white focus:border-grey-90 w-full min-w-[280px]"
+                  className="bg-white focus:border-grey-90 w-full"
                 />
               </div>
             </div>
@@ -103,7 +103,7 @@ const ContactForm = () => {
               name="message" 
               rows={4} 
               required 
-              className="bg-white focus:border-grey-90 w-full min-w-[280px]"
+              className="bg-white focus:border-grey-90 w-full"
             />
             
             {formError && (
