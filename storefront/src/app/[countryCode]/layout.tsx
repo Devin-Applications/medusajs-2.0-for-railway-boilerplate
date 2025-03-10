@@ -1,10 +1,11 @@
-import { Metadata } from "next"
-import { getBaseURL } from "@lib/util/env"
+"use client"
 
-export const metadata: Metadata = {
-  metadataBase: new URL(getBaseURL()),
-}
+import { ReactNode } from "react"
 
-export default function CountryLayout(props: { children: React.ReactNode }) {
-  return props.children
+export default function CountryLayout({ children }: { children: ReactNode }) {
+  return (
+    <div className="flex min-h-screen flex-col">
+      {children}
+    </div>
+  )
 }
