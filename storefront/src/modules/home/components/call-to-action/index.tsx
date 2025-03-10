@@ -1,3 +1,5 @@
+"use client"
+
 import { Heading, Text, Button } from "@medusajs/ui"
 import React from "react"
 import Image from "next/image"
