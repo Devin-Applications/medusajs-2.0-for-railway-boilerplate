@@ -30,9 +30,9 @@ export default async function Nav() {
             </LocalizedClientLink>
           </div>
           <div className="hidden small:flex items-center ml-6">
-            <a href="tel:+1234567890" className="flex items-center text-ui-fg-base">
+            <a href="tel:5165151951" className="flex items-center text-ui-fg-base">
               <span className="mr-2">📞</span>
-              <span className="font-medium">Call Us: (123) 456-7890</span>
+              <span className="font-medium">Call Us: (516) 515-1951</span>
             </a>
           </div>
 
