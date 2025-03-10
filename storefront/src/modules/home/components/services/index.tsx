@@ -56,11 +56,11 @@ const Services = () => {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           {services.map((service) => (
             <div key={service.id} className="flex flex-col border border-ui-border-base rounded-lg overflow-hidden shadow-sm hover:shadow-md transition-shadow">
-              <div className="h-48 bg-grey-10 flex items-center justify-center">
+              <div className="h-48 bg-grey-20 flex items-center justify-center shadow-sm">
                 <span className="text-4xl">🗑️</span>
               </div>
               <div className="p-6">
-                <Heading level="h3" className="text-xl font-semibold mb-2 text-grey-80">
+                <Heading level="h3" className="text-xl font-semibold mb-2 text-grey-90">
                   {service.title}
                 </Heading>
                 <Text className="text-ui-fg-subtle mb-4">

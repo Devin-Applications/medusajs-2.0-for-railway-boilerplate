@@ -25,7 +25,7 @@ const Hero = () => {
           </p>
         </span>
         <div className="flex flex-col sm:flex-row gap-4 justify-center">
-          <Button variant="primary" size="large" className="bg-grey-90 hover:bg-grey-80" asChild>
+          <Button variant="primary" size="large" className="bg-grey-90 hover:bg-grey-80 px-8 py-3" asChild>
             <LocalizedClientLink href="/services">View Services</LocalizedClientLink>
           </Button>
           <Button variant="secondary" size="large" className="border-grey-50 text-grey-50 hover:bg-grey-10" asChild>
