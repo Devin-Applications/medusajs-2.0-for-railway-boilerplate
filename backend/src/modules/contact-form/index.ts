@@ -1,11 +1,13 @@
 import { ModuleProviderExports } from '@medusajs/framework/types'
 import ContactFormService from './service'
 
-export const CONTACT_FORM_SERVICE = 'contactFormService'
-
 const services = [ContactFormService]
 
-export default {
+export const CONTACT_FORM_SERVICE = 'contact-form'
+
+const providerExport: ModuleProviderExports = {
   services,
-  moduleKey: CONTACT_FORM_SERVICE,
-} as ModuleProviderExports
+  module: CONTACT_FORM_SERVICE,
+}
+
+export default providerExport
