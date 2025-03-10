@@ -41,7 +41,7 @@ const ContactForm = () => {
 
   return (
     <div className="w-full">
-      <h3 className="text-xl font-semibold text-blue-800 mb-6 text-center">Contact Us</h3>
+      <h3 className="text-xl font-semibold text-grey-90 mb-6 text-center">Contact Us</h3>
       
       {formSuccess ? (
         <div className="bg-green-50 p-4 rounded-md text-green-800 text-center mb-4">
@@ -54,14 +54,14 @@ const ContactForm = () => {
               label="Name" 
               name="name" 
               required 
-              className="bg-white focus:border-blue-500"
+              className="bg-white focus:border-grey-90"
             />
             <Input 
               label="Email" 
               name="email" 
               type="email" 
               required 
-              className="bg-white focus:border-blue-500"
+              className="bg-white focus:border-grey-90"
             />
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
@@ -70,12 +70,12 @@ const ContactForm = () => {
               name="phone" 
               type="tel" 
               required 
-              className="bg-white focus:border-blue-500"
+              className="bg-white focus:border-grey-90"
             />
             <ServiceSelect 
               name="service" 
               required 
-              className="bg-white focus:border-blue-500"
+              className="bg-white focus:border-grey-90"
             />
           </div>
           <TextArea 
@@ -94,7 +94,7 @@ const ContactForm = () => {
             <Button 
               type="submit" 
               isLoading={isSubmitting}
-              className="bg-blue-700 hover:bg-blue-800 text-white px-6 py-2 rounded-md"
+              className="bg-grey-90 hover:bg-grey-80 text-white px-6 py-2 rounded-md"
             >
               Send Message
             </Button>

@@ -21,21 +21,21 @@ export default async function Footer() {
           <div className="flex flex-col">
             <LocalizedClientLink
               href="/"
-              className="text-2xl font-bold text-blue-800 hover:text-blue-900 uppercase mb-6"
+              className="text-2xl font-bold text-grey-90 hover:text-grey-80 uppercase mb-6"
             >
               {STORE_NAME}
             </LocalizedClientLink>
             
             <div className="flex flex-col gap-4">
               <div className="flex items-center">
-                <span className="w-8 h-8 flex items-center justify-center bg-blue-100 rounded-full mr-3">📞</span>
-                <a href="tel:5165151951" className="text-gray-700 hover:text-blue-800 font-medium">
+                <span className="w-8 h-8 flex items-center justify-center bg-grey-10 rounded-full mr-3">📞</span>
+                <a href="tel:5165151951" className="text-grey-60 hover:text-grey-90 font-medium transition-colors">
                   (516) 515-1951
                 </a>
               </div>
               <div className="flex items-start">
-                <span className="w-8 h-8 flex items-center justify-center bg-blue-100 rounded-full mr-3">📍</span>
-                <address className="text-gray-700 not-italic">
+                <span className="w-8 h-8 flex items-center justify-center bg-grey-10 rounded-full mr-3">📍</span>
+                <address className="text-grey-60 not-italic">
                   87-40 121 street<br />
                   Richmond Hill, NY 11418
                 </address>
@@ -45,13 +45,13 @@ export default async function Footer() {
           
           {displayCollections.length > 0 && (
             <div className="flex flex-col">
-              <h3 className="text-xl font-semibold text-blue-800 mb-6">Collections</h3>
+              <h3 className="text-xl font-semibold text-grey-90 mb-6">Collections</h3>
               <ul className="grid grid-cols-1 gap-3">
                 {displayCollections.map((collection) => (
                   <li key={collection.id}>
                     <LocalizedClientLink
                       href={`/collections/${collection.handle}`}
-                      className="text-gray-600 hover:text-blue-800 transition-colors"
+                      className="text-grey-50 hover:text-grey-90 transition-colors"
                     >
                       {collection.title}
                     </LocalizedClientLink>
@@ -61,7 +61,7 @@ export default async function Footer() {
             </div>
           )}
           
-          <div className="bg-gray-50 p-6 rounded-lg shadow-sm">
+          <div className="bg-grey-5 p-6 rounded-lg shadow-sm">
             <ContactForm />
           </div>
         </div>

@@ -23,14 +23,14 @@ export default async function Nav() {
           <div className="flex items-center h-full">
             <LocalizedClientLink
               href="/"
-              className="txt-compact-xlarge-plus hover:text-ui-fg-base uppercase"
+              className="txt-compact-xlarge-plus hover:text-grey-90 uppercase"
               data-testid="nav-store-link"
             >
               {STORE_NAME}
             </LocalizedClientLink>
           </div>
           <div className="hidden small:flex items-center ml-6">
-            <a href="tel:5165151951" className="flex items-center text-ui-fg-base">
+            <a href="tel:5165151951" className="flex items-center text-grey-60 hover:text-grey-90 transition-colors">
               <span className="mr-2">📞</span>
               <span className="font-medium">Call Us: (516) 515-1951</span>
             </a>
@@ -40,7 +40,7 @@ export default async function Nav() {
             <div className="hidden small:flex items-center gap-x-6 h-full">
               {process.env.NEXT_PUBLIC_FEATURE_SEARCH_ENABLED && (
                 <LocalizedClientLink
-                  className="hover:text-ui-fg-base"
+                  className="text-grey-60 hover:text-grey-90 transition-colors"
                   href="/search"
                   scroll={false}
                   data-testid="nav-search-link"
@@ -49,7 +49,7 @@ export default async function Nav() {
                 </LocalizedClientLink>
               )}
               <LocalizedClientLink
-                className="hover:text-ui-fg-base"
+                className="text-grey-60 hover:text-grey-90 transition-colors"
                 href="/account"
                 data-testid="nav-account-link"
               >
@@ -59,7 +59,7 @@ export default async function Nav() {
             <Suspense
               fallback={
                 <LocalizedClientLink
-                  className="hover:text-ui-fg-base flex gap-2"
+                  className="text-grey-60 hover:text-grey-90 transition-colors flex gap-2"
                   href="/cart"
                   data-testid="nav-cart-link"
                 >

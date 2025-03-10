@@ -45,10 +45,10 @@ const Services = () => {
     <div className="py-12 bg-white">
       <div className="content-container">
         <div className="flex flex-col items-center text-center mb-16">
-          <Heading level="h2" className="text-3xl font-bold mb-4 text-blue-800">
+          <Heading level="h2" className="text-3xl font-bold mb-4 text-grey-90">
             Our Dumpster Rental Services
           </Heading>
-          <Text className="text-blue-600 max-w-2xl">
+          <Text className="text-grey-60 max-w-2xl">
             We offer a variety of dumpster sizes to meet your specific needs. Whether you're cleaning out your garage or managing a large construction project, we have the right solution for you.
           </Text>
         </div>
@@ -56,11 +56,11 @@ const Services = () => {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           {services.map((service) => (
             <div key={service.id} className="flex flex-col border border-ui-border-base rounded-lg overflow-hidden shadow-sm hover:shadow-md transition-shadow">
-              <div className="h-48 bg-blue-50 flex items-center justify-center">
+              <div className="h-48 bg-grey-10 flex items-center justify-center">
                 <span className="text-4xl">🗑️</span>
               </div>
               <div className="p-6">
-                <Heading level="h3" className="text-xl font-semibold mb-2 text-blue-700">
+                <Heading level="h3" className="text-xl font-semibold mb-2 text-grey-80">
                   {service.title}
                 </Heading>
                 <Text className="text-ui-fg-subtle mb-4">
@@ -68,7 +68,7 @@ const Services = () => {
                 </Text>
                 <LocalizedClientLink
                   href={service.link}
-                  className="text-red-600 font-medium hover:text-red-700"
+                  className="text-grey-70 font-medium hover:text-grey-90 transition-colors"
                 >
                   Learn More →
                 </LocalizedClientLink>
