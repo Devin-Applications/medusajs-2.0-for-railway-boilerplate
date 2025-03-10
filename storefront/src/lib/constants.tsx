@@ -5,7 +5,7 @@ import Ideal from "@modules/common/icons/ideal"
 import Bancontact from "@modules/common/icons/bancontact"
 import PayPal from "@modules/common/icons/paypal"
 
-export const STORE_NAME = "JBS Builder Lic"
+export const STORE_NAME = "Medusa Store"
 
 
 /* Map of payment provider_id to their title and icon. Add in any payment providers you want to use. */

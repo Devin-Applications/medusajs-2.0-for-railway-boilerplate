@@ -61,68 +61,7 @@ export default async function Footer() {
                 </ul>
               </div>
             )}
-            {displayCategories.length > 0 && (
-              <div className="flex flex-col gap-y-2">
-                <span className="txt-small-plus txt-ui-fg-base">Categories</span>
-                <ul className="grid grid-cols-1 gap-y-2 text-ui-fg-subtle txt-small">
-                  {displayCategories.map((category) => (
-                    <li key={category.id}>
-                      <LocalizedClientLink
-                        href={`/categories/${category.handle}`}
-                        className="hover:text-ui-fg-base"
-                      >
-                        {category.name}
-                      </LocalizedClientLink>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            )}
-            <div className="flex flex-col gap-y-2">
-              <span className="txt-small-plus txt-ui-fg-base">Services</span>
-              <ul className="grid grid-cols-1 gap-y-2 text-ui-fg-subtle txt-small">
-                <li>
-                  <LocalizedClientLink
-                    href="/services/10-yard"
-                    className="hover:text-ui-fg-base"
-                  >
-                    10' Dumpster Rental
-                  </LocalizedClientLink>
-                </li>
-                <li>
-                  <LocalizedClientLink
-                    href="/services/15-yard"
-                    className="hover:text-ui-fg-base"
-                  >
-                    15' Dumpster Rental
-                  </LocalizedClientLink>
-                </li>
-                <li>
-                  <LocalizedClientLink
-                    href="/services/20-yard"
-                    className="hover:text-ui-fg-base"
-                  >
-                    20' Dumpster Rental
-                  </LocalizedClientLink>
-                </li>
-                <li>
-                  <LocalizedClientLink
-                    href="/services/30-yard"
-                    className="hover:text-ui-fg-base"
-                  >
-                    30' Dumpster Rental
-                  </LocalizedClientLink>
-                </li>
-                <li>
-                  <LocalizedClientLink
-                    href="/services/40-yard"
-                    className="hover:text-ui-fg-base"
-                  >
-                    40' Dumpster Rental
-                  </LocalizedClientLink>
-                </li>
-              </ul>
-            </div>
+
           </div>
         </div>
         
