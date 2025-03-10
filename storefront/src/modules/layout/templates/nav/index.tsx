@@ -1,15 +1,28 @@
-import { Suspense } from "react"
-import { STORE_NAME } from "@lib/constants"
+"use client"
 
-import { listRegions } from "@lib/data/regions"
+import { Suspense, useEffect, useState } from "react"
+import { STORE_NAME } from "@lib/constants"
 import { StoreRegion } from "@medusajs/types"
 import LocalizedClientLink from "@modules/common/components/localized-client-link"
 import CartButton from "@modules/layout/components/cart-button"
 import SideMenu from "@modules/layout/components/side-menu"
 import NavContact from "../../components/nav-contact"
+import { listRegions } from "@lib/data/regions"
 
-export default async function Nav() {
-  const regions = await listRegions().then((regions: StoreRegion[]) => regions)
+export default function Nav() {
+  const [regions, setRegions] = useState<StoreRegion[]>([])
+
+  useEffect(() => {
+    listRegions()
+      .then((result) => {
+        if (result instanceof Error) {
+          console.error(result)
+          return
+        }
+        setRegions(result)
+      })
+      .catch(console.error)
+  }, [])
 
   return (
     <div className="sticky top-0 inset-x-0 z-50 group">
