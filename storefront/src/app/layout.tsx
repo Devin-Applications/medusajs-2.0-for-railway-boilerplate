@@ -1,19 +1,15 @@
-"use client"
-
 import "styles/globals.css"
-import { RegionProvider } from "@lib/context/region-context"
-import RegionModal from "@modules/common/components/region-modal"
+import { Providers } from "./providers"
 
 export default function RootLayout(props: { children: React.ReactNode }) {
   return (
     <html lang="en" data-mode="light">
       <body>
-        <RegionProvider>
+        <Providers>
           <main className="relative">
-            <RegionModal />
             {props.children}
           </main>
-        </RegionProvider>
+        </Providers>
       </body>
     </html>
   )
