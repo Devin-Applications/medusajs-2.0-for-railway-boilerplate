@@ -1,5 +1,5 @@
 import { EntityManager } from "@mikro-orm/core"
-import { Logger } from "@medusajs/framework/types"
+import { Logger, ProviderUploadFileDTO, ProviderDeleteFileDTO, ProviderFileResultDTO, ProviderGetFileDTO } from "@medusajs/framework/types"
 import { MedusaError } from "@medusajs/framework/utils"
 import { AbstractFileProviderService } from "@medusajs/framework/utils"
 import { ContactFormSubmission } from "./entity"
