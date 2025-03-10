@@ -1,10 +1,12 @@
+"use client"
+
 import React from "react"
-import ClientWrapper from "./client-wrapper"
+import { Providers } from "@lib/context/providers"
 
 export default function Template({ children }: { children: React.ReactNode }) {
   return (
-    <ClientWrapper>
+    <Providers>
       {children}
-    </ClientWrapper>
+    </Providers>
   )
 }
