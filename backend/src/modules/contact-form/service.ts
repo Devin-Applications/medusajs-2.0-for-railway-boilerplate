@@ -1,7 +1,7 @@
 import { EntityManager } from "@mikro-orm/core"
 import { Logger, ProviderUploadFileDTO, ProviderDeleteFileDTO, ProviderFileResultDTO, ProviderGetFileDTO } from "@medusajs/framework/types"
 import { MedusaError } from "@medusajs/framework/utils"
-import { AbstractFileProviderService } from "@medusajs/framework/utils"
+import { AbstractNotificationProviderService } from "@medusajs/framework/utils"
 import { ContactFormSubmission } from "./entity"
 
 type InjectedDependencies = {
@@ -18,7 +18,7 @@ export interface ContactFormSubmissionDTO {
   message: string
 }
 
-class ContactFormService extends AbstractFileProviderService {
+class ContactFormService extends AbstractNotificationProviderService {
   static identifier = 'contact-form'
   protected readonly logger_: Logger
   protected readonly manager_: EntityManager
@@ -29,31 +29,29 @@ class ContactFormService extends AbstractFileProviderService {
     this.manager_ = manager
   }
 
-  async upload(
-    file: ProviderUploadFileDTO
-  ): Promise<ProviderFileResultDTO> {
-    throw new MedusaError(
-      MedusaError.Types.NOT_IMPLEMENTED,
-      "Method not implemented"
-    )
-  }
+  async send(
+    notification: NotificationTypes.ProviderSendNotificationDTO
+  ): Promise<NotificationTypes.ProviderSendNotificationResultsDTO> {
+    if (!notification) {
+      throw new MedusaError(
+        MedusaError.Types.INVALID_DATA,
+        "No notification information provided"
+      )
+    }
 
-  async delete(
-    fileData: ProviderDeleteFileDTO
-  ): Promise<void> {
-    throw new MedusaError(
-      MedusaError.Types.NOT_IMPLEMENTED,
-      "Method not implemented"
-    )
-  }
+    const submission = this.manager_.create(ContactFormSubmission, {
+      name: notification.data.name,
+      email: notification.data.email,
+      phone: notification.data.phone,
+      service: notification.data.service,
+      address: notification.data.address,
+      message: notification.data.message,
+    })
 
-  async getPresignedDownloadUrl(
-    fileData: ProviderGetFileDTO
-  ): Promise<string> {
-    throw new MedusaError(
-      MedusaError.Types.NOT_IMPLEMENTED,
-      "Method not implemented"
-    )
+    await this.manager_.persistAndFlush(submission)
+    this.logger_.info(`Created contact form submission with id: ${submission.id}`)
+    
+    return {}
   }
 
   // No need for send() method since we're using TransactionBaseService
