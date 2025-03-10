@@ -19,7 +19,7 @@ export interface ContactFormSubmissionDTO {
 }
 
 class ContactFormService extends AbstractNotificationProviderService {
-  static identifier = 'contact-form'
+  static identifier = 'contact_form'
   protected readonly logger_: Logger
   protected readonly manager_: EntityManager
 
