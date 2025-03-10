@@ -382,14 +382,14 @@ function Content({ isEdit, edits }: { isEdit: boolean; edits: FieldEdit[] }) {
 
         <div className="services-grid">
           {[
-            { id: 'service-fire-water', text: 'Fire & Water Restoration' },
-            { id: 'service-commercial', text: 'Commercial Construction' },
-            { id: 'service-demolitions', text: 'Demolitions' },
-            { id: 'service-moving', text: 'Moving' },
-            { id: 'service-basement', text: 'Basement Purge' },
-            { id: 'service-roofing', text: 'Roofing Tear off' },
-            { id: 'service-remodeling', text: 'Remodeling' },
-            { id: 'service-downsizing', text: 'Downsizing' },
+            { id: 'service-renovation', text: 'Home Renovation' },
+            { id: 'service-construction', text: 'Construction Debris' },
+            { id: 'service-yard', text: 'Yard Waste' },
+            { id: 'service-moving', text: 'Moving & Cleanouts' },
+            { id: 'service-storm', text: 'Storm Cleanup' },
+            { id: 'service-roofing', text: 'Roofing Materials' },
+            { id: 'service-concrete', text: 'Concrete & Dirt' },
+            { id: 'service-furniture', text: 'Furniture Removal' },
             { id: 'service-garage', text: 'Garage Cleanouts' },
             { id: 'service-estate', text: 'Estate Cleanouts' }
           ].map(service => (
