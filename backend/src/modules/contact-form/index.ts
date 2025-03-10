@@ -7,7 +7,6 @@ const services = [ContactFormService]
 
 const providerExport: ModuleProviderExports = {
   services,
-  module: CONTACT_FORM_SERVICE,
 }
 
 export default providerExport
