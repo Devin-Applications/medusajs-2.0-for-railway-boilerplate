@@ -4,16 +4,20 @@ import { Text, clx } from "@medusajs/ui"
 import { STORE_NAME } from "@lib/constants"
 
 import LocalizedClientLink from "@modules/common/components/localized-client-link"
-import MedusaCTA from "@modules/layout/components/medusa-cta"
+import ContactForm from "@modules/common/components/contact-form"
 
 export default async function Footer() {
-  const { collections } = await getCollectionsList(0, 6)
-  const { product_categories } = await getCategoriesList(0, 6)
+  const { collections } = await getCollectionsList()
+  const { product_categories } = await getCategoriesList()
+
+  // Slice to show only first 6 items
+  const displayCollections = collections?.slice(0, 6) || []
+  const displayCategories = product_categories?.slice(0, 6) || []
 
   return (
-    <footer className="border-t border-ui-border-base w-full">
+    <footer className="border-t border-ui-border-base">
       <div className="content-container flex flex-col w-full">
-        <div className="flex flex-col gap-y-6 xsmall:flex-row items-start justify-between py-40">
+        <div className="flex flex-col gap-y-6 xsmall:flex-row items-start justify-between py-12">
           <div>
             <LocalizedClientLink
               href="/"
@@ -21,86 +25,53 @@ export default async function Footer() {
             >
               {STORE_NAME}
             </LocalizedClientLink>
+            
+            <div className="flex flex-col mt-6">
+              <div className="flex items-center mb-2">
+                <span className="mr-2">📞</span>
+                <a href="tel:5165151951" className="text-ui-fg-subtle hover:text-ui-fg-base">
+                  (516) 515-1951
+                </a>
+              </div>
+              <div className="flex items-start mb-2">
+                <span className="mr-2">📍</span>
+                <address className="text-ui-fg-subtle not-italic">
+                  87-40 121 street<br />
+                  Richmond Hill, NY 11418
+                </address>
+              </div>
+            </div>
           </div>
-          <div className="text-small-regular gap-10 md:gap-x-16 grid grid-cols-2 sm:grid-cols-3">
-            {product_categories && product_categories?.length > 0 && (
+          
+          <div className="text-small-regular gap-10 md:gap-x-16 grid grid-cols-1 sm:grid-cols-2">
+            {displayCollections.length > 0 && (
               <div className="flex flex-col gap-y-2">
-                <span className="txt-small-plus txt-ui-fg-base">
-                  Categories
-                </span>
-                <ul
-                  className="grid grid-cols-1 gap-2"
-                  data-testid="footer-categories"
-                >
-                  {product_categories?.slice(0, 6).map((c) => {
-                    if (c.parent_category) {
-                      return
-                    }
-
-                    const children =
-                      c.category_children?.map((child) => ({
-                        name: child.name,
-                        handle: child.handle,
-                        id: child.id,
-                      })) || null
-
-                    return (
-                      <li
-                        className="flex flex-col gap-2 text-ui-fg-subtle txt-small"
-                        key={c.id}
+                <span className="txt-small-plus txt-ui-fg-base">Collections</span>
+                <ul className="grid grid-cols-1 gap-y-2 text-ui-fg-subtle txt-small">
+                  {displayCollections.map((collection) => (
+                    <li key={collection.id}>
+                      <LocalizedClientLink
+                        href={`/collections/${collection.handle}`}
+                        className="hover:text-ui-fg-base"
                       >
-                        <LocalizedClientLink
-                          className={clx(
-                            "hover:text-ui-fg-base",
-                            children && "txt-small-plus"
-                          )}
-                          href={`/categories/${c.handle}`}
-                          data-testid="category-link"
-                        >
-                          {c.name}
-                        </LocalizedClientLink>
-                        {children && (
-                          <ul className="grid grid-cols-1 ml-3 gap-2">
-                            {children &&
-                              children.map((child) => (
-                                <li key={child.id}>
-                                  <LocalizedClientLink
-                                    className="hover:text-ui-fg-base"
-                                    href={`/categories/${child.handle}`}
-                                    data-testid="category-link"
-                                  >
-                                    {child.name}
-                                  </LocalizedClientLink>
-                                </li>
-                              ))}
-                          </ul>
-                        )}
-                      </li>
-                    )
-                  })}
+                        {collection.title}
+                      </LocalizedClientLink>
+                    </li>
+                  ))}
                 </ul>
               </div>
             )}
-            {collections && collections.length > 0 && (
+            {displayCategories.length > 0 && (
               <div className="flex flex-col gap-y-2">
-                <span className="txt-small-plus txt-ui-fg-base">
-                  Collections
-                </span>
-                <ul
-                  className={clx(
-                    "grid grid-cols-1 gap-2 text-ui-fg-subtle txt-small",
-                    {
-                      "grid-cols-2": (collections?.length || 0) > 3,
-                    }
-                  )}
-                >
-                  {collections?.slice(0, 6).map((c) => (
-                    <li key={c.id}>
+                <span className="txt-small-plus txt-ui-fg-base">Categories</span>
+                <ul className="grid grid-cols-1 gap-y-2 text-ui-fg-subtle txt-small">
+                  {displayCategories.map((category) => (
+                    <li key={category.id}>
                       <LocalizedClientLink
+                        href={`/categories/${category.handle}`}
                         className="hover:text-ui-fg-base"
-                        href={`/collections/${c.handle}`}
                       >
-                        {c.title}
+                        {category.name}
                       </LocalizedClientLink>
                     </li>
                   ))}
@@ -112,37 +83,57 @@ export default async function Footer() {
               <ul className="grid grid-cols-1 gap-y-2 text-ui-fg-subtle txt-small">
                 <li>
                   <LocalizedClientLink
-                    href="/services/residential"
+                    href="/services/10-yard"
                     className="hover:text-ui-fg-base"
                   >
-                    Residential Dumpsters
+                    10' Dumpster Rental
                   </LocalizedClientLink>
                 </li>
                 <li>
                   <LocalizedClientLink
-                    href="/services/commercial"
+                    href="/services/15-yard"
                     className="hover:text-ui-fg-base"
                   >
-                    Commercial Dumpsters
+                    15' Dumpster Rental
                   </LocalizedClientLink>
                 </li>
                 <li>
                   <LocalizedClientLink
-                    href="/services/construction"
+                    href="/services/20-yard"
                     className="hover:text-ui-fg-base"
                   >
-                    Construction Debris
+                    20' Dumpster Rental
+                  </LocalizedClientLink>
+                </li>
+                <li>
+                  <LocalizedClientLink
+                    href="/services/30-yard"
+                    className="hover:text-ui-fg-base"
+                  >
+                    30' Dumpster Rental
+                  </LocalizedClientLink>
+                </li>
+                <li>
+                  <LocalizedClientLink
+                    href="/services/40-yard"
+                    className="hover:text-ui-fg-base"
+                  >
+                    40' Dumpster Rental
                   </LocalizedClientLink>
                 </li>
               </ul>
             </div>
           </div>
         </div>
+        
+        <div className="py-12 border-t border-ui-border-base">
+          <ContactForm />
+        </div>
+        
         <div className="flex w-full mb-16 justify-between text-ui-fg-muted">
           <Text className="txt-compact-small">
             © {new Date().getFullYear()} {STORE_NAME}. All rights reserved.
           </Text>
-          <MedusaCTA />
         </div>
       </div>
     </footer>
