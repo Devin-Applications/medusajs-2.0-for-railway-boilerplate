@@ -16,7 +16,7 @@ export default function ClientLayout({ children }: { children: React.ReactNode }
           <Nav />
         </Suspense>
         <main className="relative flex-grow">
-          {children}
+          <Suspense>{children}</Suspense>
         </main>
         <Suspense fallback={<div className="h-[200px] bg-white border-t border-ui-border-base" />}>
           <Footer />
