@@ -17,8 +17,8 @@ export default async function Footer() {
   return (
     <footer className="border-t border-ui-border-base">
       <div className="content-container flex flex-col w-full">
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-12 py-16 bg-white">
-          <div className="flex flex-col">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 md:gap-12 py-16 bg-white">
+          <div className="flex flex-col lg:col-span-4">
             <LocalizedClientLink
               href="/"
               className="text-2xl font-bold text-grey-90 hover:text-grey-80 uppercase mb-6"
@@ -61,8 +61,8 @@ export default async function Footer() {
             </div>
           )}
           
-          <div className="bg-grey-5 p-6 rounded-lg shadow-sm">
-            <ContactForm />
+          <div className="bg-white p-4 md:p-8 lg:p-10 rounded-lg shadow-lg border border-gray-300 lg:col-span-8">
+            <ContactForm inFooter={true} />
           </div>
         </div>
         
