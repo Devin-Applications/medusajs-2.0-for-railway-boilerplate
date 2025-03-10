@@ -74,7 +74,12 @@ class ContactFormService extends AbstractNotificationProviderService {
     return submission
   }
 
-  // No need for send() method since we're not a notification service
+  async send(
+    notification: NotificationTypes.ProviderSendNotificationDTO
+  ): Promise<NotificationTypes.ProviderSendNotificationResultsDTO> {
+    // We don't actually send notifications, just store the form data
+    return {}
+  }
 }
 
 export default ContactFormService
