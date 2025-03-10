@@ -1,0 +1,14 @@
+User-agent: *
+Allow: /
+
+# Block admin routes
+Disallow: /*/admin/
+Disallow: /*/account/
+
+# Allow all product, category, and collection pages
+Allow: /*/products/
+Allow: /*/categories/
+Allow: /*/collections/
+
+# Sitemap location
+Sitemap: https://jbsdumpster.com/sitemap.xml
