@@ -17,7 +17,7 @@ export default async function Footer() {
   return (
     <footer className="border-t border-ui-border-base">
       <div className="content-container flex flex-col w-full">
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-12 py-16 bg-white">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 md:gap-12 py-16 bg-white">
           <div className="flex flex-col">
             <LocalizedClientLink
               href="/"
@@ -61,7 +61,7 @@ export default async function Footer() {
             </div>
           )}
           
-          <div className="bg-grey-5 p-6 rounded-lg shadow-sm">
+          <div className="bg-grey-5 p-4 md:p-6 rounded-lg shadow-sm col-span-full md:col-span-2 lg:col-span-1">
             <ContactForm />
           </div>
         </div>
