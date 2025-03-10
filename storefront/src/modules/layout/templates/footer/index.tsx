@@ -17,25 +17,25 @@ export default async function Footer() {
   return (
     <footer className="border-t border-ui-border-base">
       <div className="content-container flex flex-col w-full">
-        <div className="flex flex-col gap-y-6 xsmall:flex-row items-start justify-between py-12">
-          <div>
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-12 py-16 bg-white">
+          <div className="flex flex-col">
             <LocalizedClientLink
               href="/"
-              className="txt-compact-xlarge-plus text-ui-fg-subtle hover:text-ui-fg-base uppercase"
+              className="text-2xl font-bold text-blue-800 hover:text-blue-900 uppercase mb-6"
             >
               {STORE_NAME}
             </LocalizedClientLink>
             
-            <div className="flex flex-col mt-6">
-              <div className="flex items-center mb-2">
-                <span className="mr-2">📞</span>
-                <a href="tel:5165151951" className="text-ui-fg-subtle hover:text-ui-fg-base">
+            <div className="flex flex-col gap-4">
+              <div className="flex items-center">
+                <span className="w-8 h-8 flex items-center justify-center bg-blue-100 rounded-full mr-3">📞</span>
+                <a href="tel:5165151951" className="text-gray-700 hover:text-blue-800 font-medium">
                   (516) 515-1951
                 </a>
               </div>
-              <div className="flex items-start mb-2">
-                <span className="mr-2">📍</span>
-                <address className="text-ui-fg-subtle not-italic">
+              <div className="flex items-start">
+                <span className="w-8 h-8 flex items-center justify-center bg-blue-100 rounded-full mr-3">📍</span>
+                <address className="text-gray-700 not-italic">
                   87-40 121 street<br />
                   Richmond Hill, NY 11418
                 </address>
@@ -43,32 +43,30 @@ export default async function Footer() {
             </div>
           </div>
           
-          <div className="text-small-regular gap-10 md:gap-x-16 grid grid-cols-1 sm:grid-cols-2">
-            {displayCollections.length > 0 && (
-              <div className="flex flex-col gap-y-2">
-                <span className="txt-small-plus txt-ui-fg-base">Collections</span>
-                <ul className="grid grid-cols-1 gap-y-2 text-ui-fg-subtle txt-small">
-                  {displayCollections.map((collection) => (
-                    <li key={collection.id}>
-                      <LocalizedClientLink
-                        href={`/collections/${collection.handle}`}
-                        className="hover:text-ui-fg-base"
-                      >
-                        {collection.title}
-                      </LocalizedClientLink>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            )}
+          {displayCollections.length > 0 && (
+            <div className="flex flex-col">
+              <h3 className="text-xl font-semibold text-blue-800 mb-6">Collections</h3>
+              <ul className="grid grid-cols-1 gap-3">
+                {displayCollections.map((collection) => (
+                  <li key={collection.id}>
+                    <LocalizedClientLink
+                      href={`/collections/${collection.handle}`}
+                      className="text-gray-600 hover:text-blue-800 transition-colors"
+                    >
+                      {collection.title}
+                    </LocalizedClientLink>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          )}
+          
+          <div className="bg-gray-50 p-6 rounded-lg shadow-sm">
+            <ContactForm />
           </div>
         </div>
         
-        <div className="py-12 border-t border-ui-border-base">
-          <ContactForm />
-        </div>
-        
-        <div className="flex w-full mb-16 justify-between text-ui-fg-muted">
+        <div className="flex w-full mb-16 justify-between text-ui-fg-muted border-t border-ui-border-base pt-6">
           <Text className="txt-compact-small">
             © {new Date().getFullYear()} {STORE_NAME}. All rights reserved.
           </Text>

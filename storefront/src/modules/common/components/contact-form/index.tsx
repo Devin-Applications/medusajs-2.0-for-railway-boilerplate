@@ -40,41 +40,50 @@ const ContactForm = () => {
   }
 
   return (
-    <div className="w-full max-w-lg mx-auto">
-      <h3 className="text-xl font-semibold mb-4 text-center">Contact Us</h3>
+    <div className="w-full">
+      <h3 className="text-xl font-semibold text-blue-800 mb-6 text-center">Contact Us</h3>
       
       {formSuccess ? (
         <div className="bg-green-50 p-4 rounded-md text-green-800 text-center mb-4">
           Thank you for your message! We'll get back to you soon.
         </div>
       ) : (
-        <form onSubmit={handleSubmit} className="space-y-4">
-          <Input 
-            label="Name" 
-            name="name" 
-            required 
-          />
-          <Input 
-            label="Email" 
-            name="email" 
-            type="email" 
-            required 
-          />
-          <Input 
-            label="Phone" 
-            name="phone" 
-            type="tel" 
-            required 
-          />
-          <ServiceSelect 
-            name="service" 
-            required 
-          />
+        <form onSubmit={handleSubmit} className="space-y-5">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+            <Input 
+              label="Name" 
+              name="name" 
+              required 
+              className="bg-white focus:border-blue-500"
+            />
+            <Input 
+              label="Email" 
+              name="email" 
+              type="email" 
+              required 
+              className="bg-white focus:border-blue-500"
+            />
+          </div>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+            <Input 
+              label="Phone" 
+              name="phone" 
+              type="tel" 
+              required 
+              className="bg-white focus:border-blue-500"
+            />
+            <ServiceSelect 
+              name="service" 
+              required 
+              className="bg-white focus:border-blue-500"
+            />
+          </div>
           <TextArea 
             label="Message" 
             name="message" 
             rows={4} 
             required 
+            className="bg-white focus:border-blue-500"
           />
           
           {formError && (
@@ -85,7 +94,7 @@ const ContactForm = () => {
             <Button 
               type="submit" 
               isLoading={isSubmitting}
-              className="bg-blue-600 hover:bg-blue-700 text-white"
+              className="bg-blue-700 hover:bg-blue-800 text-white px-6 py-2 rounded-md"
             >
               Send Message
             </Button>
