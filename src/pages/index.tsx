@@ -396,76 +396,24 @@ function Content({ isEdit, edits }: { isEdit: boolean; edits: FieldEdit[] }) {
             Our Service Areas
           </Malleable>
 
-          <Malleable id="georgia-areas-heading" as="h3" isActive={isEdit} edits={edits}>
-            Georgia Service Areas
+          <Malleable id="nyc-areas-heading" as="h3" isActive={isEdit} edits={edits}>
+            NYC Service Areas
           </Malleable>
-
-          <Malleable id="georgia-areas-list" as="div" isActive={isEdit} edits={edits}>
-            <ul>
-              <li>Acworth</li>
-              <li>Adairsville</li>
-              <li>Alpharetta</li>
-              <li>Aragon</li>
-              <li>Atlanta</li>
-              <li>Austell</li>
-              <li>Ballgound</li>
-              <li>Canton</li>
-              <li>Cartersville</li>
-              <li>Cumming</li>
-              <li>Dallas</li>
-              <li>Douglasville</li>
-              <li>Dunwoody</li>
-              <li>Ellijay</li>
-              <li>Fairburn</li>
-              <li>Jasper</li>
-              <li>Kennesaw</li>
-              <li>Lithia Springs</li>
-              <li>Mableton</li>
-              <li>Marietta</li>
-              <li>Powder Springs</li>
-              <li>Rockmart</li>
-              <li>Rome</li>
-              <li>Roswell</li>
-              <li>Sandy Springs</li>
-              <li>Taylorsville</li>
-              <li>Temple</li>
-              <li>Woodstock</li>
-              <li>White</li>
-            </ul>
-        </Malleable>
-
-        <Malleable id="nc-areas-heading" as="h3" isActive={isEdit} edits={edits}>
-          North Carolina Service Areas
-        </Malleable>
-
-        <Malleable id="nc-areas-list" as="div" isActive={isEdit} edits={edits}>
-            <ul>
-              <li>Bessemer City</li>
-              <li>Belmont</li>
-              <li>Charlotte</li>
-              <li>Concord</li>
-              <li>Dallas</li>
-              <li>Davidson</li>
-              <li>Fort Mill</li>
-              <li>Gastonia</li>
-              <li>Harrisburg</li>
-              <li>Huntersville</li>
-              <li>Indian Trail</li>
-              <li>Kannapolis</li>
-              <li>Lake Wylie</li>
-              <li>Lowell</li>
-              <li>Matthews</li>
-              <li>Midland</li>
-              <li>Mint Hill</li>
-              <li>Monroe</li>
-              <li>Mooresville</li>
-              <li>Pineville</li>
-              <li>Stallings</li>
-              <li>Tega Cay</li>
-              <li>Waxhaw</li>
-              <li>Wesley Chapel</li>
-            </ul>
-        </Malleable>
+          
+          <ul className="areas-list">
+            <Malleable id="area-queens" as="li" isActive={isEdit} edits={edits}>
+              Queens
+            </Malleable>
+            <Malleable id="area-manhattan" as="li" isActive={isEdit} edits={edits}>
+              Manhattan
+            </Malleable>
+            <Malleable id="area-brooklyn" as="li" isActive={isEdit} edits={edits}>
+              Brooklyn
+            </Malleable>
+            <Malleable id="area-bronx" as="li" isActive={isEdit} edits={edits}>
+              Bronx
+            </Malleable>
+          </ul>
         </section>
 
         <section className="need-dumpster">
