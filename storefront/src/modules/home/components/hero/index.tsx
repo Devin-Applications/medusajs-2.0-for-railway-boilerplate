@@ -2,30 +2,10 @@
 
 import { Button, Heading } from "@medusajs/ui"
 import LocalizedClientLink from "@modules/common/components/localized-client-link"
-import { useState } from "react"
-import Input from "@modules/common/components/input"
-import { AREA_PHONE_NUMBERS, ServiceArea, getAreaFromPincode } from "@lib/area-constants"
-import AreaSelect from "@modules/common/components/area-select"
+import { AREA_PHONE_NUMBERS } from "@lib/area-constants"
 
 const Hero = () => {
-  const [selectedArea, setSelectedArea] = useState<ServiceArea>("")
-  const [phoneNumber, setPhoneNumber] = useState<(typeof AREA_PHONE_NUMBERS)[ServiceArea]>(AREA_PHONE_NUMBERS[""])
-  const [pincode, setPincode] = useState("")
-
-  const handlePincodeChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const newPincode = e.target.value
-    setPincode(newPincode)
-    const area = getAreaFromPincode(newPincode)
-    setSelectedArea(area)
-    setPhoneNumber(AREA_PHONE_NUMBERS[area] || AREA_PHONE_NUMBERS[""])
-  }
-
-  const handleAreaChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
-    const area = e.target.value as ServiceArea
-    setSelectedArea(area)
-    setPhoneNumber(AREA_PHONE_NUMBERS[area] || AREA_PHONE_NUMBERS[""])
-    setPincode("")
-  }
+  const phoneNumber = AREA_PHONE_NUMBERS[""] // Default phone number
 
   return (
     <div className="h-[85vh] w-full border-b border-ui-border-base relative bg-grey-5">
@@ -47,24 +27,6 @@ const Hero = () => {
             Get the dumpster you need fast and at an affordable price! Serving Queens, Manhattan, Brooklyn, and Bronx with same-day delivery available.
           </p>
         </span>
-        <div className="flex flex-col gap-4 w-full max-w-md mx-auto mb-6">
-          <Input
-            label="Enter Your Pincode"
-            name="pincode"
-            type="text"
-            pattern="[0-9]{5}"
-            maxLength={5}
-            value={pincode}
-            onChange={handlePincodeChange}
-            className="bg-white text-grey-90"
-          />
-          <AreaSelect
-            placeholder="Select Your Area"
-            onChange={handleAreaChange}
-            value={selectedArea}
-            className="bg-white text-grey-90"
-          />
-        </div>
         <div className="flex flex-col sm:flex-row gap-4 justify-center">
           <Button variant="primary" size="large" className="bg-grey-90 hover:bg-grey-80 px-8 py-3" asChild>
             <LocalizedClientLink href="/services">View Services</LocalizedClientLink>
