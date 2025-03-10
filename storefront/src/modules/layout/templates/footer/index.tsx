@@ -5,6 +5,7 @@ import { STORE_NAME } from "@lib/constants"
 
 import LocalizedClientLink from "@modules/common/components/localized-client-link"
 import ContactForm from "@modules/common/components/contact-form"
+import FooterContact from "../../components/footer-contact"
 
 export default async function Footer() {
   const { collections } = await getCollectionsList()
@@ -27,12 +28,7 @@ export default async function Footer() {
             </LocalizedClientLink>
             
             <div className="flex flex-col gap-4">
-              <div className="flex items-center">
-                <span className="w-8 h-8 flex items-center justify-center bg-grey-10 rounded-full mr-3">📞</span>
-                <a href="tel:5165151951" className="text-grey-60 hover:text-grey-90 font-medium transition-colors">
-                  (516) 515-1951
-                </a>
-              </div>
+              <FooterContact />
               <div className="flex items-start">
                 <span className="w-8 h-8 flex items-center justify-center bg-grey-10 rounded-full mr-3">📍</span>
                 <address className="text-grey-60 not-italic">
