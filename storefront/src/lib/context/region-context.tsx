@@ -32,13 +32,16 @@ export const RegionProvider = ({ children, onOpenModal }: RegionProviderProps) =
         // Validate stored region against current config
         if (regions.some(r => r.name === parsedRegion.name)) {
           setSelectedRegion(parsedRegion)
+          setHasVisited(true)
         }
       }
-      if (!storedHasVisited) {
-        onOpenModal() // Show modal for first-time visitors
+      
+      if (!storedHasVisited || !storedRegion) {
+        onOpenModal() // Show modal for first-time visitors or those without a region
       }
     } catch (error) {
       console.error("Error reading from localStorage:", error)
+      onOpenModal() // Show modal if there's any error reading from localStorage
     }
   }, [onOpenModal])
 
