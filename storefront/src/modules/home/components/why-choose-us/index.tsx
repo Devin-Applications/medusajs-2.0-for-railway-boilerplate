@@ -35,13 +35,13 @@ const WhyChooseUs = () => {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           {benefits.map((benefit) => (
             <div key={benefit.id} className="flex flex-col p-8 bg-white rounded-lg shadow-sm hover:shadow-md transition-shadow min-h-[250px]">
-              <div className="flex items-center mb-6">
-                <span className="text-4xl mr-4 bg-grey-10 w-14 h-14 flex items-center justify-center rounded-full">{benefit.icon}</span>
-                <Heading level="h3" className="text-2xl font-semibold text-grey-90">
+              <div className="flex items-center mb-8">
+                <span className="text-5xl mr-6 bg-grey-5 w-16 h-16 flex items-center justify-center rounded-full shadow-sm">{benefit.icon}</span>
+                <Heading level="h3" className="text-2xl font-bold text-grey-90">
                   {benefit.title}
                 </Heading>
               </div>
-              <Text className="text-grey-60 text-lg">
+              <Text className="text-grey-60 text-lg leading-relaxed">
                 {benefit.description}
               </Text>
             </div>
