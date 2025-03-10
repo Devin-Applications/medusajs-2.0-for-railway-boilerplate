@@ -3,7 +3,7 @@ import ContactFormService from './service'
 
 const services = [ContactFormService]
 
-export const CONTACT_FORM_SERVICE = 'contact-form'
+export const CONTACT_FORM_SERVICE = 'contact-form-service'
 
 const providerExport: ModuleProviderExports = {
   services,
