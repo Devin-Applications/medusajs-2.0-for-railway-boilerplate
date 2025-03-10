@@ -1,7 +1,7 @@
 import { EntityManager } from "@mikro-orm/core"
 import { Logger } from "@medusajs/framework/types"
 import { MedusaError } from "@medusajs/framework/utils"
-import { BaseService } from "@medusajs/framework/utils"
+import { TransactionBaseService } from "@medusajs/medusa"
 import { ContactFormSubmission } from "./entity"
 
 type InjectedDependencies = {
@@ -18,7 +18,7 @@ export interface ContactFormSubmissionDTO {
   message: string
 }
 
-class ContactFormService extends BaseService {
+class ContactFormService extends TransactionBaseService {
   static identifier = 'contact-form'
   protected readonly logger_: Logger
   protected readonly manager_: EntityManager
