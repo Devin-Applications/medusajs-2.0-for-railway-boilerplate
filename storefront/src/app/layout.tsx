@@ -1,7 +1,6 @@
 import "styles/globals.css"
 import { Metadata } from "next"
 import { getBaseURL } from "@lib/util/env"
-import { Suspense } from "react"
 
 export const metadata: Metadata = {
   metadataBase: new URL(getBaseURL()),
@@ -20,9 +19,7 @@ export const metadata: Metadata = {
 export default function RootLayout(props: { children: React.ReactNode }) {
   return (
     <html lang="en" data-mode="light">
-      <body>
-        <Suspense>{props.children}</Suspense>
-      </body>
+      <body>{props.children}</body>
     </html>
   )
 }
