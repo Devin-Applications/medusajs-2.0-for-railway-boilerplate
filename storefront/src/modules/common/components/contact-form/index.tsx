@@ -21,8 +21,7 @@ const ContactForm = () => {
     try {
       const response = await fetch("/api/contact", {
         method: "POST",
-        body: formData,
-        credentials: "same-origin"
+        body: formData
       })
 
       if (!response.ok) {
