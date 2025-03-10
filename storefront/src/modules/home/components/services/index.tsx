@@ -1,15 +1,22 @@
+"use client"
+
 import { Heading, Text, Button } from "@medusajs/ui"
 import LocalizedClientLink from "../../../../modules/common/components/localized-client-link"
-import React from "react"
+import React, { useState } from "react"
 import Image from "next/image"
+import useToggleState from "@lib/hooks/use-toggle-state"
+import PhonePopup from "./phone-popup"
 
 const Services = () => {
+  const { state: isPhonePopupOpen, open: openPhonePopup, close: closePhonePopup } = useToggleState(false)
+  const [selectedService, setSelectedService] = useState("")
+
   const services = [
     {
       id: "10-yard",
       title: "10 Yard Dumpster",
       description: "Perfect for small home projects",
-      details: ["1.5 Tons of Disposal Included", "Holds approx. 3 pickup truck loads", "$399 - 14 Day Rental"],
+      details: ["Holds approx. 3 pickup truck loads"],
       image: "/images/dumpster.jpg",
       link: "/services/10-yard",
     },
@@ -17,7 +24,7 @@ const Services = () => {
       id: "15-yard",
       title: "15 Yard Dumpster",
       description: "Ideal for medium renovation projects",
-      details: ["2 Tons of Disposal Included", "Holds approx. 4 pickup truck loads", "$450 - 14 Day Rental"],
+      details: ["Holds approx. 4 pickup truck loads"],
       image: "/images/dumpster.jpg",
       link: "/services/15-yard",
     },
@@ -25,7 +32,7 @@ const Services = () => {
       id: "20-yard",
       title: "20 Yard Dumpster",
       description: "Great for large home cleanouts",
-      details: ["3 Tons of Disposal Included", "Holds approx. 6 pickup truck loads", "$499 - 14 Day Rental"],
+      details: ["Holds approx. 6 pickup truck loads"],
       image: "/images/dumpster.jpg",
       link: "/services/20-yard",
     },
@@ -33,7 +40,7 @@ const Services = () => {
       id: "30-yard",
       title: "30 Yard Dumpster",
       description: "Perfect for construction projects",
-      details: ["5 Tons of Disposal Included", "Holds approx. 10 pickup truck loads", "$575 - 14 Day Rental"],
+      details: ["Holds approx. 10 pickup truck loads"],
       image: "/images/dumpster.jpg",
       link: "/services/30-yard",
     },
@@ -41,14 +48,14 @@ const Services = () => {
       id: "40-yard",
       title: "40 Yard Dumpster",
       description: "Ideal for commercial projects",
-      details: ["5 Tons of Disposal Included", "Holds approx. 14 pickup truck loads", "$699 - 14 Day Rental"],
+      details: ["Holds approx. 14 pickup truck loads"],
       image: "/images/dumpster.jpg",
       link: "/services/40-yard",
     },
   ]
 
   return (
-    <div className="py-16 bg-white">
+    <div id="services" className="py-16 bg-white">
       <div className="content-container">
         <div className="flex flex-col items-center text-center mb-12 sm:mb-16 px-4">
           <Heading level="h2" className="text-3xl sm:text-4xl font-bold mb-4 sm:mb-5 text-grey-90">
@@ -88,16 +95,22 @@ const Services = () => {
                     </li>
                   ))}
                 </ul>
-                <Button variant="secondary" className="w-full bg-orange-500 text-white hover:bg-orange-600 transition-all py-4 px-6 text-base font-semibold rounded-lg shadow hover:shadow-lg active:transform active:scale-[0.98]" asChild>
-                  <LocalizedClientLink href={service.link}>
-                    Book Now
-                  </LocalizedClientLink>
+                <Button 
+                  variant="secondary" 
+                  className="w-full bg-orange-500 text-white hover:bg-orange-600 transition-all py-4 px-6 text-base font-semibold rounded-lg shadow hover:shadow-lg active:transform active:scale-[0.98]" 
+                  onClick={() => {
+                    setSelectedService(service.id)
+                    openPhonePopup()
+                  }}
+                >
+                  Book Now
                 </Button>
               </div>
             </div>
           ))}
         </div>
       </div>
+      <PhonePopup isOpen={isPhonePopupOpen} close={closePhonePopup} />
     </div>
   )
 }
