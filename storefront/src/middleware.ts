@@ -97,7 +97,7 @@ export async function middleware(request: NextRequest) {
   // Skip middleware and auth checks in development
   if (process.env.SKIP_MIDDLEWARE === 'true' || process.env.NODE_ENV === 'development') {
     const response = NextResponse.next()
-    response.headers.set('x-publishable-api-key', 'test')
+    response.headers.set('x-publishable-api-key', 'pk_01HT2YKBJ2VXHQQ8KRKR0MSRK1')
     return response
   }
 
