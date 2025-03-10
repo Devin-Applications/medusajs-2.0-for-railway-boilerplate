@@ -29,7 +29,8 @@ const ContactForm = () => {
       }
 
       setFormSuccess(true)
-      e.currentTarget.reset()
+      const form = e.target as HTMLFormElement
+      form.reset()
     } catch (error) {
       setFormError("An error occurred. Please try again.")
       console.error("Form submission error:", error)
