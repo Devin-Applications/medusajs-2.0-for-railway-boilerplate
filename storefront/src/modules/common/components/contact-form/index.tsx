@@ -5,28 +5,13 @@ import React, { useState } from "react"
 import Input from "../input"
 import TextArea from "../textarea"
 import ServiceSelect from "../service-select"
-import AreaSelect from "../area-select"
-import { AREA_PHONE_NUMBERS, ServiceArea, getAreaFromPincode } from "../../../../lib/area-constants"
+import { AREA_PHONE_NUMBERS } from "../../../../lib/area-constants"
 
 const ContactForm = () => {
   const [isSubmitting, setIsSubmitting] = useState(false)
   const [formSuccess, setFormSuccess] = useState(false)
   const [formError, setFormError] = useState<string | null>(null)
-  const [selectedArea, setSelectedArea] = useState<ServiceArea>("")
-  const [phoneNumber, setPhoneNumber] = useState<(typeof AREA_PHONE_NUMBERS)[ServiceArea]>(AREA_PHONE_NUMBERS[""])
-
-  const handlePincodeChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const pincode = e.target.value
-    const area = getAreaFromPincode(pincode)
-    setSelectedArea(area)
-    setPhoneNumber(AREA_PHONE_NUMBERS[area] || AREA_PHONE_NUMBERS[""])
-  }
-
-  const handleAreaChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
-    const area = e.target.value as ServiceArea
-    setSelectedArea(area)
-    setPhoneNumber(AREA_PHONE_NUMBERS[area] || AREA_PHONE_NUMBERS[""])
-  }
+  const phoneNumber = AREA_PHONE_NUMBERS[""] // Default phone number
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault()
@@ -48,8 +33,6 @@ const ContactForm = () => {
       setFormSuccess(true)
       const form = e.target as HTMLFormElement
       form.reset()
-      setSelectedArea("")
-      setPhoneNumber(AREA_PHONE_NUMBERS[""])
     } catch (error) {
       setFormError("An error occurred. Please try again.")
       console.error("Form submission error:", error)
@@ -100,7 +83,7 @@ const ContactForm = () => {
               className="bg-white focus:border-grey-90"
             />
           </div>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
             <Input 
               label="Address" 
               name="address" 
@@ -114,14 +97,6 @@ const ContactForm = () => {
               maxLength={5}
               required
               className="bg-white focus:border-grey-90"
-              onChange={handlePincodeChange}
-            />
-            <AreaSelect 
-              name="area" 
-              required 
-              className="bg-white focus:border-grey-90"
-              onChange={handleAreaChange}
-              value={selectedArea}
             />
           </div>
           <TextArea 
