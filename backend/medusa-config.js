@@ -130,7 +130,7 @@ const medusaConfig = {
       },
     }] : []),
     {
-      key: 'contact_form',
+      key: 'contact-form',
       resolve: './src/modules/contact-form',
       options: {}
     }
