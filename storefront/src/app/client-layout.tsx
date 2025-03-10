@@ -5,10 +5,12 @@ import { Providers } from "../lib/context/providers"
 
 export default function ClientLayout({ children }: { children: React.ReactNode }) {
   return (
-    <Providers>
-      <main className="relative">
-        {children}
-      </main>
-    </Providers>
+    <div className="flex min-h-screen flex-col">
+      <Providers>
+        <main className="relative flex-grow">
+          {children}
+        </main>
+      </Providers>
+    </div>
   )
 }
