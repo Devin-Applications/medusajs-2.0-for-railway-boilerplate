@@ -19,9 +19,10 @@ const ContactForm = () => {
     const formData = new FormData(e.currentTarget)
     
     try {
-      const response = await fetch(`/${window.location.pathname.split('/')[1]}/api/contact`, {
+      const response = await fetch("/api/contact", {
         method: "POST",
-        body: formData
+        body: formData,
+        credentials: "same-origin"
       })
 
       if (!response.ok) {
