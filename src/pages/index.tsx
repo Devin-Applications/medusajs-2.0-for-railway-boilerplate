@@ -80,10 +80,10 @@ export default function Home(props) {
   return (
     <>
       <Head>
-        <title>Prime Dumpster Rental Services</title>
+        <title>JBS Builder LIC Dumpster Rental Services</title>
         <meta
           name="description"
-          content="Get the dumpster you need fast and at an affordable price! Serving Georgia and North Carolina."
+          content="Get the dumpster you need fast and at an affordable price! Serving Queens, Manhattan, Brooklyn, and Bronx."
         ></meta>
       </Head>
       {currentError && (
@@ -147,7 +147,7 @@ function Content({ isEdit, edits }: { isEdit: boolean; edits: FieldEdit[] }) {
     <>
       <div className="top-bar">
         <Malleable id="top-phone" as="div" isActive={isEdit} edits={edits}>
-          <a href="tel:4702409411">(470) 240-9411</a>
+          <a href="tel:5165151951">(516) 515-1951</a>
         </Malleable>
         <Malleable id="top-cart" as="div" isActive={isEdit} edits={edits}>
           <a href="/my-cart">0 Items</a>
@@ -157,7 +157,7 @@ function Content({ isEdit, edits }: { isEdit: boolean; edits: FieldEdit[] }) {
       <header>
         <Malleable id="logo-link" as="div" isActive={isEdit} edits={edits}>
           <a href="/">
-            <img src="/images/logo.png" alt="Prime Dumpster Rental Services" />
+            <img src="/images/logo.png" alt="JBS Builder LIC Dumpster Rental Services" />
           </a>
         </Malleable>
         <nav>
@@ -183,15 +183,15 @@ function Content({ isEdit, edits }: { isEdit: boolean; edits: FieldEdit[] }) {
       
       <div className="hero">
         <Malleable id="main-heading" as="h1" isActive={isEdit} edits={edits}>
-          Prime Dumpster Rental Services
+          JBS Builder LIC Dumpster Rental Services
         </Malleable>
         
         <Malleable id="main-subheading" as="div" isActive={isEdit} edits={edits}>
-          Get the dumpster you need fast and at an affordable price! Serving Georgia and North Carolina.
+          Get the dumpster you need fast and at an affordable price! Serving Queens, Manhattan, Brooklyn, and Bronx.
         </Malleable>
         
         <Malleable id="call-to-action" as="div" isActive={isEdit} edits={edits}>
-          <a href="tel:4702409411" className="call-to-action">CALL TODAY (470) 240-9411</a>
+          <a href="tel:5165151951" className="call-to-action">CALL TODAY (516) 515-1951</a>
         </Malleable>
       </div>
       
@@ -352,7 +352,7 @@ function Content({ isEdit, edits }: { isEdit: boolean; edits: FieldEdit[] }) {
         
         <section className="why-choose-us">
           <Malleable id="why-choose-us-heading" as="h2" isActive={isEdit} edits={edits}>
-            Why Choose Prime Dumpster Rental?
+            Why Choose JBS Builder LIC Dumpster Rental?
           </Malleable>
           
           <div className="reasons-grid">
