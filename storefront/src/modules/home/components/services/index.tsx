@@ -1,15 +1,24 @@
 import { Heading, Text, Button } from "@medusajs/ui"
 import LocalizedClientLink from "../../../../modules/common/components/localized-client-link"
 import React from "react"
+import Image from "next/image"
 
 const Services = () => {
   const services = [
+    {
+      id: "10-yard",
+      title: "10 Yard Dumpster",
+      description: "Holds approx. 3 pickup truck loads",
+      details: ["1.5 Tons of Disposal Included", "$399 - 14 Day Rental"],
+      image: "/images/dumpster.jpg",
+      link: "/services/10-yard",
+    },
     {
       id: "15-yard",
       title: "15 Yard Dumpster",
       description: "Holds approx. 4 pickup truck loads",
       details: ["2 Tons of Disposal Included", "$450 - 14 Day Rental"],
-      image: "🗑️",
+      image: "/images/dumpster.jpg",
       link: "/services/15-yard",
     },
     {
@@ -17,7 +26,7 @@ const Services = () => {
       title: "20 Yard Dumpster",
       description: "Holds approx. 6 pickup truck loads",
       details: ["3 Tons of Disposal Included", "$499 - 14 Day Rental"],
-      image: "🗑️",
+      image: "/images/dumpster.jpg",
       link: "/services/20-yard",
     },
     {
@@ -25,7 +34,7 @@ const Services = () => {
       title: "30 Yard Dumpster",
       description: "Holds approx. 10 pickup truck loads",
       details: ["5 Tons of Disposal Included", "$575 - 14 Day Rental"],
-      image: "🗑️",
+      image: "/images/dumpster.jpg",
       link: "/services/30-yard",
     },
     {
@@ -33,7 +42,7 @@ const Services = () => {
       title: "40 Yard Dumpster",
       description: "Holds approx. 14 pickup truck loads",
       details: ["5 Tons of Disposal Included", "$699 - 14 Day Rental"],
-      image: "🗑️",
+      image: "/images/dumpster.jpg",
       link: "/services/40-yard",
     },
   ]
@@ -53,8 +62,13 @@ const Services = () => {
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 px-4 sm:px-0">
           {services.map((service) => (
             <div key={service.id} className="flex flex-col bg-white rounded-lg overflow-hidden shadow-sm hover:shadow-lg transition-all transform hover:scale-[1.02]">
-              <div className="h-32 sm:h-48 bg-grey-5 flex items-center justify-center">
-                <span className="text-6xl sm:text-8xl">{service.image}</span>
+              <div className="h-32 sm:h-48 bg-grey-5 flex items-center justify-center relative overflow-hidden">
+                <Image 
+                  src={service.image} 
+                  alt={service.title} 
+                  fill 
+                  className="object-cover"
+                />
               </div>
               <div className="p-4 sm:p-6">
                 <Heading level="h3" className="text-xl sm:text-2xl font-semibold mb-3 sm:mb-4 text-grey-90">
