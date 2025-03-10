@@ -50,14 +50,14 @@ const Services = () => {
           </Text>
         </div>
         
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
           {services.map((service) => (
-            <div key={service.id} className="flex flex-col border border-ui-border-base rounded-lg overflow-hidden shadow-sm hover:shadow-md transition-shadow">
-              <div className="h-48 bg-grey-10 flex items-center justify-center">
-                <span className="text-7xl">{service.image}</span>
+            <div key={service.id} className="flex flex-col bg-white rounded-lg overflow-hidden shadow-sm hover:shadow-lg transition-all transform hover:scale-[1.02]">
+              <div className="h-48 bg-grey-5 flex items-center justify-center">
+                <span className="text-8xl">{service.image}</span>
               </div>
-              <div className="p-8">
-                <Heading level="h3" className="text-2xl font-semibold mb-3 text-grey-90">
+              <div className="p-6">
+                <Heading level="h3" className="text-2xl font-semibold mb-4 text-grey-90">
                   {service.title}
                 </Heading>
                 <Text className="text-grey-60 mb-6 text-lg">
@@ -71,7 +71,7 @@ const Services = () => {
                     </li>
                   ))}
                 </ul>
-                <Button variant="secondary" className="w-full text-grey-90 hover:text-grey-80 border-grey-30 hover:border-grey-50 transition-colors py-3 text-lg" asChild>
+                <Button variant="secondary" className="w-full bg-grey-90 text-white hover:bg-grey-80 transition-colors py-4 text-lg font-medium" asChild>
                   <LocalizedClientLink href={service.link}>
                     Book Now
                   </LocalizedClientLink>
