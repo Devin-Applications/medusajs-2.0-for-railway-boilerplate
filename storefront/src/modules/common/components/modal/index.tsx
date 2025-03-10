@@ -25,13 +25,13 @@ const Modal = ({
   return (
     <Dialog.Root open={isOpen} onOpenChange={close}>
       <Dialog.Portal>
-        <Dialog.Overlay className="fixed inset-0 bg-black/50 backdrop-blur-sm animate-enter" />
+        <Dialog.Overlay className="fixed inset-0 bg-black/50 backdrop-blur-sm animate-enter z-50" />
         <Dialog.Content
           data-testid={dataTestId}
           className={clx(
             "fixed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2",
             "w-full p-6 bg-white rounded-lg shadow-xl",
-            "focus:outline-none animate-enter",
+            "focus:outline-none animate-enter z-50",
             {
               "max-w-md": size === "small",
               "max-w-xl": size === "medium",
