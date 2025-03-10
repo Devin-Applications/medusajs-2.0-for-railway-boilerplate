@@ -74,16 +74,9 @@ const Title: React.FC<{ children: React.ReactNode }> = ({ children }) => {
   return (
     <Dialog.Title className="flex items-center justify-between mb-4">
       <div className="text-xl font-semibold">{children}</div>
-      <button
-        onClick={() => {
-          const closeButton = document.querySelector('[data-testid="close-modal-button"]') as HTMLButtonElement
-          if (closeButton) closeButton.click()
-        }}
-        className="rounded-full p-1 hover:bg-gray-100 transition-colors"
-        data-testid="close-modal-button"
-      >
+      <Dialog.Close className="rounded-full p-1 hover:bg-gray-100 transition-colors" data-testid="close-modal-button">
         <X size={20} />
-      </button>
+      </Dialog.Close>
     </Dialog.Title>
   )
 }
