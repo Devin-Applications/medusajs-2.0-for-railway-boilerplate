@@ -39,13 +39,14 @@ class ContactFormService extends AbstractNotificationProviderService {
       )
     }
 
+    const data = notification.data as ContactFormSubmissionDTO
     const submission = this.manager_.create(ContactFormSubmission, {
-      name: notification.data.name,
-      email: notification.data.email,
-      phone: notification.data.phone,
-      service: notification.data.service,
-      address: notification.data.address,
-      message: notification.data.message,
+      name: data.name,
+      email: data.email,
+      phone: data.phone,
+      service: data.service,
+      address: data.address,
+      message: data.message,
     })
 
     await this.manager_.persistAndFlush(submission)
