@@ -1,17 +1,9 @@
 "use client"
 
-import dynamic from "next/dynamic"
+import { Dialog, Transition } from "@headlessui/react"
 import { clx } from "@medusajs/ui"
-import React from "react"
+import React, { Fragment } from "react"
 import X from "@modules/common/icons/x"
-
-const DialogRoot = dynamic(() => import("@radix-ui/react-dialog").then(mod => mod.Root), { ssr: false })
-const DialogPortal = dynamic(() => import("@radix-ui/react-dialog").then(mod => mod.Portal), { ssr: false })
-const DialogOverlay = dynamic(() => import("@radix-ui/react-dialog").then(mod => mod.Overlay), { ssr: false })
-const DialogContent = dynamic(() => import("@radix-ui/react-dialog").then(mod => mod.Content), { ssr: false })
-const DialogTitle = dynamic(() => import("@radix-ui/react-dialog").then(mod => mod.Title), { ssr: false })
-const DialogDescription = dynamic(() => import("@radix-ui/react-dialog").then(mod => mod.Description), { ssr: false })
-const DialogClose = dynamic(() => import("@radix-ui/react-dialog").then(mod => mod.Close), { ssr: false })
 
 type ModalProps = {
   isOpen: boolean
@@ -31,51 +23,76 @@ const Modal = ({
   'data-testid': dataTestId
 }: ModalProps) => {
   return (
-    <DialogRoot open={isOpen} onOpenChange={close}>
-      <DialogPortal>
-        <DialogOverlay className="fixed inset-0 bg-black/50 backdrop-blur-sm animate-enter z-50" />
-        <DialogContent
-          data-testid={dataTestId}
-          className={clx(
-            "fixed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2",
-            "w-full p-6 bg-white rounded-lg shadow-xl",
-            "focus:outline-none animate-enter z-50",
-            {
-              "max-w-md": size === "small",
-              "max-w-xl": size === "medium",
-              "max-w-3xl": size === "large",
-              "bg-transparent shadow-none": search,
-            }
-          )}
+    <Transition appear show={isOpen} as={Fragment}>
+      <Dialog as="div" className="relative z-[75]" onClose={close}>
+        <Transition.Child
+          as={Fragment}
+          enter="ease-out duration-300"
+          enterFrom="opacity-0"
+          enterTo="opacity-100"
+          leave="ease-in duration-200"
+          leaveFrom="opacity-100"
+          leaveTo="opacity-0"
         >
-          {children}
-        </DialogContent>
-      </DialogPortal>
-    </DialogRoot>
+          <div className="fixed inset-0 bg-black/50 backdrop-blur-sm" />
+        </Transition.Child>
+
+        <div className="fixed inset-0 overflow-y-auto">
+          <div className="flex min-h-full items-center justify-center p-4 text-center">
+            <Transition.Child
+              as={Fragment}
+              enter="ease-out duration-300"
+              enterFrom="opacity-0 scale-95"
+              enterTo="opacity-100 scale-100"
+              leave="ease-in duration-200"
+              leaveFrom="opacity-100 scale-100"
+              leaveTo="opacity-0 scale-95"
+            >
+              <Dialog.Panel
+                data-testid={dataTestId}
+                className={clx(
+                  "w-full transform overflow-hidden rounded-lg bg-white p-6 text-left align-middle shadow-xl transition-all",
+                  {
+                    "max-w-md": size === "small",
+                    "max-w-xl": size === "medium",
+                    "max-w-3xl": size === "large",
+                    "bg-transparent shadow-none": search,
+                  }
+                )}
+              >
+                {children}
+              </Dialog.Panel>
+            </Transition.Child>
+          </div>
+        </div>
+      </Dialog>
+    </Transition>
   )
 }
 
 const Title: React.FC<{ children: React.ReactNode }> = ({ children }) => {
   return (
-    <DialogTitle className="flex items-center justify-between mb-4">
+    <Dialog.Title className="flex items-center justify-between mb-4">
       <div className="text-xl font-semibold">{children}</div>
-      <DialogClose asChild>
-        <button
-          className="rounded-full p-1 hover:bg-gray-100 transition-colors"
-          data-testid="close-modal-button"
-        >
-          <X size={20} />
-        </button>
-      </DialogClose>
-    </DialogTitle>
+      <button
+        onClick={() => {
+          const closeButton = document.querySelector('[data-testid="close-modal-button"]') as HTMLButtonElement
+          if (closeButton) closeButton.click()
+        }}
+        className="rounded-full p-1 hover:bg-gray-100 transition-colors"
+        data-testid="close-modal-button"
+      >
+        <X size={20} />
+      </button>
+    </Dialog.Title>
   )
 }
 
 const Description: React.FC<{ children: React.ReactNode }> = ({ children }) => {
   return (
-    <DialogDescription className="text-gray-600 mb-6">
+    <Dialog.Description className="text-gray-600 mb-6">
       {children}
-    </DialogDescription>
+    </Dialog.Description>
   )
 }
 
