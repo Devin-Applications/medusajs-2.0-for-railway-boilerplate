@@ -5,11 +5,15 @@ import React, { useState } from "react"
 import Input from "../input"
 import TextArea from "../textarea"
 import ServiceSelect from "../service-select"
+import PhoneNumber from "../phone-number"
+import { useRegion } from "@lib/context/region-context"
 
 const ContactForm = () => {
   const [isSubmitting, setIsSubmitting] = useState(false)
   const [formSuccess, setFormSuccess] = useState(false)
   const [formError, setFormError] = useState<string | null>(null)
+  const { phoneNumber } = useRegion()
+  const phoneNumberDigits = phoneNumber.replace(/\D/g, '')
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault()
@@ -44,7 +48,7 @@ const ContactForm = () => {
       <div className="w-full px-4 md:px-8">
         <h3 className="text-2xl font-semibold text-grey-90 mb-6 text-center">Contact Us</h3>
         <p className="text-grey-60 mb-8 text-center">
-          Fill out this form or call us anytime at <a href="tel:5165151951" className="text-grey-90 font-medium">(516) 515-1951</a> and we will be in touch with you shortly!
+          Fill out this form or call us anytime at <a href={`tel:${phoneNumberDigits}`} className="text-grey-90 font-medium"><PhoneNumber /></a> and we will be in touch with you shortly!
         </p>
         {formSuccess ? (
           <div className="bg-green-50 p-4 rounded-md text-green-800 text-center mb-4">
