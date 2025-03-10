@@ -2,9 +2,9 @@
 
 import { Button } from "@medusajs/ui"
 import React, { useState } from "react"
-import Input from "../input"
-import TextArea from "../textarea"
-import ServiceSelect from "../service-select"
+import InputExternalLabel from "../input-external-label"
+import TextAreaExternalLabel from "../textarea-external-label"
+import ServiceSelectExternalLabel from "../service-select-external-label"
 
 type ContactFormProps = {
   inFooter?: boolean
@@ -55,58 +55,63 @@ const ContactForm = ({ inFooter = false }: ContactFormProps) => {
             Thank you for your message! We'll get back to you soon.
           </div>
         ) : (
-          <form onSubmit={handleSubmit} className={`space-y-${inFooter ? "4" : "6"}`}>
-            <div className={`grid grid-cols-1 md:grid-cols-2 gap-${inFooter ? "4" : "6"} md:gap-${inFooter ? "6" : "8"} w-full`}>
+          <form onSubmit={handleSubmit} className={`space-y-${inFooter ? "4" : "6"} max-w-none`}>
+            <div className="grid grid-cols-1 gap-4 w-full">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                <div className="w-full">
+                  <InputExternalLabel 
+                    label="Name" 
+                    name="name" 
+                    required 
+                    className="bg-white focus:border-grey-90 w-full text-base"
+                  />
+                </div>
+                <div className="w-full">
+                  <InputExternalLabel 
+                    label="Email" 
+                    name="email" 
+                    type="email" 
+                    required 
+                    className="bg-white focus:border-grey-90 w-full text-base"
+                  />
+                </div>
+              </div>
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                <div className="w-full">
+                  <InputExternalLabel 
+                    label="Phone" 
+                    name="phone" 
+                    type="tel" 
+                    required 
+                    className="bg-white focus:border-grey-90 w-full text-base"
+                  />
+                </div>
+                <div className="w-full">
+                  <ServiceSelectExternalLabel 
+                    label="Service"
+                    name="service" 
+                    required 
+                    className="bg-white focus:border-grey-90 w-full text-base"
+                  />
+                </div>
+              </div>
               <div className="w-full">
-                <Input 
-                  label="Name" 
-                  name="name" 
-                  required 
+                <InputExternalLabel 
+                  label="Address" 
+                  name="address" 
                   className="bg-white focus:border-grey-90 w-full text-base"
                 />
               </div>
               <div className="w-full">
-                <Input 
-                  label="Email" 
-                  name="email" 
-                  type="email" 
+                <TextAreaExternalLabel 
+                  label="Message" 
+                  name="message" 
+                  rows={4} 
                   required 
                   className="bg-white focus:border-grey-90 w-full text-base"
                 />
               </div>
             </div>
-            <div className={`grid grid-cols-1 md:grid-cols-2 gap-${inFooter ? "4" : "6"} md:gap-${inFooter ? "6" : "8"} w-full`}>
-              <div className="w-full">
-                <Input 
-                  label="Phone" 
-                  name="phone" 
-                  type="tel" 
-                  required 
-                  className="bg-white focus:border-grey-90 w-full text-base"
-                />
-              </div>
-              <div className="w-full">
-                <ServiceSelect 
-                  name="service" 
-                  required 
-                  className="bg-white focus:border-grey-90 w-full text-base"
-                />
-              </div>
-            </div>
-            <div className="w-full">
-              <Input 
-                label="Address" 
-                name="address" 
-                className="bg-white focus:border-grey-90 w-full text-base"
-              />
-            </div>
-            <TextArea 
-              label="Message" 
-              name="message" 
-              rows={4} 
-              required 
-              className="bg-white focus:border-grey-90 w-full text-base"
-            />
             
             {formError && (
               <div className="bg-red-50 p-4 rounded-md text-red-800 text-center mb-4">
