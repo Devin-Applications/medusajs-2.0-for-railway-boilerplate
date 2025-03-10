@@ -1,5 +1,6 @@
 import { Heading, Text, Button } from "@medusajs/ui"
 import React from "react"
+import Image from "next/image"
 
 const CallToAction = () => {
   return (
@@ -18,8 +19,13 @@ const CallToAction = () => {
             </Button>
           </div>
           <div className="flex-1 flex justify-center mt-8 md:mt-0">
-            <div className="w-48 h-48 sm:w-64 sm:h-64 md:w-96 md:h-96 bg-grey-80 rounded-full flex items-center justify-center shadow-2xl transform hover:scale-105 transition-transform border-4 sm:border-8 md:border-12 border-grey-70">
-              <span className="text-[6rem] sm:text-[8rem] md:text-[12rem]">🗑️</span>
+            <div className="w-48 h-48 sm:w-64 sm:h-64 md:w-96 md:h-96 bg-grey-80 rounded-full flex items-center justify-center shadow-2xl transform hover:scale-105 transition-transform border-4 sm:border-8 md:border-12 border-grey-70 relative overflow-hidden">
+              <Image 
+                src="/images/dumpster.jpg" 
+                alt="Dumpster" 
+                fill 
+                className="object-cover"
+              />
             </div>
           </div>
         </div>
