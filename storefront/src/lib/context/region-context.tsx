@@ -16,21 +16,45 @@ interface RegionContextType {
 const RegionContext = createContext<RegionContextType | undefined>(undefined)
 
 export const RegionProvider = ({ children }: { children: ReactNode }) => {
-  const [selectedRegion, setSelectedRegion] = useLocalStorage<RegionConfig>(
-    "selected-region",
-    defaultRegion
-  )
-  const [hasVisited, setHasVisited] = useLocalStorage<boolean>(
-    "has-visited",
-    false
-  )
-  const [showRegionModal, setShowRegionModal] = useState(!hasVisited)
+  const [selectedRegion, setSelectedRegion] = useState<RegionConfig>(defaultRegion)
+  const [hasVisited, setHasVisited] = useState(false)
+  const [showRegionModal, setShowRegionModal] = useState(true)
+
+  useEffect(() => {
+    try {
+      const storedRegion = localStorage.getItem("selected-region")
+      const storedHasVisited = localStorage.getItem("has-visited")
+      
+      if (storedRegion) {
+        setSelectedRegion(JSON.parse(storedRegion))
+      }
+      if (storedHasVisited) {
+        setHasVisited(JSON.parse(storedHasVisited))
+        setShowRegionModal(false)
+      }
+    } catch (error) {
+      console.error("Error reading from localStorage:", error)
+    }
+  }, [])
+
+  useEffect(() => {
+    try {
+      localStorage.setItem("selected-region", JSON.stringify(selectedRegion))
+    } catch (error) {
+      console.error("Error writing to localStorage:", error)
+    }
+  }, [selectedRegion])
 
   useEffect(() => {
     if (showRegionModal === false && !hasVisited) {
       setHasVisited(true)
+      try {
+        localStorage.setItem("has-visited", JSON.stringify(true))
+      } catch (error) {
+        console.error("Error writing to localStorage:", error)
+      }
     }
-  }, [showRegionModal, hasVisited, setHasVisited])
+  }, [showRegionModal, hasVisited])
 
   const setRegionByName = (name: string) => {
     const region = regions.find((r) => r.name === name)
