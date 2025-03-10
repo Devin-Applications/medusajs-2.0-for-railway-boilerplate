@@ -9,6 +9,9 @@ export async function POST(req: NextRequest) {
       email: formData.get("email") as string,
       phone: formData.get("phone") as string,
       service: formData.get("service") as string,
+      address: formData.get("address") as string,
+      pincode: formData.get("pincode") as string,
+      area: formData.get("area") as string,
       message: formData.get("message") as string,
       created_at: new Date().toISOString(),
     }
