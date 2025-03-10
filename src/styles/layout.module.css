@@ -1,0 +1,17 @@
+.layout {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+.layout aside[role="alert"] {
+  background: #0070f3;
+  color: white;
+  padding: 0.5rem;
+  text-align: center;
+}
+
+.layout aside[role="alert"] a {
+  color: white;
+  text-decoration: underline;
+}

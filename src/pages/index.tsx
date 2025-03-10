@@ -1,4 +1,3 @@
-import S3 from 'aws-sdk/clients/s3';
 import { GetStaticProps } from 'next';
 import Head from 'next/head';
 import { useCallback, useRef, useState } from 'react';
@@ -10,57 +9,13 @@ import Snapshot from '../components/snapshot';
 import { useScrollReset } from '../hooks/use-scroll-reset';
 import layoutStyles from '../styles/layout.module.css';
 
-// Next.js automatically eliminates code used for `getStaticProps`!
-// This code (and the `aws-sdk` import) will be absent from the final client-
-// side JavaScript bundle(s).
-const s3 = new S3({
-  credentials: {
-    accessKeyId: process.env.AWS_S3_ACCESS_KEY_ID,
-    secretAccessKey: process.env.AWS_S3_SECRET_ACCESS_KEY,
-  },
-});
-
-export const getStaticProps: GetStaticProps = async ({
-  // `preview` is a Boolean, specifying whether or not the application is in
-  // "Preview Mode":
-  preview,
-  // `previewData` is only set when `preview` is `true`, and contains whatever
-  // user-specific data was set in `res.setPreviewData`. See the API endpoint
-  // that enters "Preview Mode" for more info (api/share/[snapshotId].tsx).
-  previewData,
-}) => {
-  if (preview) {
-    const { snapshotId } = previewData as { snapshotId: string };
-    try {
-      // In preview mode, we want to access the stored data from AWS S3.
-      // Imagine using this to fetch draft CMS state, etc.
-      const object = await s3
-        .getObject({
-          Bucket: process.env.AWS_S3_BUCKET,
-          Key: `${snapshotId}.json`,
-        })
-        .promise();
-
-      const contents = JSON.parse(object.Body.toString());
-      return {
-        props: { isPreview: true, snapshotId, contents },
-      };
-    } catch (e) {
-      return {
-        props: {
-          isPreview: false,
-          hasError: true,
-          message:
-            // 403 implies 404 in this case, as our IAM user has access to all
-            // objects, but the bucket itself is private.
-            e.statusCode === 403
-              ? 'The requested preview edit does not exist!'
-              : 'An error has occurred while connecting to S3. Please refresh the page to try again.',
-        },
-      };
-    }
-  }
-  return { props: { isPreview: false } };
+export const getStaticProps: GetStaticProps = async ({ preview }) => {
+  return { 
+    props: { 
+      isPreview: preview || false,
+      contents: [] // Empty array since we're storing edits in memory
+    } 
+  };
 };
 
 export default function Home(props) {
