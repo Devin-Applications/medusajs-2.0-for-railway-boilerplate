@@ -44,8 +44,8 @@ const ContactForm = ({ inFooter = false }: ContactFormProps) => {
   }
 
   return (
-    <div className={`w-full ${!inFooter ? "max-w-5xl mx-auto p-6 md:p-10 shadow-md" : ""} bg-white rounded-lg`}>
-      <div className={`w-full ${!inFooter ? "max-w-4xl mx-auto" : ""}`}>
+    <div className="w-full bg-white rounded-lg">
+      <div className="w-full">
         <h3 className="text-2xl font-semibold text-grey-90 mb-6 text-center">Contact Us</h3>
         <p className="text-grey-60 mb-8 text-center">
           Fill out this form or call us anytime at <a href="tel:5165151951" className="text-grey-90 font-medium hover:text-orange-500 transition-colors">(516) 515-1951</a> and we will be in touch with you shortly!
