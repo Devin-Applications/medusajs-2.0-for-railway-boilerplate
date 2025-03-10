@@ -9,18 +9,8 @@ export default async function Nav() {
   return (
     <div className="sticky top-0 inset-x-0 z-50 group">
       <header className="relative h-16 mx-auto border-b duration-200 bg-white border-ui-border-base shadow-sm">
-        <nav className="content-container txt-xsmall-plus text-ui-fg-subtle flex items-center justify-between w-full h-full text-small-regular">
-
+        <nav className="content-container txt-xsmall-plus text-ui-fg-subtle grid grid-cols-3 w-full h-full text-small-regular">
           <div className="flex items-center h-full">
-            <LocalizedClientLink
-              href="/"
-              className="txt-compact-xlarge-plus hover:text-orange-500 uppercase font-bold tracking-wide transition-all transform hover:scale-[1.02]"
-              data-testid="nav-store-link"
-            >
-              {STORE_NAME}
-            </LocalizedClientLink>
-          </div>
-          <div className="hidden small:flex items-center ml-6">
             <a href="tel:5165151951" className="hidden small:flex items-center gap-4 text-grey-90 hover:text-orange-500 transition-all bg-gradient-to-r from-orange-500 to-orange-600 hover:from-orange-600 hover:to-orange-700 px-8 py-4 rounded-full shadow-xl hover:shadow-2xl transform hover:scale-105">
               <div className="bg-white rounded-full p-2.5">
                 <Phone className="w-6 h-6 text-orange-500" />
@@ -35,8 +25,17 @@ export default async function Nav() {
               <span className="font-medium">(516) 515-1951</span>
             </a>
           </div>
+          <div className="flex items-center justify-center h-full">
+            <LocalizedClientLink
+              href="/"
+              className="txt-compact-xlarge-plus hover:text-orange-500 uppercase font-bold tracking-wide transition-all transform hover:scale-[1.02]"
+              data-testid="nav-store-link"
+            >
+              {STORE_NAME}
+            </LocalizedClientLink>
+          </div>
 
-          <div className="flex items-center gap-x-6 h-full flex-1 basis-0 justify-end">
+          <div className="flex items-center gap-x-6 h-full justify-end">
             <div className="hidden small:flex items-center gap-x-6 h-full">
               {process.env.NEXT_PUBLIC_FEATURE_SEARCH_ENABLED && (
                 <LocalizedClientLink
