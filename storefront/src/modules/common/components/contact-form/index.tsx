@@ -5,13 +5,13 @@ import React, { useState } from "react"
 import Input from "../input"
 import TextArea from "../textarea"
 import ServiceSelect from "../service-select"
-import { AREA_PHONE_NUMBERS } from "../../../../lib/area-constants"
+const DEFAULT_PHONE = "(516) 515-1951"
 
 const ContactForm = () => {
   const [isSubmitting, setIsSubmitting] = useState(false)
   const [formSuccess, setFormSuccess] = useState(false)
   const [formError, setFormError] = useState<string | null>(null)
-  const phoneNumber = AREA_PHONE_NUMBERS[""] // Default phone number
+  const phoneNumber = DEFAULT_PHONE
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault()
@@ -83,22 +83,11 @@ const ContactForm = () => {
               className="bg-white focus:border-grey-90"
             />
           </div>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-            <Input 
-              label="Address" 
-              name="address" 
-              className="bg-white focus:border-grey-90"
-            />
-            <Input
-              label="Pincode"
-              name="pincode"
-              type="text"
-              pattern="[0-9]{5}"
-              maxLength={5}
-              required
-              className="bg-white focus:border-grey-90"
-            />
-          </div>
+          <Input 
+            label="Address" 
+            name="address" 
+            className="bg-white focus:border-grey-90"
+          />
           <TextArea 
             label="Message" 
             name="message" 
