@@ -19,9 +19,10 @@ const ContactForm = () => {
     const formData = new FormData(e.currentTarget)
     
     try {
-      const response = await fetch("/api/contact", {
+      const response = await fetch("/dk/api/contact", {
         method: "POST",
         body: formData,
+        credentials: "same-origin"
       })
 
       if (!response.ok) {
