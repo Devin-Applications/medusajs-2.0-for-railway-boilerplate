@@ -14,7 +14,7 @@ const CallToAction = () => {
             <Text className="text-white/90 mb-6 sm:mb-8 text-base sm:text-lg max-w-xl">
               Contact us today for fast, reliable dumpster rental services in NYC. We'll help you choose the right size for your project.
             </Text>
-            <Button variant="secondary" size="large" className="bg-white text-orange-500 hover:bg-grey-5 transition-colors py-3 px-8 text-base sm:text-lg font-medium" asChild>
+            <Button variant="secondary" size="large" className="border-2 border-white text-white hover:bg-white hover:text-orange-500 transition-all transform hover:scale-105 py-3 px-8 text-base sm:text-lg font-medium shadow-lg hover:shadow-xl" asChild>
               <a href="tel:5165151951">CALL NOW: (516) 515-1951</a>
             </Button>
           </div>
