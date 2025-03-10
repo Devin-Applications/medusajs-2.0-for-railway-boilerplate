@@ -1,3 +1,5 @@
+"use client"
+
 import * as Dialog from "@radix-ui/react-dialog"
 import { clx } from "@medusajs/ui"
 import React from "react"
