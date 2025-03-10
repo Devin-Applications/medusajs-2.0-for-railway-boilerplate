@@ -1,5 +1,5 @@
 import "styles/globals.css"
-import { Providers } from "./providers"
+import { Providers } from "@lib/context/providers"
 
 export default function RootLayout(props: { children: React.ReactNode }) {
   return (
