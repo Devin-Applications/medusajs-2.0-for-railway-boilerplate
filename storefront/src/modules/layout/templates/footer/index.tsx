@@ -17,7 +17,7 @@ export default async function Footer() {
   return (
     <footer className="border-t border-ui-border-base">
       <div className="content-container flex flex-col w-full">
-        <div className="flex flex-col gap-y-6 xsmall:flex-row items-start justify-between py-12">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 py-12">
           <div>
             <LocalizedClientLink
               href="/"
@@ -43,32 +43,30 @@ export default async function Footer() {
             </div>
           </div>
           
-          <div className="text-small-regular gap-10 md:gap-x-16 grid grid-cols-1 sm:grid-cols-2">
-            {displayCollections.length > 0 && (
-              <div className="flex flex-col gap-y-2">
-                <span className="txt-small-plus txt-ui-fg-base">Collections</span>
-                <ul className="grid grid-cols-1 gap-y-2 text-ui-fg-subtle txt-small">
-                  {displayCollections.map((collection) => (
-                    <li key={collection.id}>
-                      <LocalizedClientLink
-                        href={`/collections/${collection.handle}`}
-                        className="hover:text-ui-fg-base"
-                      >
-                        {collection.title}
-                      </LocalizedClientLink>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            )}
+          {displayCollections.length > 0 && (
+            <div className="flex flex-col gap-y-2">
+              <span className="txt-small-plus txt-ui-fg-base">Collections</span>
+              <ul className="grid grid-cols-1 gap-y-2 text-ui-fg-subtle txt-small">
+                {displayCollections.map((collection) => (
+                  <li key={collection.id}>
+                    <LocalizedClientLink
+                      href={`/collections/${collection.handle}`}
+                      className="hover:text-ui-fg-base"
+                    >
+                      {collection.title}
+                    </LocalizedClientLink>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          )}
+          
+          <div>
+            <ContactForm />
           </div>
         </div>
         
-        <div className="py-12 border-t border-ui-border-base">
-          <ContactForm />
-        </div>
-        
-        <div className="flex w-full mb-16 justify-between text-ui-fg-muted">
+        <div className="flex w-full mb-16 justify-between text-ui-fg-muted border-t border-ui-border-base pt-6">
           <Text className="txt-compact-small">
             © {new Date().getFullYear()} {STORE_NAME}. All rights reserved.
           </Text>
