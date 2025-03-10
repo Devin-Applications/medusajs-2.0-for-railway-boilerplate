@@ -16,8 +16,8 @@ const nextConfig = {
   images: {
     remotePatterns: [
       {
-        protocol: "http",
-        hostname: "localhost",
+        protocol: "https",
+        hostname: process.env.NEXT_PUBLIC_MEDUSA_BACKEND_URL?.replace('https://', ''),
         
       },
       { // Note: needed to serve images from /public folder
@@ -25,8 +25,8 @@ const nextConfig = {
         hostname: 'localhost',
       },
       { // Note: only needed when using local-file for product media
-        protocol: "http",
-        hostname: "localhost",
+        protocol: "https",
+        hostname: process.env.NEXT_PUBLIC_MEDUSA_BACKEND_URL?.replace('https://', ''),
       },
       { // Note: can be removed after deleting demo products
         protocol: "https",
