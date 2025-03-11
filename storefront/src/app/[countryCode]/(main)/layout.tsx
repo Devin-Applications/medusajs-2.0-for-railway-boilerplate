@@ -1,17 +1,15 @@
-"use client"
-
 import { ReactNode } from "react"
 import dynamic from "next/dynamic"
 
-const Nav = dynamic(() => import("@modules/layout/templates/nav"), { ssr: false })
-const Footer = dynamic(() => import("@modules/layout/templates/footer"), { ssr: false })
+const ClientLayout = dynamic(() => import("./client-layout"), {
+  ssr: false,
+  loading: () => (
+    <div className="flex min-h-screen flex-col">
+      <div className="relative flex-grow">Loading...</div>
+    </div>
+  )
+})
 
 export default function PageLayout({ children }: { children: ReactNode }) {
-  return (
-    <>
-      <Nav />
-      {children}
-      <Footer />
-    </>
-  )
+  return <ClientLayout>{children}</ClientLayout>
 }
