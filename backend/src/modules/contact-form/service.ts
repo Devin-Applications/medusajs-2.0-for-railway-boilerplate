@@ -18,7 +18,7 @@ export interface ContactFormSubmissionDTO {
 }
 
 class ContactFormService {
-  static identifier = ContactFormService.name.toLowerCase()
+  static identifier = 'contact_form'
   protected readonly logger_: Logger
   protected readonly manager_: EntityManager
 
