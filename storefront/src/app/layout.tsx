@@ -2,6 +2,9 @@ import "styles/globals.css"
 import { ReactNode } from "react"
 import { Metadata } from "next"
 import { getBaseURL } from "@lib/util/env"
+import dynamic from "next/dynamic"
+
+const ClientLayout = dynamic(() => import("./client-layout"), { ssr: false })
 
 export const metadata: Metadata = {
   metadataBase: new URL(getBaseURL()),
@@ -20,7 +23,9 @@ export const metadata: Metadata = {
 export default function RootLayout({ children }: { children: ReactNode }) {
   return (
     <html lang="en" data-mode="light">
-      <body>{children}</body>
+      <body>
+        <ClientLayout>{children}</ClientLayout>
+      </body>
     </html>
   )
 }
