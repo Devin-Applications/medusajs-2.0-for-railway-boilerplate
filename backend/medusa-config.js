@@ -1,4 +1,5 @@
 import { loadEnv, Modules, defineConfig } from '@medusajs/utils';
+import ContactFormService from './src/modules/contact-form/service';
 import {
   ADMIN_CORS,
   AUTH_CORS,
@@ -127,7 +128,12 @@ const medusaConfig = {
           },
         ],
       },
-    }] : [])
+    }] : []),
+    {
+      key: 'contact_form',
+      resolve: './src/modules/contact-form',
+      options: {}
+    }
   ],
   plugins: [
   ...(MEILISEARCH_HOST && MEILISEARCH_ADMIN_KEY ? [{
