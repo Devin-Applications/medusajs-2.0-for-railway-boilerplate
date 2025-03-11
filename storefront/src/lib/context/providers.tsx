@@ -6,7 +6,7 @@ import { RegionProvider } from "./region-context"
 import { ModalProvider } from "./modal-context"
 import { MobileMenuProvider } from "./mobile-menu-context"
 
-const RegionModal = dynamic(() => import("@modules/common/components/region-modal/server"), { ssr: false })
+const RegionModal = dynamic(() => import("@modules/common/components/region-modal"), { ssr: false })
 
 const Providers = ({ children }: { children: React.ReactNode }) => {
   const [isModalOpen, setIsModalOpen] = useState(false)
