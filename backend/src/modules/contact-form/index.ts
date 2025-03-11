@@ -5,6 +5,7 @@ const services = [ContactFormService]
 
 const providerExport: ModuleProviderExports = {
   services,
+  loaders: [],
 }
 
 export default providerExport
