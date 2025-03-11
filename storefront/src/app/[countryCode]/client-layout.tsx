@@ -8,8 +8,6 @@ import { RegionProvider } from "@lib/context/region-context"
 import { MobileMenuProvider } from "@lib/context/mobile-menu-context"
 import { ModalProvider } from "@lib/context/modal-context"
 
-const Footer = dynamic(() => import("@modules/layout/templates/footer"), { ssr: false })
-const Nav = dynamic(() => import("@modules/layout/templates/nav"), { ssr: false })
 const RegionModal = dynamic(() => import("@modules/common/components/region-modal/client"), { ssr: false })
 
 export default function CountryClientLayout({ children }: { children: ReactNode }) {
@@ -21,16 +19,8 @@ export default function CountryClientLayout({ children }: { children: ReactNode 
     <MobileMenuProvider>
       <ModalProvider close={closeModal}>
         <RegionProvider onOpenModal={openModal}>
-          <div className="flex min-h-screen flex-col">
-            <Suspense fallback={<div>Loading...</div>}>
-              <Nav />
-              <main className="relative flex-grow">
-                {children}
-              </main>
-              <Footer />
-              <RegionModal isOpen={isRegionModalOpen} onClose={closeModal} />
-            </Suspense>
-          </div>
+          {children}
+          <RegionModal isOpen={isRegionModalOpen} onClose={closeModal} />
         </RegionProvider>
       </ModalProvider>
     </MobileMenuProvider>
