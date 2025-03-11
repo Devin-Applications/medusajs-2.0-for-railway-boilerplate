@@ -22,7 +22,7 @@ const RegionModal = ({ isOpen, onClose, onRegionSelect, onZipCodeSubmit }: Regio
       setTouched({ zip_code: true })
       return
     }
-    onZipCodeSubmit(zipCode)
+    onZipCodeSubmit?.(zipCode)
   }
 
   return (
@@ -72,7 +72,7 @@ const RegionModal = ({ isOpen, onClose, onRegionSelect, onZipCodeSubmit }: Regio
                       <div 
                         key={region.name}
                         className="flex flex-col items-center p-4 border rounded-lg cursor-pointer hover:border-orange-500 hover:bg-orange-50 transition-colors"
-                        onClick={() => onRegionSelect(region.name)}
+                        onClick={() => onRegionSelect?.(region.name)}
                       >
                         <div className="w-12 h-12 mb-2 bg-grey-5 rounded-full flex items-center justify-center">
                           <Image src={`/icons/${region.name.toLowerCase()}.svg`} width={32} height={32} alt={region.name} />
