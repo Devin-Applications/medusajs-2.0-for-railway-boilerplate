@@ -1,4 +1,5 @@
 import "styles/globals.css"
+import { ReactNode } from "react"
 import { Metadata } from "next"
 import { getBaseURL } from "@lib/util/env"
 
@@ -16,10 +17,10 @@ export const metadata: Metadata = {
   }
 }
 
-export default function RootLayout(props: { children: React.ReactNode }) {
+export default function RootLayout({ children }: { children: ReactNode }) {
   return (
     <html lang="en" data-mode="light">
-      <body>{props.children}</body>
+      <body>{children}</body>
     </html>
   )
 }
