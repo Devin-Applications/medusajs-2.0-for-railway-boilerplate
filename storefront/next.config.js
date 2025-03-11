@@ -18,7 +18,7 @@ const nextConfig = {
       {
         protocol: "http",
         hostname: "localhost",
-        
+        port: "8000"
       },
       { // Note: needed to serve images from /public folder
         protocol: process.env.NEXT_PUBLIC_BASE_URL?.startsWith('https') ? 'https' : 'http',
