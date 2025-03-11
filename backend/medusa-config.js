@@ -1,5 +1,5 @@
 import { loadEnv, Modules, defineConfig } from '@medusajs/utils';
-import { CONTACT_FORM_SERVICE } from './src/modules/contact-form';
+import ContactFormService from './src/modules/contact-form/service';
 import {
   ADMIN_CORS,
   AUTH_CORS,
@@ -130,7 +130,7 @@ const medusaConfig = {
       },
     }] : []),
     {
-      key: 'contact_form',
+      key: ContactFormService.identifier,
       resolve: './src/modules/contact-form',
       options: {}
     }
