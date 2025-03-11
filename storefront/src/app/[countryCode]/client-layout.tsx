@@ -8,7 +8,7 @@ import { RegionProvider } from "@lib/context/region-context"
 import { MobileMenuProvider } from "@lib/context/mobile-menu-context"
 import { ModalProvider } from "@lib/context/modal-context"
 
-const RegionModal = dynamic(() => import("@modules/common/components/region-modal/client"), { ssr: false })
+const RegionModal = dynamic(() => import("@modules/common/components/region-modal"), { ssr: false })
 
 export default function CountryClientLayout({ children }: { children: ReactNode }) {
   const [isRegionModalOpen, setIsRegionModalOpen] = useState(false)
