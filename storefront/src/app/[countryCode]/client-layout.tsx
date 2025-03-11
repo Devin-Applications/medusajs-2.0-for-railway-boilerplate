@@ -10,7 +10,7 @@ import { ModalProvider } from "@lib/context/modal-context"
 
 const Footer = dynamic(() => import("@modules/layout/templates/footer"), { ssr: false })
 const Nav = dynamic(() => import("@modules/layout/templates/nav"), { ssr: false })
-const RegionModal = dynamic(() => import("@modules/common/components/region-modal"), { ssr: false })
+const RegionModal = dynamic(() => import("@modules/common/components/region-modal/client"), { ssr: false })
 
 export default function CountryClientLayout({ children }: { children: ReactNode }) {
   const [isRegionModalOpen, setIsRegionModalOpen] = useState(false)
