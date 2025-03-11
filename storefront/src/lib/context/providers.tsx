@@ -1,6 +1,6 @@
 "use client"
 
-import React, { useState, useCallback } from "react"
+import React, { useState, useCallback, Suspense } from "react"
 import dynamic from "next/dynamic"
 import { RegionProvider } from "./region-context"
 import { ModalProvider } from "./modal-context"
@@ -19,7 +19,9 @@ const Providers = ({ children }: { children: React.ReactNode }) => {
       <ModalProvider close={closeModal}>
         <RegionProvider onOpenModal={openModal}>
           {children}
-          <RegionModal isOpen={isModalOpen} onClose={closeModal} />
+          <Suspense fallback={<div>Loading...</div>}>
+            <RegionModal isOpen={isModalOpen} onClose={closeModal} />
+          </Suspense>
         </RegionProvider>
       </ModalProvider>
     </MobileMenuProvider>
