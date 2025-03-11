@@ -18,21 +18,21 @@ export default function CountryClientLayout({ children }: { children: ReactNode 
   const openModal = useCallback(() => setIsRegionModalOpen(true), [])
 
   return (
-    <Suspense>
-      <MobileMenuProvider>
-        <ModalProvider close={closeModal}>
-          <RegionProvider onOpenModal={openModal}>
-            <div className="flex min-h-screen flex-col">
+    <MobileMenuProvider>
+      <ModalProvider close={closeModal}>
+        <RegionProvider onOpenModal={openModal}>
+          <div className="flex min-h-screen flex-col">
+            <Suspense fallback={<div>Loading...</div>}>
               <Nav />
               <main className="relative flex-grow">
                 {children}
               </main>
               <Footer />
               <RegionModal isOpen={isRegionModalOpen} onClose={closeModal} />
-            </div>
-          </RegionProvider>
-        </ModalProvider>
-      </MobileMenuProvider>
-    </Suspense>
+            </Suspense>
+          </div>
+        </RegionProvider>
+      </ModalProvider>
+    </MobileMenuProvider>
   )
 }
