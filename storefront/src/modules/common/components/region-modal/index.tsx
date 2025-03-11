@@ -1,14 +1,17 @@
 "use client"
 
 import React, { useState } from "react"
-import dynamic from "next/dynamic"
 import { Text } from "@medusajs/ui"
+import { Dialog } from "@headlessui/react"
 import ClientButton from "../client-button"
-import Modal from "../modal"
 import { useRegion } from "@lib/context/region-context"
 import { regions } from "@lib/config/regions"
 import Input from "../input"
 import Image from "next/image"
+import dynamic from "next/dynamic"
+import X from "@modules/common/icons/x"
+
+const Modal = dynamic(() => import("../modal"), { ssr: false })
 
 interface RegionModalProps {
   isOpen: boolean
@@ -50,11 +53,20 @@ const RegionModal = ({ isOpen, onClose }: RegionModalProps) => {
 
   return (
     <Modal isOpen={isOpen} close={onClose}>
-      <Modal.Title close={onClose}>Select Your Service Area</Modal.Title>
-      <Modal.Description>
+      <Dialog.Title className="flex items-center justify-between mb-4">
+        <div className="text-xl font-semibold">Select Your Service Area</div>
+        <button
+          onClick={onClose}
+          className="rounded-full p-1 hover:bg-gray-100 transition-colors"
+          data-testid="close-modal-button"
+        >
+          <X size={20} />
+        </button>
+      </Dialog.Title>
+      <Dialog.Description className="text-gray-600 mb-6">
         Please select your service area or enter your ZIP code to help us provide you with the most relevant information.
-      </Modal.Description>
-      <Modal.Body>
+      </Dialog.Description>
+      <div className="space-y-4">
         <div className="grid grid-cols-2 gap-4 mb-8">
           {regions.map((region) => (
             <div 
@@ -93,7 +105,7 @@ const RegionModal = ({ isOpen, onClose }: RegionModalProps) => {
             </div>
           </div>
         </div>
-      </Modal.Body>
+      </div>
     </Modal>
   )
 }
