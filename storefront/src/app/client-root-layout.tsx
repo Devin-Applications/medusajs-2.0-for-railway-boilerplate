@@ -1,17 +1,38 @@
 "use client"
 
-import { ReactNode } from "react"
+import { ReactNode, useState, useCallback } from "react"
+import { RegionProvider } from "@lib/context/region-context"
+import { MobileMenuProvider } from "@lib/context/mobile-menu-context"
+import { ModalProvider } from "@lib/context/modal-context"
 import dynamic from "next/dynamic"
 
-const Providers = dynamic(() => import("@lib/context/providers"), { 
-  ssr: false,
-  loading: () => (
-    <div className="flex min-h-screen flex-col">
-      <div className="relative flex-grow">Loading...</div>
-    </div>
-  )
-})
+const RegionModal = dynamic(() => import("@modules/common/components/region-modal"), { ssr: false })
 
 export default function ClientRootLayout({ children }: { children: ReactNode }) {
-  return <Providers>{children}</Providers>
+  const [isModalOpen, setIsModalOpen] = useState(false)
+  
+  const closeModal = useCallback(() => setIsModalOpen(false), [])
+  const openModal = useCallback(() => setIsModalOpen(true), [])
+
+  return (
+    <MobileMenuProvider>
+      <ModalProvider close={closeModal}>
+        <RegionProvider onOpenModal={openModal}>
+          {children}
+          <RegionModal 
+            isOpen={isModalOpen} 
+            onClose={closeModal}
+            onRegionSelect={(regionName) => {
+              closeModal()
+              // Handle region selection
+            }}
+            onZipCodeSubmit={(zipCode) => {
+              closeModal()
+              // Handle ZIP code submission
+            }}
+          />
+        </RegionProvider>
+      </ModalProvider>
+    </MobileMenuProvider>
+  )
 }
