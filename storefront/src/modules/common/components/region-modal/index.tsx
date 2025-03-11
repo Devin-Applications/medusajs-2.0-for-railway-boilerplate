@@ -49,7 +49,7 @@ const RegionModal = ({ isOpen, onClose }: RegionModalProps) => {
 
   return (
     <Modal isOpen={isOpen} close={onClose}>
-      <Modal.Title>Select Your Service Area</Modal.Title>
+      <Modal.Title close={onClose}>Select Your Service Area</Modal.Title>
       <Modal.Description>
         Please select your service area or enter your ZIP code to help us provide you with the most relevant information.
       </Modal.Description>

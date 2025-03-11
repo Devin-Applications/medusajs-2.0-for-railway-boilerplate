@@ -13,14 +13,16 @@ const ContactForm = dynamic(() => import("@modules/common/components/contact-for
 
 export default function ClientHome() {
   return (
-    <Suspense>
-      <Hero />
-      <Services />
-      <UseCases />
-      <ServiceAreas />
-      <WhyChooseUs />
-      <CallToAction />
-      <ContactForm />
+    <Suspense fallback={<div>Loading...</div>}>
+      <div className="flex flex-col gap-y-8">
+        <Hero />
+        <Services />
+        <UseCases />
+        <ServiceAreas />
+        <WhyChooseUs />
+        <CallToAction />
+        <ContactForm />
+      </div>
     </Suspense>
   )
 }
