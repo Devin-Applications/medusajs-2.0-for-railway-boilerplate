@@ -1,7 +1,7 @@
 import { ReactNode } from "react"
 import dynamic from "next/dynamic"
 
-const CountryClientLayout = dynamic(() => import("./client-layout"), { 
+const Providers = dynamic(() => import("./providers"), {
   ssr: false,
   loading: () => (
     <div className="flex min-h-screen flex-col">
@@ -13,7 +13,7 @@ const CountryClientLayout = dynamic(() => import("./client-layout"), {
 export default function CountryLayout({ children }: { children: ReactNode }) {
   return (
     <div className="flex min-h-screen flex-col">
-      <CountryClientLayout>{children}</CountryClientLayout>
+      <Providers>{children}</Providers>
     </div>
   )
 }
