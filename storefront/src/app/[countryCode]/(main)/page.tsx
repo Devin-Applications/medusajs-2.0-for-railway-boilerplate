@@ -1,11 +1,7 @@
-import { Metadata } from "next"
+"use client"
+
 import { Suspense } from "react"
 import dynamic from "next/dynamic"
-
-export const metadata: Metadata = {
-  title: "JBS Builder Lic - Dumpster Rental Services",
-  description: "Fast, reliable, and affordable dumpster rental services in Queens, Manhattan, Brooklyn, and Bronx.",
-}
 
 const Hero = dynamic(() => import("@modules/home/components/hero"), { ssr: false })
 const Services = dynamic(() => import("@modules/home/components/services"), { ssr: false })
