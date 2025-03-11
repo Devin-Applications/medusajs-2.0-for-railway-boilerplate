@@ -6,7 +6,7 @@ import { MobileMenuProvider } from "@lib/context/mobile-menu-context"
 import { ModalProvider } from "@lib/context/modal-context"
 import dynamic from "next/dynamic"
 
-const RegionModal = dynamic(() => import("@modules/common/components/region-modal"), { ssr: false })
+const RegionModal = dynamic(() => import("@modules/common/components/region-modal/server"), { ssr: false })
 
 export default function ClientRootLayout({ children }: { children: ReactNode }) {
   const [isModalOpen, setIsModalOpen] = useState(false)
@@ -22,14 +22,6 @@ export default function ClientRootLayout({ children }: { children: ReactNode }) 
           <RegionModal 
             isOpen={isModalOpen} 
             onClose={closeModal}
-            onRegionSelect={(regionName) => {
-              closeModal()
-              // Handle region selection
-            }}
-            onZipCodeSubmit={(zipCode) => {
-              closeModal()
-              // Handle ZIP code submission
-            }}
           />
         </RegionProvider>
       </ModalProvider>

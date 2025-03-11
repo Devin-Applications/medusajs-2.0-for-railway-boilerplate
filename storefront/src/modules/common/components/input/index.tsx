@@ -15,6 +15,7 @@ type InputProps = Omit<
   touched?: Record<string, unknown>
   name: string
   topLabel?: string
+  onKeyDown?: (e: React.KeyboardEvent<HTMLInputElement>) => void
 }
 
 const Input = React.forwardRef<HTMLInputElement, InputProps>(
@@ -53,6 +54,12 @@ const Input = React.forwardRef<HTMLInputElement, InputProps>(
       }
     }
 
+    const handleKeyDown = (e: React.KeyboardEvent<HTMLInputElement>) => {
+      if (props.onKeyDown) {
+        props.onKeyDown(e)
+      }
+    }
+
     return (
       <div className="flex flex-col w-full">
         {topLabel && (
@@ -70,6 +77,7 @@ const Input = React.forwardRef<HTMLInputElement, InputProps>(
             onFocus={handleFocus}
             onBlur={handleBlur}
             onChange={handleChange}
+            onKeyDown={handleKeyDown}
           />
           <label
             htmlFor={name}
