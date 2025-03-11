@@ -1,5 +1,4 @@
 import { MedusaRequest, MedusaResponse } from "@medusajs/framework"
-import { CONTACT_FORM_SERVICE } from "../../../modules/contact-form"
 import ContactFormService from "../../../modules/contact-form/service"
 
 export async function POST(
@@ -7,7 +6,7 @@ export async function POST(
   res: MedusaResponse
 ): Promise<void> {
   try {
-    const contactFormService: ContactFormService = req.scope.resolve(CONTACT_FORM_SERVICE)
+    const contactFormService: ContactFormService = req.scope.resolve('contact_form')
     
     const { name, email, phone, service, address, message } = req.body as {
       name: string

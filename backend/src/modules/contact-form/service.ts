@@ -1,7 +1,6 @@
-import { EntityManager } from "@mikro-orm/core"
-import { Logger, NotificationTypes } from "@medusajs/framework/types"
+import { Logger } from "@medusajs/framework/types"
 import { MedusaError } from "@medusajs/framework/utils"
-import { AbstractNotificationProviderService } from "@medusajs/framework/utils"
+import { EntityManager } from "@mikro-orm/core"
 import { ContactFormSubmission } from "./entity"
 
 type InjectedDependencies = {
@@ -18,28 +17,24 @@ export interface ContactFormSubmissionDTO {
   message: string
 }
 
-class ContactFormService extends AbstractNotificationProviderService {
+class ContactFormService {
   static identifier = 'contact_form'
   protected readonly logger_: Logger
   protected readonly manager_: EntityManager
 
   constructor({ logger, manager }: InjectedDependencies) {
-    super()
     this.logger_ = logger
     this.manager_ = manager
   }
 
-  async send(
-    notification: NotificationTypes.ProviderSendNotificationDTO
-  ): Promise<NotificationTypes.ProviderSendNotificationResultsDTO> {
-    if (!notification) {
+  async create(data: ContactFormSubmissionDTO): Promise<ContactFormSubmission> {
+    if (!data) {
       throw new MedusaError(
         MedusaError.Types.INVALID_DATA,
-        "No notification information provided"
+        "No submission data provided"
       )
     }
 
-    const data = notification.data as Record<string, unknown> as ContactFormSubmissionDTO
     const submission = this.manager_.create(ContactFormSubmission, {
       name: data.name,
       email: data.email,
@@ -52,10 +47,8 @@ class ContactFormService extends AbstractNotificationProviderService {
     await this.manager_.persistAndFlush(submission)
     this.logger_.info(`Created contact form submission with id: ${submission.id}`)
     
-    return {}
+    return submission
   }
-
-  // No need for send() method since we're using TransactionBaseService
 }
 
 export default ContactFormService
