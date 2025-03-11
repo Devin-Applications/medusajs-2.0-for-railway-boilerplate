@@ -8,7 +8,7 @@ import { STORE_NAME } from "@lib/constants"
 
 import LocalizedClientLink from "@modules/common/components/localized-client-link"
 import CountrySelect from "../country-select"
-import { HttpTypes } from "@medusajs/types"
+import { useRegion } from "@lib/context/region-context"
 
 const SideMenuItems = {
   Home: "/",
