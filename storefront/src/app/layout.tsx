@@ -2,7 +2,9 @@ import "styles/globals.css"
 import { ReactNode } from "react"
 import { Metadata } from "next"
 import { getBaseURL } from "@lib/util/env"
-import Providers from "@lib/context/providers"
+import dynamic from "next/dynamic"
+
+const Providers = dynamic(() => import("@lib/context/providers"), { ssr: false })
 
 export const metadata: Metadata = {
   metadataBase: new URL(getBaseURL()),
