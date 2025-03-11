@@ -1,3 +1,5 @@
+"use client"
+
 import { RegionModalProps } from "./types"
 import dynamic from "next/dynamic"
 
