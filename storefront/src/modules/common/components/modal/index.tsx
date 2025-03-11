@@ -70,13 +70,19 @@ const Modal = ({
   )
 }
 
-const Title: React.FC<{ children: React.ReactNode }> = ({ children }) => {
+const Title: React.FC<{ children: React.ReactNode; close?: () => void }> = ({ children, close }) => {
   return (
     <Dialog.Title className="flex items-center justify-between mb-4">
       <div className="text-xl font-semibold">{children}</div>
-      <Dialog.Close className="rounded-full p-1 hover:bg-gray-100 transition-colors" data-testid="close-modal-button">
-        <X size={20} />
-      </Dialog.Close>
+      {close && (
+        <button
+          onClick={close}
+          className="rounded-full p-1 hover:bg-gray-100 transition-colors"
+          data-testid="close-modal-button"
+        >
+          <X size={20} />
+        </button>
+      )}
     </Dialog.Title>
   )
 }
