@@ -5,7 +5,6 @@ import dynamic from "next/dynamic"
 import { Text } from "@medusajs/ui"
 import ClientButton from "../client-button"
 import Modal from "../modal"
-const { Title, Description, Body } = Modal
 import { useRegion } from "@lib/context/region-context"
 import { regions } from "@lib/config/regions"
 import Input from "../input"
@@ -51,11 +50,11 @@ const RegionModal = ({ isOpen, onClose }: RegionModalProps) => {
 
   return (
     <Modal isOpen={isOpen} close={onClose}>
-      <Title close={onClose}>Select Your Service Area</Title>
-      <Description>
+      <Modal.Title close={onClose}>Select Your Service Area</Modal.Title>
+      <Modal.Description>
         Please select your service area or enter your ZIP code to help us provide you with the most relevant information.
-      </Description>
-      <Body>
+      </Modal.Description>
+      <Modal.Body>
         <div className="grid grid-cols-2 gap-4 mb-8">
           {regions.map((region) => (
             <div 
@@ -94,7 +93,7 @@ const RegionModal = ({ isOpen, onClose }: RegionModalProps) => {
             </div>
           </div>
         </div>
-      </Body>
+      </Modal.Body>
     </Modal>
   )
 }
