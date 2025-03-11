@@ -5,24 +5,13 @@ import { metadata } from "./metadata-config"
 
 export { metadata }
 
-const Providers = dynamic(() => import("@lib/context/providers"), { 
-  ssr: false,
-  loading: () => (
-    <html lang="en" data-mode="light">
-      <body>
-        <div className="flex min-h-screen flex-col">
-          <div className="relative flex-grow">Loading...</div>
-        </div>
-      </body>
-    </html>
-  )
-})
+const ClientRootLayout = dynamic(() => import("./client-root-layout"), { ssr: false })
 
 export default function RootLayout({ children }: { children: ReactNode }) {
   return (
     <html lang="en" data-mode="light">
       <body>
-        <Providers>{children}</Providers>
+        <ClientRootLayout>{children}</ClientRootLayout>
       </body>
     </html>
   )
