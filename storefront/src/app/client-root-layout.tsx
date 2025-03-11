@@ -6,7 +6,7 @@ import { MobileMenuProvider } from "@lib/context/mobile-menu-context"
 import { ModalProvider } from "@lib/context/modal-context"
 import dynamic from "next/dynamic"
 
-const RegionModal = dynamic(() => import("@modules/common/components/region-modal/server"), { ssr: false })
+const RegionModal = dynamic(() => import("@modules/common/components/region-modal/client"), { ssr: false })
 
 export default function ClientRootLayout({ children }: { children: ReactNode }) {
   const [isModalOpen, setIsModalOpen] = useState(false)
